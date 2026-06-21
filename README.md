@@ -10,6 +10,9 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ![Hard](https://img.shields.io/badge/Hard-1-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
 ![NeetCode](https://img.shields.io/badge/NeetCode_150-13%2F150-1F6FEB)
+![Global Rank](https://img.shields.io/badge/Global_Rank-%23661%2C164-F89F1B)
+![Contest Rating](https://img.shields.io/badge/Contest_Rating-1410-8E44AD)
+![Contest Top](https://img.shields.io/badge/Contest_Top-83.2%25-8E44AD)
 
 ---
 
@@ -28,6 +31,20 @@ Avg runtime  : beats 61% of submissions
 | Easy | 9 | `████████████░░░░░░░░░░` 53% |
 | Medium | 7 | `█████████░░░░░░░░░░░░░` 41% |
 | Hard | 1 | `█░░░░░░░░░░░░░░░░░░░░░` 6% |
+
+---
+
+## Competitive Standing
+
+- **Global rank:** [#661,164](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
+- **Contest rating:** 1410  
+- **Contest rank:** #725,737 / 874,367  (top 83.23%)
+- **Contests attended:** 1  
+- **Contest badge:** none yet
+
+`█████░░░░░░░░░░░░░░░░░░░░░░░░░` ahead of 16.8% of contestants
+
+> Next tier: **Knight** (~1850 rating, approx) — 440 rating to go.
 
 ---
 

@@ -27,6 +27,8 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 CACHE_FILE = Path(__file__).resolve().parent / "leetcode_cache.json"
 NEETCODE_FILE = Path(__file__).resolve().parent / "neetcode150.json"
+CONFIG_FILE = Path(__file__).resolve().parent / "config.json"
+USER_CACHE_FILE = Path(__file__).resolve().parent / "leetcode_user_cache.json"
 
 PROFILE_START = "<!-- PROFILE:START -->"
 PROFILE_END = "<!-- PROFILE:END -->"
@@ -35,6 +37,9 @@ LEETHUB_END = "<!---LeetCode Topics End-->"
 
 DIFFICULTY_ORDER = {"Easy": 0, "Medium": 1, "Hard": 2}
 DIFFICULTY_COLOR = {"Easy": "2DB55D", "Medium": "FFB800", "Hard": "EF4743"}
+
+# Community-known approximate contest rating cut-offs for LeetCode badges.
+RATING_TIERS = [(1850, "Knight"), (2200, "Guardian")]
 
 TIME_RE = re.compile(
     r"Time:\s*([\d.]+)\s*ms\s*\(([\d.]+)%\),\s*Space:\s*([\d.]+)\s*MB\s*\(([\d.]+)%\)"
@@ -184,6 +189,73 @@ def load_neetcode() -> dict[str, list[str]]:
     return {}
 
 
+def load_config() -> dict:
+    if CONFIG_FILE.exists():
+        try:
+            return json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            return {}
+    return {}
+
+
+def leetcode_username() -> str | None:
+    env = os.environ.get("LEETCODE_USERNAME", "").strip()
+    if env:
+        return env
+    return (load_config().get("leetcode_username") or "").strip() or None
+
+
+def fetch_user_ranking(username: str) -> dict | None:
+    """Fetch live overall + contest ranking, falling back to the cached copy."""
+    query = (
+        "query userRanking($username: String!){"
+        " matchedUser(username: $username){ profile{ ranking } }"
+        " userContestRanking(username: $username){"
+        " attendedContestsCount rating globalRanking totalParticipants"
+        " topPercentage badge{ name } } }"
+    )
+    payload = json.dumps({"query": query, "variables": {"username": username}}).encode()
+    req = urllib.request.Request(
+        "https://leetcode.com/graphql",
+        data=payload,
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "Mozilla/5.0 (readme-generator)",
+            "Referer": f"https://leetcode.com/u/{username}/",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode())
+        root = data.get("data") or {}
+        matched = root.get("matchedUser")
+        if not matched:
+            raise ValueError("user not found")
+        contest = root.get("userContestRanking") or {}
+        badge = (contest.get("badge") or {}).get("name")
+        ranking = {
+            "username": username,
+            "overall_ranking": (matched.get("profile") or {}).get("ranking"),
+            "contest_rating": contest.get("rating"),
+            "contest_global_ranking": contest.get("globalRanking"),
+            "contest_total_participants": contest.get("totalParticipants"),
+            "contest_top_percentage": contest.get("topPercentage"),
+            "contest_attended": contest.get("attendedContestsCount"),
+            "contest_badge": badge,
+        }
+        USER_CACHE_FILE.write_text(
+            json.dumps(ranking, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
+        return ranking
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError, ValueError):
+        if USER_CACHE_FILE.exists():
+            try:
+                return json.loads(USER_CACHE_FILE.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                return None
+        return None
+
+
 def build_problems() -> list[dict]:
     cache = load_cache()
     problems = []
@@ -210,7 +282,23 @@ def pct_bar(fraction: float, width: int = 22) -> str:
     return "\u2588" * filled + "\u2591" * (width - filled)
 
 
-def render(problems: list[dict], repo: str, branch: str) -> str:
+def fmt_int(n) -> str:
+    try:
+        return f"{int(n):,}"
+    except (TypeError, ValueError):
+        return "\u2014"
+
+
+def next_rating_tier(rating: float | None) -> tuple[str, int, int] | None:
+    if rating is None:
+        return None
+    for cutoff, name in RATING_TIERS:
+        if rating < cutoff:
+            return name, cutoff, cutoff - round(rating)
+    return None
+
+
+def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -> str:
     base = f"https://github.com/{repo}/tree/{branch}"
     total = len(problems)
     counts = Counter(p["difficulty"] for p in problems)
@@ -252,6 +340,15 @@ def render(problems: list[dict], repo: str, branch: str) -> str:
     a("![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)")
     if nc_total:
         a(f"![NeetCode](https://img.shields.io/badge/NeetCode_150-{nc_done}%2F{nc_total}-1F6FEB)")
+    if ranking:
+        if ranking.get("overall_ranking"):
+            rank_enc = fmt_int(ranking["overall_ranking"]).replace(",", "%2C")
+            a(f"![Global Rank](https://img.shields.io/badge/Global_Rank-%23{rank_enc}-F89F1B)")
+        if ranking.get("contest_rating"):
+            a(f"![Contest Rating](https://img.shields.io/badge/Contest_Rating-{round(ranking['contest_rating'])}-8E44AD)")
+        if ranking.get("contest_top_percentage"):
+            top_enc = f"{ranking['contest_top_percentage']:.1f}%25"
+            a(f"![Contest Top](https://img.shields.io/badge/Contest_Top-{top_enc}-8E44AD)")
     a("")
     a("---")
     a("")
@@ -274,6 +371,43 @@ def render(problems: list[dict], repo: str, branch: str) -> str:
         frac = n / total if total else 0
         a(f"| {diff} | {n} | `{pct_bar(frac)}` {frac * 100:.0f}% |")
     a("")
+    if ranking:
+        a("---")
+        a("")
+        a("## Competitive Standing")
+        a("")
+        uname = ranking.get("username") or ""
+        if ranking.get("overall_ranking"):
+            a(f"- **Global rank:** [#{fmt_int(ranking['overall_ranking'])}]"
+              f"(https://leetcode.com/u/{uname}/) worldwide (by problems solved)")
+        rating = ranking.get("contest_rating")
+        if rating and ranking.get("contest_attended"):
+            top = ranking.get("contest_top_percentage")
+            grank = ranking.get("contest_global_ranking")
+            participants = ranking.get("contest_total_participants")
+            badge = ranking.get("contest_badge") or "none yet"
+            a(f"- **Contest rating:** {rating:.0f}  ")
+            line = f"- **Contest rank:** #{fmt_int(grank)}"
+            if participants:
+                line += f" / {fmt_int(participants)}"
+            if top is not None:
+                line += f"  (top {top:.2f}%)"
+            a(line)
+            a(f"- **Contests attended:** {ranking['contest_attended']}  ")
+            a(f"- **Contest badge:** {badge}")
+            if top is not None:
+                ahead = max(0.0, 100.0 - top)
+                a("")
+                a(f"`{pct_bar(ahead / 100, width=30)}` ahead of {ahead:.1f}% of contestants")
+            tier = next_rating_tier(rating)
+            if tier:
+                name, cutoff, gap = tier
+                a("")
+                a(f"> Next tier: **{name}** (~{cutoff} rating, approx) \u2014 {gap} rating to go.")
+        else:
+            a("")
+            a("> No rated contests yet \u2014 jump into a weekly contest to start climbing the global leaderboard.")
+        a("")
     if nc_total:
         a("---")
         a("")
@@ -362,7 +496,9 @@ def main() -> int:
 
     problems = build_problems()
     repo, branch = detect_repo_slug_and_branch()
-    output = assemble(render(problems, repo, branch), leethub_block)
+    username = leetcode_username()
+    ranking = fetch_user_ranking(username) if username else None
+    output = assemble(render(problems, repo, branch, ranking), leethub_block)
 
     if existing == output:
         print("README already up to date.")
