@@ -1,0 +1,173 @@
+{
+  "best-time-to-buy-and-sell-stock": {
+    "difficulty": "Easy",
+    "id": "121",
+    "title": "Best Time to Buy and Sell Stock",
+    "topics": [
+      "Array",
+      "Dynamic Programming"
+    ]
+  },
+  "binary-search": {
+    "difficulty": "Easy",
+    "id": "704",
+    "title": "Binary Search",
+    "topics": [
+      "Array",
+      "Binary Search"
+    ]
+  },
+  "container-with-most-water": {
+    "difficulty": "Medium",
+    "id": "11",
+    "title": "Container With Most Water",
+    "topics": [
+      "Array",
+      "Two Pointers",
+      "Greedy"
+    ]
+  },
+  "contains-duplicate": {
+    "difficulty": "Easy",
+    "id": "217",
+    "title": "Contains Duplicate",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Sorting"
+    ]
+  },
+  "count-partitions-with-even-sum-difference": {
+    "difficulty": "Easy",
+    "id": "3704",
+    "title": "Count Partitions with Even Sum Difference",
+    "topics": [
+      "Array",
+      "Math",
+      "Prefix Sum"
+    ]
+  },
+  "find-closest-person": {
+    "difficulty": "Easy",
+    "id": "3830",
+    "title": "Find Closest Person",
+    "topics": [
+      "Math"
+    ]
+  },
+  "find-the-highest-altitude": {
+    "difficulty": "Easy",
+    "id": "1833",
+    "title": "Find the Highest Altitude",
+    "topics": [
+      "Array",
+      "Prefix Sum"
+    ]
+  },
+  "group-anagrams": {
+    "difficulty": "Medium",
+    "id": "49",
+    "title": "Group Anagrams",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "String",
+      "Sorting"
+    ]
+  },
+  "longest-consecutive-sequence": {
+    "difficulty": "Medium",
+    "id": "128",
+    "title": "Longest Consecutive Sequence",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Union Find"
+    ]
+  },
+  "longest-substring-without-repeating-characters": {
+    "difficulty": "Medium",
+    "id": "3",
+    "title": "Longest Substring Without Repeating Characters",
+    "topics": [
+      "Hash Table",
+      "String",
+      "Sliding Window"
+    ]
+  },
+  "maximize-expression-of-three-elements": {
+    "difficulty": "Easy",
+    "id": "4112",
+    "title": "Maximize Expression of Three Elements",
+    "topics": [
+      "Array",
+      "Math",
+      "Sorting"
+    ]
+  },
+  "product-of-array-except-self": {
+    "difficulty": "Medium",
+    "id": "238",
+    "title": "Product of Array Except Self",
+    "topics": [
+      "Array",
+      "Prefix Sum"
+    ]
+  },
+  "top-k-frequent-elements": {
+    "difficulty": "Medium",
+    "id": "347",
+    "title": "Top K Frequent Elements",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Divide and Conquer",
+      "Sorting",
+      "Heap (Priority Queue)",
+      "Bucket Sort",
+      "Counting",
+      "Quickselect"
+    ]
+  },
+  "trapping-rain-water": {
+    "difficulty": "Hard",
+    "id": "42",
+    "title": "Trapping Rain Water",
+    "topics": [
+      "Array",
+      "Two Pointers",
+      "Dynamic Programming",
+      "Stack",
+      "Monotonic Stack"
+    ]
+  },
+  "valid-anagram": {
+    "difficulty": "Easy",
+    "id": "242",
+    "title": "Valid Anagram",
+    "topics": [
+      "Hash Table",
+      "String",
+      "Sorting"
+    ]
+  },
+  "valid-palindrome": {
+    "difficulty": "Easy",
+    "id": "125",
+    "title": "Valid Palindrome",
+    "topics": [
+      "Two Pointers",
+      "String"
+    ]
+  },
+  "valid-sudoku": {
+    "difficulty": "Medium",
+    "id": "36",
+    "title": "Valid Sudoku",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Matrix"
+    ]
+  }
+}
