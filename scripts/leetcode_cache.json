@@ -85,6 +85,16 @@
       "Union Find"
     ]
   },
+  "longest-repeating-character-replacement": {
+    "difficulty": "Medium",
+    "id": "424",
+    "title": "Longest Repeating Character Replacement",
+    "topics": [
+      "Hash Table",
+      "String",
+      "Sliding Window"
+    ]
+  },
   "longest-substring-without-repeating-characters": {
     "difficulty": "Medium",
     "id": "3",
