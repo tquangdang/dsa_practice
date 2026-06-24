@@ -75,6 +75,19 @@
       "Sorting"
     ]
   },
+  "kth-largest-element-in-a-stream": {
+    "difficulty": "Easy",
+    "id": "703",
+    "title": "Kth Largest Element in a Stream",
+    "topics": [
+      "Tree",
+      "Design",
+      "Binary Search Tree",
+      "Heap (Priority Queue)",
+      "Binary Tree",
+      "Data Stream"
+    ]
+  },
   "longest-consecutive-sequence": {
     "difficulty": "Medium",
     "id": "128",
