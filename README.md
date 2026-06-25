@@ -4,12 +4,12 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-22-1F6FEB)
-![Easy](https://img.shields.io/badge/Easy-13-2DB55D)
+![Solved](https://img.shields.io/badge/Problems_Solved-23-1F6FEB)
+![Easy](https://img.shields.io/badge/Easy-14-2DB55D)
 ![Medium](https://img.shields.io/badge/Medium-8-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-1-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-18%2F150-1F6FEB)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-19%2F150-1F6FEB)
 ![Global Rank](https://img.shields.io/badge/Global_Rank-%23656%2C441-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1410-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-83.2%25-8E44AD)
@@ -19,18 +19,18 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 22
+Total solved : 23
 Last updated : 2026-06-25
-Avg runtime  : beats 63% of submissions
+Avg runtime  : beats 61% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 13 | `█████████████░░░░░░░░░` 59% |
-| Medium | 8 | `████████░░░░░░░░░░░░░░` 36% |
-| Hard | 1 | `█░░░░░░░░░░░░░░░░░░░░░` 5% |
+| Easy | 14 | `█████████████░░░░░░░░░` 61% |
+| Medium | 8 | `████████░░░░░░░░░░░░░░` 35% |
+| Hard | 1 | `█░░░░░░░░░░░░░░░░░░░░░` 4% |
 
 ---
 
@@ -50,9 +50,9 @@ Avg runtime  : beats 63% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **18 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **19 / 150** complete.
 
-`████░░░░░░░░░░░░░░░░░░░░░░░░░░` 12%
+`████░░░░░░░░░░░░░░░░░░░░░░░░░░` 13%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
@@ -64,7 +64,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **18 /
 | Linked List | 0 / 11 | `░░░░░░░░░░░░` |
 | Trees | 0 / 15 | `░░░░░░░░░░░░` |
 | Tries | 0 / 3 | `░░░░░░░░░░░░` |
-| Heap / Priority Queue | 1 / 7 | `██░░░░░░░░░░` |
+| Heap / Priority Queue | 2 / 7 | `███░░░░░░░░░` |
 | Backtracking | 0 / 9 | `░░░░░░░░░░░░` |
 | Graphs | 0 / 13 | `░░░░░░░░░░░░` |
 | Advanced Graphs | 0 / 6 | `░░░░░░░░░░░░` |
@@ -81,15 +81,15 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **18 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 15 |
+| Array | 16 |
 | Hash Table | 9 |
 | Math | 5 |
 | Sorting | 5 |
 | String | 5 |
 | Two Pointers | 4 |
+| Heap (Priority Queue) | 3 |
 | Prefix Sum | 3 |
 | Dynamic Programming | 2 |
-| Heap (Priority Queue) | 2 |
 | Sliding Window | 2 |
 | Binary Search | 1 |
 | Binary Search Tree | 1 |
@@ -134,6 +134,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 424 | [Longest Repeating Character Replacement](https://github.com/tquangdang/dsa_practice/tree/main/0424-longest-repeating-character-replacement) | Medium | Hash Table, String, Sliding Window | 172 ms (16%) | 19.6 MB (85%) |
 | 703 | [Kth Largest Element in a Stream](https://github.com/tquangdang/dsa_practice/tree/main/0703-kth-largest-element-in-a-stream) | Easy | Tree, Design, Binary Search Tree … | 7 ms (97%) | 25.4 MB (79%) |
 | 704 | [Binary Search](https://github.com/tquangdang/dsa_practice/tree/main/0704-binary-search) | Easy | Array, Binary Search | 0 ms (100%) | 20.6 MB (35%) |
+| 1046 | [Last Stone Weight](https://github.com/tquangdang/dsa_practice/tree/main/1046-last-stone-weight) | Easy | Array, Heap (Priority Queue) | 2 ms (15%) | 19.4 MB (35%) |
 | 1732 | [Find the Highest Altitude](https://github.com/tquangdang/dsa_practice/tree/main/1732-find-the-highest-altitude) | Easy | Array, Prefix Sum | 0 ms (100%) | 19.3 MB (52%) |
 | 3432 | [Count Partitions with Even Sum Difference](https://github.com/tquangdang/dsa_practice/tree/main/3432-count-partitions-with-even-sum-difference) | Easy | Array, Math, Prefix Sum | 3 ms (25%) | 19.1 MB (85%) |
 | 3516 | [Find Closest Person](https://github.com/tquangdang/dsa_practice/tree/main/3516-find-closest-person) | Easy | Math | 0 ms (100%) | 19.2 MB (58%) |

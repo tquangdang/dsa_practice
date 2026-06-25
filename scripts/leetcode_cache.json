@@ -98,6 +98,15 @@
       "Data Stream"
     ]
   },
+  "last-stone-weight": {
+    "difficulty": "Easy",
+    "id": "1046",
+    "title": "Last Stone Weight",
+    "topics": [
+      "Array",
+      "Heap (Priority Queue)"
+    ]
+  },
   "longest-consecutive-sequence": {
     "difficulty": "Medium",
     "id": "128",
