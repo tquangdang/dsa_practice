@@ -201,6 +201,11 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
+| [0136-single-number](https://github.com/tquangdang/dsa_practice/tree/master/0136-single-number) |
+## Bit Manipulation
+|  |
+| ------- |
+| [0136-single-number](https://github.com/tquangdang/dsa_practice/tree/master/0136-single-number) |
 <!---LeetCode Topics End-->
 
 </details>
