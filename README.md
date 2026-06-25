@@ -190,11 +190,16 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 ## Math
 |  |
 | ------- |
+| [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
 | [0202-happy-number](https://github.com/tquangdang/dsa_practice/tree/master/0202-happy-number) |
 ## Two Pointers
 |  |
 | ------- |
 | [0202-happy-number](https://github.com/tquangdang/dsa_practice/tree/master/0202-happy-number) |
+## Array
+|  |
+| ------- |
+| [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
 <!---LeetCode Topics End-->
 
 </details>
