@@ -181,6 +181,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 ## Binary Search Tree
 |  |
 | ------- |
+| [0035-search-insert-position](https://github.com/tquangdang/dsa_practice/tree/master/0035-search-insert-position) |
 | [0703-kth-largest-element-in-a-stream](https://github.com/tquangdang/dsa_practice/tree/master/0703-kth-largest-element-in-a-stream) |
 ## Heap (Priority Queue)
 |  |
@@ -211,6 +212,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0027-remove-element](https://github.com/tquangdang/dsa_practice/tree/master/0027-remove-element) |
+| [0035-search-insert-position](https://github.com/tquangdang/dsa_practice/tree/master/0035-search-insert-position) |
 | [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
 | [0136-single-number](https://github.com/tquangdang/dsa_practice/tree/master/0136-single-number) |
 | [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
