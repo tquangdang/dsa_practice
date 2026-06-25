@@ -157,6 +157,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/tquangdang/dsa_practice/tree/master/0003-longest-substring-without-repeating-characters) |
+| [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
 | [0202-happy-number](https://github.com/tquangdang/dsa_practice/tree/master/0202-happy-number) |
 | [0424-longest-repeating-character-replacement](https://github.com/tquangdang/dsa_practice/tree/master/0424-longest-repeating-character-replacement) |
 ## String
@@ -212,6 +213,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | [0027-remove-element](https://github.com/tquangdang/dsa_practice/tree/master/0027-remove-element) |
 | [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
 | [0136-single-number](https://github.com/tquangdang/dsa_practice/tree/master/0136-single-number) |
+| [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
 | [0973-k-closest-points-to-origin](https://github.com/tquangdang/dsa_practice/tree/master/0973-k-closest-points-to-origin) |
 | [1046-last-stone-weight](https://github.com/tquangdang/dsa_practice/tree/master/1046-last-stone-weight) |
 ## Bit Manipulation
@@ -221,6 +223,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 ## Divide and Conquer
 |  |
 | ------- |
+| [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
 | [0973-k-closest-points-to-origin](https://github.com/tquangdang/dsa_practice/tree/master/0973-k-closest-points-to-origin) |
 ## Geometry
 |  |
@@ -229,11 +232,16 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 ## Sorting
 |  |
 | ------- |
+| [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
 | [0973-k-closest-points-to-origin](https://github.com/tquangdang/dsa_practice/tree/master/0973-k-closest-points-to-origin) |
 ## Quickselect
 |  |
 | ------- |
 | [0973-k-closest-points-to-origin](https://github.com/tquangdang/dsa_practice/tree/master/0973-k-closest-points-to-origin) |
+## Counting
+|  |
+| ------- |
+| [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
 <!---LeetCode Topics End-->
 
 </details>
