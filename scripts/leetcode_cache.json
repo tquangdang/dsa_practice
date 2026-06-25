@@ -75,6 +75,16 @@
       "Sorting"
     ]
   },
+  "happy-number": {
+    "difficulty": "Easy",
+    "id": "202",
+    "title": "Happy Number",
+    "topics": [
+      "Hash Table",
+      "Math",
+      "Two Pointers"
+    ]
+  },
   "kth-largest-element-in-a-stream": {
     "difficulty": "Easy",
     "id": "703",
