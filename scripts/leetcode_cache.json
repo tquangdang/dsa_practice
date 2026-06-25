@@ -85,6 +85,20 @@
       "Two Pointers"
     ]
   },
+  "k-closest-points-to-origin": {
+    "difficulty": "Medium",
+    "id": "973",
+    "title": "K Closest Points to Origin",
+    "topics": [
+      "Array",
+      "Math",
+      "Divide and Conquer",
+      "Geometry",
+      "Sorting",
+      "Heap (Priority Queue)",
+      "Quickselect"
+    ]
+  },
   "kth-largest-element-in-a-stream": {
     "difficulty": "Easy",
     "id": "703",
