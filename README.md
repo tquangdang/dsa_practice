@@ -4,8 +4,8 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-24-1F6FEB)
-![Easy](https://img.shields.io/badge/Easy-14-2DB55D)
+![Solved](https://img.shields.io/badge/Problems_Solved-27-1F6FEB)
+![Easy](https://img.shields.io/badge/Easy-17-2DB55D)
 ![Medium](https://img.shields.io/badge/Medium-9-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-1-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
@@ -19,17 +19,17 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 24
+Total solved : 27
 Last updated : 2026-06-25
-Avg runtime  : beats 59% of submissions
+Avg runtime  : beats 63% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 14 | `█████████████░░░░░░░░░` 58% |
-| Medium | 9 | `████████░░░░░░░░░░░░░░` 38% |
+| Easy | 17 | `██████████████░░░░░░░░` 63% |
+| Medium | 9 | `███████░░░░░░░░░░░░░░░` 33% |
 | Hard | 1 | `█░░░░░░░░░░░░░░░░░░░░░` 4% |
 
 ---
@@ -81,24 +81,24 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **20 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 17 |
-| Hash Table | 9 |
+| Array | 20 |
+| Hash Table | 10 |
+| Sorting | 7 |
 | Math | 6 |
-| Sorting | 6 |
 | String | 5 |
+| Two Pointers | 5 |
 | Heap (Priority Queue) | 4 |
-| Two Pointers | 4 |
+| Divide and Conquer | 3 |
 | Prefix Sum | 3 |
-| Divide and Conquer | 2 |
+| Binary Search | 2 |
+| Counting | 2 |
 | Dynamic Programming | 2 |
 | Quickselect | 2 |
 | Sliding Window | 2 |
-| Binary Search | 1 |
 | Binary Search Tree | 1 |
 | Binary Tree | 1 |
 | Bit Manipulation | 1 |
 | Bucket Sort | 1 |
-| Counting | 1 |
 | Data Stream | 1 |
 | Design | 1 |
 | Geometry | 1 |
@@ -119,6 +119,8 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | --: | :------ | :--------- | :----- | :------ | :----- |
 | 3 | [Longest Substring Without Repeating Characters](https://github.com/tquangdang/dsa_practice/tree/main/0003-longest-substring-without-repeating-characters) | Medium | Hash Table, String, Sliding Window | 19 ms (23%) | 19.4 MB (8%) |
 | 11 | [Container With Most Water](https://github.com/tquangdang/dsa_practice/tree/main/0011-container-with-most-water) | Medium | Array, Two Pointers, Greedy | 59 ms (52%) | 29.4 MB (98%) |
+| 27 | [Remove Element](https://github.com/tquangdang/dsa_practice/tree/main/0027-remove-element) | Easy | Array, Two Pointers | 0 ms (100%) | 19.3 MB (18%) |
+| 35 | [Search Insert Position](https://github.com/tquangdang/dsa_practice/tree/main/0035-search-insert-position) | Easy | Array, Binary Search | 0 ms (100%) | 19.9 MB (42%) |
 | 36 | [Valid Sudoku](https://github.com/tquangdang/dsa_practice/tree/main/0036-valid-sudoku) | Medium | Array, Hash Table, Matrix | 2 ms (80%) | 19.3 MB (74%) |
 | 42 | [Trapping Rain Water](https://github.com/tquangdang/dsa_practice/tree/main/0042-trapping-rain-water) | Hard | Array, Two Pointers, Dynamic Programming … | 3 ms (95%) | 21.0 MB (84%) |
 | 49 | [Group Anagrams](https://github.com/tquangdang/dsa_practice/tree/main/0049-group-anagrams) | Medium | Array, Hash Table, String … | 11 ms (84%) | 22.0 MB (80%) |
@@ -127,6 +129,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 125 | [Valid Palindrome](https://github.com/tquangdang/dsa_practice/tree/main/0125-valid-palindrome) | Easy | Two Pointers, String | 11 ms (33%) | 19.8 MB (42%) |
 | 128 | [Longest Consecutive Sequence](https://github.com/tquangdang/dsa_practice/tree/main/0128-longest-consecutive-sequence) | Medium | Array, Hash Table, Union Find | 56 ms (30%) | 36.7 MB (21%) |
 | 136 | [Single Number](https://github.com/tquangdang/dsa_practice/tree/main/0136-single-number) | Easy | Array, Bit Manipulation | 0 ms (100%) | 21.1 MB (69%) |
+| 169 | [Majority Element](https://github.com/tquangdang/dsa_practice/tree/main/0169-majority-element) | Easy | Array, Hash Table, Divide and Conquer … | 1 ms (89%) | 21.2 MB (51%) |
 | 202 | [Happy Number](https://github.com/tquangdang/dsa_practice/tree/main/0202-happy-number) | Easy | Hash Table, Math, Two Pointers | 2 ms (43%) | 19.4 MB (6%) |
 | 217 | [Contains Duplicate](https://github.com/tquangdang/dsa_practice/tree/main/0217-contains-duplicate) | Easy | Array, Hash Table, Sorting | 8 ms (78%) | 31.2 MB (72%) |
 | 238 | [Product of Array Except Self](https://github.com/tquangdang/dsa_practice/tree/main/0238-product-of-array-except-self) | Medium | Array, Prefix Sum | 19 ms (76%) | 25.4 MB (81%) |

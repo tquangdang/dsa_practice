@@ -151,6 +151,18 @@
       "Sliding Window"
     ]
   },
+  "majority-element": {
+    "difficulty": "Easy",
+    "id": "169",
+    "title": "Majority Element",
+    "topics": [
+      "Array",
+      "Hash Table",
+      "Divide and Conquer",
+      "Sorting",
+      "Counting"
+    ]
+  },
   "maximize-expression-of-three-elements": {
     "difficulty": "Easy",
     "id": "4112",
@@ -177,6 +189,24 @@
     "topics": [
       "Array",
       "Prefix Sum"
+    ]
+  },
+  "remove-element": {
+    "difficulty": "Easy",
+    "id": "27",
+    "title": "Remove Element",
+    "topics": [
+      "Array",
+      "Two Pointers"
+    ]
+  },
+  "search-insert-position": {
+    "difficulty": "Easy",
+    "id": "35",
+    "title": "Search Insert Position",
+    "topics": [
+      "Array",
+      "Binary Search"
     ]
   },
   "single-number": {
