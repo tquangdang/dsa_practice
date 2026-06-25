@@ -173,6 +173,17 @@
       "Sorting"
     ]
   },
+  "permutation-in-string": {
+    "difficulty": "Medium",
+    "id": "567",
+    "title": "Permutation in String",
+    "topics": [
+      "Hash Table",
+      "Two Pointers",
+      "String",
+      "Sliding Window"
+    ]
+  },
   "plus-one": {
     "difficulty": "Easy",
     "id": "66",
