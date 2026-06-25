@@ -112,6 +112,18 @@
       "Data Stream"
     ]
   },
+  "kth-largest-element-in-an-array": {
+    "difficulty": "Medium",
+    "id": "215",
+    "title": "Kth Largest Element in an Array",
+    "topics": [
+      "Array",
+      "Divide and Conquer",
+      "Sorting",
+      "Heap (Priority Queue)",
+      "Quickselect"
+    ]
+  },
   "last-stone-weight": {
     "difficulty": "Easy",
     "id": "1046",

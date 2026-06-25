@@ -4,12 +4,12 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-28-1F6FEB)
+![Solved](https://img.shields.io/badge/Problems_Solved-29-1F6FEB)
 ![Easy](https://img.shields.io/badge/Easy-17-2DB55D)
-![Medium](https://img.shields.io/badge/Medium-10-FFB800)
+![Medium](https://img.shields.io/badge/Medium-11-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-1-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-21%2F150-1F6FEB)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-22%2F150-1F6FEB)
 ![Global Rank](https://img.shields.io/badge/Global_Rank-%23656%2C996-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1410-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-83.2%25-8E44AD)
@@ -19,18 +19,18 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 28
+Total solved : 29
 Last updated : 2026-06-25
-Avg runtime  : beats 62% of submissions
+Avg runtime  : beats 60% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 17 | `█████████████░░░░░░░░░` 61% |
-| Medium | 10 | `████████░░░░░░░░░░░░░░` 36% |
-| Hard | 1 | `█░░░░░░░░░░░░░░░░░░░░░` 4% |
+| Easy | 17 | `█████████████░░░░░░░░░` 59% |
+| Medium | 11 | `████████░░░░░░░░░░░░░░` 38% |
+| Hard | 1 | `█░░░░░░░░░░░░░░░░░░░░░` 3% |
 
 ---
 
@@ -50,9 +50,9 @@ Avg runtime  : beats 62% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **21 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **22 / 150** complete.
 
-`████░░░░░░░░░░░░░░░░░░░░░░░░░░` 14%
+`████░░░░░░░░░░░░░░░░░░░░░░░░░░` 15%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
@@ -64,7 +64,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **21 /
 | Linked List | 0 / 11 | `░░░░░░░░░░░░` |
 | Trees | 0 / 15 | `░░░░░░░░░░░░` |
 | Tries | 0 / 3 | `░░░░░░░░░░░░` |
-| Heap / Priority Queue | 3 / 7 | `█████░░░░░░░` |
+| Heap / Priority Queue | 4 / 7 | `███████░░░░░` |
 | Backtracking | 0 / 9 | `░░░░░░░░░░░░` |
 | Graphs | 0 / 13 | `░░░░░░░░░░░░` |
 | Advanced Graphs | 0 / 6 | `░░░░░░░░░░░░` |
@@ -81,20 +81,20 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **21 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 20 |
+| Array | 21 |
 | Hash Table | 11 |
-| Sorting | 7 |
+| Sorting | 8 |
 | Math | 6 |
 | String | 6 |
 | Two Pointers | 6 |
-| Heap (Priority Queue) | 4 |
-| Divide and Conquer | 3 |
+| Heap (Priority Queue) | 5 |
+| Divide and Conquer | 4 |
 | Prefix Sum | 3 |
+| Quickselect | 3 |
 | Sliding Window | 3 |
 | Binary Search | 2 |
 | Counting | 2 |
 | Dynamic Programming | 2 |
-| Quickselect | 2 |
 | Binary Search Tree | 1 |
 | Binary Tree | 1 |
 | Bit Manipulation | 1 |
@@ -131,6 +131,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 136 | [Single Number](https://github.com/tquangdang/dsa_practice/tree/main/0136-single-number) | Easy | Array, Bit Manipulation | 0 ms (100%) | 21.1 MB (69%) |
 | 169 | [Majority Element](https://github.com/tquangdang/dsa_practice/tree/main/0169-majority-element) | Easy | Array, Hash Table, Divide and Conquer … | 1 ms (89%) | 21.2 MB (51%) |
 | 202 | [Happy Number](https://github.com/tquangdang/dsa_practice/tree/main/0202-happy-number) | Easy | Hash Table, Math, Two Pointers | 2 ms (43%) | 19.4 MB (6%) |
+| 215 | [Kth Largest Element in an Array](https://github.com/tquangdang/dsa_practice/tree/main/0215-kth-largest-element-in-an-array) | Medium | Array, Divide and Conquer, Sorting … | 105 ms (21%) | 31.4 MB (13%) |
 | 217 | [Contains Duplicate](https://github.com/tquangdang/dsa_practice/tree/main/0217-contains-duplicate) | Easy | Array, Hash Table, Sorting | 8 ms (78%) | 31.2 MB (72%) |
 | 238 | [Product of Array Except Self](https://github.com/tquangdang/dsa_practice/tree/main/0238-product-of-array-except-self) | Medium | Array, Prefix Sum | 19 ms (76%) | 25.4 MB (81%) |
 | 242 | [Valid Anagram](https://github.com/tquangdang/dsa_practice/tree/main/0242-valid-anagram) | Easy | Hash Table, String, Sorting | 13 ms (50%) | 19.5 MB (45%) |
