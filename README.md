@@ -4,12 +4,12 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-20-1F6FEB)
-![Easy](https://img.shields.io/badge/Easy-11-2DB55D)
+![Solved](https://img.shields.io/badge/Problems_Solved-21-1F6FEB)
+![Easy](https://img.shields.io/badge/Easy-12-2DB55D)
 ![Medium](https://img.shields.io/badge/Medium-8-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-1-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-16%2F150-1F6FEB)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-17%2F150-1F6FEB)
 ![Global Rank](https://img.shields.io/badge/Global_Rank-%23656%2C441-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1410-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-83.2%25-8E44AD)
@@ -19,17 +19,17 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 20
+Total solved : 21
 Last updated : 2026-06-25
-Avg runtime  : beats 59% of submissions
+Avg runtime  : beats 61% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 11 | `████████████░░░░░░░░░░` 55% |
-| Medium | 8 | `█████████░░░░░░░░░░░░░` 40% |
+| Easy | 12 | `█████████████░░░░░░░░░` 57% |
+| Medium | 8 | `████████░░░░░░░░░░░░░░` 38% |
 | Hard | 1 | `█░░░░░░░░░░░░░░░░░░░░░` 5% |
 
 ---
@@ -50,7 +50,7 @@ Avg runtime  : beats 59% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **16 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **17 / 150** complete.
 
 `███░░░░░░░░░░░░░░░░░░░░░░░░░░░` 11%
 
@@ -72,7 +72,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **16 /
 | 2-D Dynamic Programming | 0 / 11 | `░░░░░░░░░░░░` |
 | Greedy | 0 / 8 | `░░░░░░░░░░░░` |
 | Intervals | 0 / 6 | `░░░░░░░░░░░░` |
-| Math & Geometry | 1 / 8 | `██░░░░░░░░░░` |
+| Math & Geometry | 2 / 8 | `███░░░░░░░░░` |
 | Bit Manipulation | 0 / 7 | `░░░░░░░░░░░░` |
 
 ---
@@ -81,11 +81,11 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **16 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 13 |
+| Array | 14 |
 | Hash Table | 9 |
+| Math | 5 |
 | Sorting | 5 |
 | String | 5 |
-| Math | 4 |
 | Two Pointers | 4 |
 | Prefix Sum | 3 |
 | Dynamic Programming | 2 |
@@ -120,6 +120,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 36 | [Valid Sudoku](https://github.com/tquangdang/dsa_practice/tree/main/0036-valid-sudoku) | Medium | Array, Hash Table, Matrix | 2 ms (80%) | 19.3 MB (74%) |
 | 42 | [Trapping Rain Water](https://github.com/tquangdang/dsa_practice/tree/main/0042-trapping-rain-water) | Hard | Array, Two Pointers, Dynamic Programming … | 3 ms (95%) | 21.0 MB (84%) |
 | 49 | [Group Anagrams](https://github.com/tquangdang/dsa_practice/tree/main/0049-group-anagrams) | Medium | Array, Hash Table, String … | 11 ms (84%) | 22.0 MB (80%) |
+| 66 | [Plus One](https://github.com/tquangdang/dsa_practice/tree/main/0066-plus-one) | Easy | Array, Math | 0 ms (100%) | 19.1 MB (98%) |
 | 121 | [Best Time to Buy and Sell Stock](https://github.com/tquangdang/dsa_practice/tree/main/0121-best-time-to-buy-and-sell-stock) | Easy | Array, Dynamic Programming | 62 ms (28%) | 28.7 MB (42%) |
 | 125 | [Valid Palindrome](https://github.com/tquangdang/dsa_practice/tree/main/0125-valid-palindrome) | Easy | Two Pointers, String | 11 ms (33%) | 19.8 MB (42%) |
 | 128 | [Longest Consecutive Sequence](https://github.com/tquangdang/dsa_practice/tree/main/0128-longest-consecutive-sequence) | Medium | Array, Hash Table, Union Find | 56 ms (30%) | 36.7 MB (21%) |

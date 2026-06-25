@@ -138,6 +138,15 @@
       "Sorting"
     ]
   },
+  "plus-one": {
+    "difficulty": "Easy",
+    "id": "66",
+    "title": "Plus One",
+    "topics": [
+      "Array",
+      "Math"
+    ]
+  },
   "product-of-array-except-self": {
     "difficulty": "Medium",
     "id": "238",
