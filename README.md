@@ -204,10 +204,12 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 ## Two Pointers
 |  |
 | ------- |
+| [0027-remove-element](https://github.com/tquangdang/dsa_practice/tree/master/0027-remove-element) |
 | [0202-happy-number](https://github.com/tquangdang/dsa_practice/tree/master/0202-happy-number) |
 ## Array
 |  |
 | ------- |
+| [0027-remove-element](https://github.com/tquangdang/dsa_practice/tree/master/0027-remove-element) |
 | [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
 | [0136-single-number](https://github.com/tquangdang/dsa_practice/tree/master/0136-single-number) |
 | [0973-k-closest-points-to-origin](https://github.com/tquangdang/dsa_practice/tree/master/0973-k-closest-points-to-origin) |
