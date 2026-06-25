@@ -4,12 +4,12 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-21-1F6FEB)
-![Easy](https://img.shields.io/badge/Easy-12-2DB55D)
+![Solved](https://img.shields.io/badge/Problems_Solved-22-1F6FEB)
+![Easy](https://img.shields.io/badge/Easy-13-2DB55D)
 ![Medium](https://img.shields.io/badge/Medium-8-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-1-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-17%2F150-1F6FEB)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-18%2F150-1F6FEB)
 ![Global Rank](https://img.shields.io/badge/Global_Rank-%23656%2C441-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1410-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-83.2%25-8E44AD)
@@ -19,17 +19,17 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 21
+Total solved : 22
 Last updated : 2026-06-25
-Avg runtime  : beats 61% of submissions
+Avg runtime  : beats 63% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 12 | `█████████████░░░░░░░░░` 57% |
-| Medium | 8 | `████████░░░░░░░░░░░░░░` 38% |
+| Easy | 13 | `█████████████░░░░░░░░░` 59% |
+| Medium | 8 | `████████░░░░░░░░░░░░░░` 36% |
 | Hard | 1 | `█░░░░░░░░░░░░░░░░░░░░░` 5% |
 
 ---
@@ -50,9 +50,9 @@ Avg runtime  : beats 61% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **17 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **18 / 150** complete.
 
-`███░░░░░░░░░░░░░░░░░░░░░░░░░░░` 11%
+`████░░░░░░░░░░░░░░░░░░░░░░░░░░` 12%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
@@ -73,7 +73,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **17 /
 | Greedy | 0 / 8 | `░░░░░░░░░░░░` |
 | Intervals | 0 / 6 | `░░░░░░░░░░░░` |
 | Math & Geometry | 2 / 8 | `███░░░░░░░░░` |
-| Bit Manipulation | 0 / 7 | `░░░░░░░░░░░░` |
+| Bit Manipulation | 1 / 7 | `██░░░░░░░░░░` |
 
 ---
 
@@ -81,7 +81,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **17 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 14 |
+| Array | 15 |
 | Hash Table | 9 |
 | Math | 5 |
 | Sorting | 5 |
@@ -94,6 +94,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **17 /
 | Binary Search | 1 |
 | Binary Search Tree | 1 |
 | Binary Tree | 1 |
+| Bit Manipulation | 1 |
 | Bucket Sort | 1 |
 | Counting | 1 |
 | Data Stream | 1 |
@@ -124,6 +125,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 121 | [Best Time to Buy and Sell Stock](https://github.com/tquangdang/dsa_practice/tree/main/0121-best-time-to-buy-and-sell-stock) | Easy | Array, Dynamic Programming | 62 ms (28%) | 28.7 MB (42%) |
 | 125 | [Valid Palindrome](https://github.com/tquangdang/dsa_practice/tree/main/0125-valid-palindrome) | Easy | Two Pointers, String | 11 ms (33%) | 19.8 MB (42%) |
 | 128 | [Longest Consecutive Sequence](https://github.com/tquangdang/dsa_practice/tree/main/0128-longest-consecutive-sequence) | Medium | Array, Hash Table, Union Find | 56 ms (30%) | 36.7 MB (21%) |
+| 136 | [Single Number](https://github.com/tquangdang/dsa_practice/tree/main/0136-single-number) | Easy | Array, Bit Manipulation | 0 ms (100%) | 21.1 MB (69%) |
 | 202 | [Happy Number](https://github.com/tquangdang/dsa_practice/tree/main/0202-happy-number) | Easy | Hash Table, Math, Two Pointers | 2 ms (43%) | 19.4 MB (6%) |
 | 217 | [Contains Duplicate](https://github.com/tquangdang/dsa_practice/tree/main/0217-contains-duplicate) | Easy | Array, Hash Table, Sorting | 8 ms (78%) | 31.2 MB (72%) |
 | 238 | [Product of Array Except Self](https://github.com/tquangdang/dsa_practice/tree/main/0238-product-of-array-except-self) | Medium | Array, Prefix Sum | 19 ms (76%) | 25.4 MB (81%) |

@@ -156,6 +156,15 @@
       "Prefix Sum"
     ]
   },
+  "single-number": {
+    "difficulty": "Easy",
+    "id": "136",
+    "title": "Single Number",
+    "topics": [
+      "Array",
+      "Bit Manipulation"
+    ]
+  },
   "top-k-frequent-elements": {
     "difficulty": "Medium",
     "id": "347",
