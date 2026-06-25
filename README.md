@@ -150,6 +150,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/tquangdang/dsa_practice/tree/master/0003-longest-substring-without-repeating-characters) |
+| [0202-happy-number](https://github.com/tquangdang/dsa_practice/tree/master/0202-happy-number) |
 | [0424-longest-repeating-character-replacement](https://github.com/tquangdang/dsa_practice/tree/master/0424-longest-repeating-character-replacement) |
 ## String
 |  |
@@ -185,6 +186,14 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0703-kth-largest-element-in-a-stream](https://github.com/tquangdang/dsa_practice/tree/master/0703-kth-largest-element-in-a-stream) |
+## Math
+|  |
+| ------- |
+| [0202-happy-number](https://github.com/tquangdang/dsa_practice/tree/master/0202-happy-number) |
+## Two Pointers
+|  |
+| ------- |
+| [0202-happy-number](https://github.com/tquangdang/dsa_practice/tree/master/0202-happy-number) |
 <!---LeetCode Topics End-->
 
 </details>
