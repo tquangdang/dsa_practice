@@ -182,6 +182,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0703-kth-largest-element-in-a-stream](https://github.com/tquangdang/dsa_practice/tree/master/0703-kth-largest-element-in-a-stream) |
+| [1046-last-stone-weight](https://github.com/tquangdang/dsa_practice/tree/master/1046-last-stone-weight) |
 ## Binary Tree
 |  |
 | ------- |
@@ -204,6 +205,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | ------- |
 | [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
 | [0136-single-number](https://github.com/tquangdang/dsa_practice/tree/master/0136-single-number) |
+| [1046-last-stone-weight](https://github.com/tquangdang/dsa_practice/tree/master/1046-last-stone-weight) |
 ## Bit Manipulation
 |  |
 | ------- |
