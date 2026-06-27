@@ -125,7 +125,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 42 | [Trapping Rain Water](https://github.com/tquangdang/dsa_practice/tree/main/0042-trapping-rain-water) | Hard | Array, Two Pointers, Dynamic Programming … | 3 ms (95%) | 21.0 MB (84%) |
 | 49 | [Group Anagrams](https://github.com/tquangdang/dsa_practice/tree/main/0049-group-anagrams) | Medium | Array, Hash Table, String … | 11 ms (84%) | 22.0 MB (80%) |
 | 66 | [Plus One](https://github.com/tquangdang/dsa_practice/tree/main/0066-plus-one) | Easy | Array, Math | 0 ms (100%) | 19.1 MB (98%) |
-| 76 | [Minimum Window Substring](https://github.com/tquangdang/dsa_practice/tree/main/0076-minimum-window-substring) | Hard | Hash Table, String, Sliding Window | 163 ms (18%) | 19.8 MB (37%) |
+| 76 | [Minimum Window Substring](https://github.com/tquangdang/dsa_practice/tree/main/0076-minimum-window-substring) | Hard | Hash Table, String, Sliding Window | 159 ms (19%) | 19.8 MB (37%) |
 | 121 | [Best Time to Buy and Sell Stock](https://github.com/tquangdang/dsa_practice/tree/main/0121-best-time-to-buy-and-sell-stock) | Easy | Array, Dynamic Programming | 62 ms (28%) | 28.7 MB (42%) |
 | 125 | [Valid Palindrome](https://github.com/tquangdang/dsa_practice/tree/main/0125-valid-palindrome) | Easy | Two Pointers, String | 11 ms (33%) | 19.8 MB (42%) |
 | 128 | [Longest Consecutive Sequence](https://github.com/tquangdang/dsa_practice/tree/main/0128-longest-consecutive-sequence) | Medium | Array, Hash Table, Union Find | 56 ms (30%) | 36.7 MB (21%) |
