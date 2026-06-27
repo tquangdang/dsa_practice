@@ -173,6 +173,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/tquangdang/dsa_practice/tree/master/0003-longest-substring-without-repeating-characters) |
+| [0020-valid-parentheses](https://github.com/tquangdang/dsa_practice/tree/master/0020-valid-parentheses) |
 | [0076-minimum-window-substring](https://github.com/tquangdang/dsa_practice/tree/master/0076-minimum-window-substring) |
 | [0424-longest-repeating-character-replacement](https://github.com/tquangdang/dsa_practice/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/tquangdang/dsa_practice/tree/master/0567-permutation-in-string) |
@@ -265,6 +266,10 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
+## Stack
+|  |
+| ------- |
+| [0020-valid-parentheses](https://github.com/tquangdang/dsa_practice/tree/master/0020-valid-parentheses) |
 <!---LeetCode Topics End-->
 
 </details>
