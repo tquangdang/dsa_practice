@@ -4,61 +4,61 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-29-1F6FEB)
+![Solved](https://img.shields.io/badge/Problems_Solved-30-1F6FEB)
 ![Easy](https://img.shields.io/badge/Easy-17-2DB55D)
 ![Medium](https://img.shields.io/badge/Medium-11-FFB800)
-![Hard](https://img.shields.io/badge/Hard-1-EF4743)
+![Hard](https://img.shields.io/badge/Hard-2-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-22%2F150-1F6FEB)
-![Global Rank](https://img.shields.io/badge/Global_Rank-%23656%2C996-F89F1B)
-![Contest Rating](https://img.shields.io/badge/Contest_Rating-1410-8E44AD)
-![Contest Top](https://img.shields.io/badge/Contest_Top-83.2%25-8E44AD)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-23%2F150-1F6FEB)
+![Global Rank](https://img.shields.io/badge/Global_Rank-%23653%2C927-F89F1B)
+![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD)
+![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD)
 
 ---
 
 ## Progress
 
 ```text
-Total solved : 29
-Last updated : 2026-06-25
-Avg runtime  : beats 60% of submissions
+Total solved : 30
+Last updated : 2026-06-26
+Avg runtime  : beats 59% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 17 | `█████████████░░░░░░░░░` 59% |
-| Medium | 11 | `████████░░░░░░░░░░░░░░` 38% |
-| Hard | 1 | `█░░░░░░░░░░░░░░░░░░░░░` 3% |
+| Easy | 17 | `████████████░░░░░░░░░░` 57% |
+| Medium | 11 | `████████░░░░░░░░░░░░░░` 37% |
+| Hard | 2 | `█░░░░░░░░░░░░░░░░░░░░░` 7% |
 
 ---
 
 ## Competitive Standing
 
-- **Global rank:** [#656,996](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
-- **Contest rating:** 1410  
-- **Contest rank:** #725,737 / 874,367  (top 83.23%)
-- **Contests attended:** 1  
+- **Global rank:** [#653,927](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
+- **Contest rating:** 1430  
+- **Contest rank:** #613,807 / 874,587  (top 70.55%)
+- **Contests attended:** 2  
 - **Contest badge:** none yet
 
-`█████░░░░░░░░░░░░░░░░░░░░░░░░░` ahead of 16.8% of contestants
+`█████████░░░░░░░░░░░░░░░░░░░░░` ahead of 29.5% of contestants
 
-> Next tier: **Knight** (~1850 rating, approx) — 440 rating to go.
+> Next tier: **Knight** (~1850 rating, approx) — 420 rating to go.
 
 ---
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **22 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **23 / 150** complete.
 
-`████░░░░░░░░░░░░░░░░░░░░░░░░░░` 15%
+`█████░░░░░░░░░░░░░░░░░░░░░░░░░` 15%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
 | Arrays & Hashing | 7 / 9 | `█████████░░░` |
 | Two Pointers | 3 / 5 | `███████░░░░░` |
-| Sliding Window | 4 / 6 | `████████░░░░` |
+| Sliding Window | 5 / 6 | `██████████░░` |
 | Stack | 0 / 7 | `░░░░░░░░░░░░` |
 | Binary Search | 1 / 7 | `██░░░░░░░░░░` |
 | Linked List | 0 / 11 | `░░░░░░░░░░░░` |
@@ -82,16 +82,16 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **22 /
 | Topic | Solved |
 | :---- | :----: |
 | Array | 21 |
-| Hash Table | 11 |
+| Hash Table | 12 |
 | Sorting | 8 |
+| String | 7 |
 | Math | 6 |
-| String | 6 |
 | Two Pointers | 6 |
 | Heap (Priority Queue) | 5 |
 | Divide and Conquer | 4 |
+| Sliding Window | 4 |
 | Prefix Sum | 3 |
 | Quickselect | 3 |
-| Sliding Window | 3 |
 | Binary Search | 2 |
 | Counting | 2 |
 | Dynamic Programming | 2 |
@@ -125,6 +125,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 42 | [Trapping Rain Water](https://github.com/tquangdang/dsa_practice/tree/main/0042-trapping-rain-water) | Hard | Array, Two Pointers, Dynamic Programming … | 3 ms (95%) | 21.0 MB (84%) |
 | 49 | [Group Anagrams](https://github.com/tquangdang/dsa_practice/tree/main/0049-group-anagrams) | Medium | Array, Hash Table, String … | 11 ms (84%) | 22.0 MB (80%) |
 | 66 | [Plus One](https://github.com/tquangdang/dsa_practice/tree/main/0066-plus-one) | Easy | Array, Math | 0 ms (100%) | 19.1 MB (98%) |
+| 76 | [Minimum Window Substring](https://github.com/tquangdang/dsa_practice/tree/main/0076-minimum-window-substring) | Hard | Hash Table, String, Sliding Window | 163 ms (18%) | 19.8 MB (37%) |
 | 121 | [Best Time to Buy and Sell Stock](https://github.com/tquangdang/dsa_practice/tree/main/0121-best-time-to-buy-and-sell-stock) | Easy | Array, Dynamic Programming | 62 ms (28%) | 28.7 MB (42%) |
 | 125 | [Valid Palindrome](https://github.com/tquangdang/dsa_practice/tree/main/0125-valid-palindrome) | Easy | Two Pointers, String | 11 ms (33%) | 19.8 MB (42%) |
 | 128 | [Longest Consecutive Sequence](https://github.com/tquangdang/dsa_practice/tree/main/0128-longest-consecutive-sequence) | Medium | Array, Hash Table, Union Find | 56 ms (30%) | 36.7 MB (21%) |

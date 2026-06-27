@@ -185,6 +185,16 @@
       "Sorting"
     ]
   },
+  "minimum-window-substring": {
+    "difficulty": "Hard",
+    "id": "76",
+    "title": "Minimum Window Substring",
+    "topics": [
+      "Hash Table",
+      "String",
+      "Sliding Window"
+    ]
+  },
   "permutation-in-string": {
     "difficulty": "Medium",
     "id": "567",
