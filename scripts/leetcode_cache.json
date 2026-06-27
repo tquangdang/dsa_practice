@@ -297,6 +297,15 @@
       "String"
     ]
   },
+  "valid-parentheses": {
+    "difficulty": "Easy",
+    "id": "20",
+    "title": "Valid Parentheses",
+    "topics": [
+      "String",
+      "Stack"
+    ]
+  },
   "valid-sudoku": {
     "difficulty": "Medium",
     "id": "36",
