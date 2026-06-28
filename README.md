@@ -4,12 +4,12 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-32-1F6FEB)
+![Solved](https://img.shields.io/badge/Problems_Solved-33-1F6FEB)
 ![Easy](https://img.shields.io/badge/Easy-18-2DB55D)
-![Medium](https://img.shields.io/badge/Medium-11-FFB800)
+![Medium](https://img.shields.io/badge/Medium-12-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-3-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-25%2F150-1F6FEB)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-26%2F150-1F6FEB)
 ![Global Rank](https://img.shields.io/badge/Global_Rank-%23650%2C920-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD)
@@ -19,17 +19,17 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 32
-Last updated : 2026-06-27
-Avg runtime  : beats 59% of submissions
+Total solved : 33
+Last updated : 2026-06-28
+Avg runtime  : beats 58% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 18 | `████████████░░░░░░░░░░` 56% |
-| Medium | 11 | `████████░░░░░░░░░░░░░░` 34% |
+| Easy | 18 | `████████████░░░░░░░░░░` 55% |
+| Medium | 12 | `████████░░░░░░░░░░░░░░` 36% |
 | Hard | 3 | `██░░░░░░░░░░░░░░░░░░░░` 9% |
 
 ---
@@ -50,7 +50,7 @@ Avg runtime  : beats 59% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **25 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **26 / 150** complete.
 
 `█████░░░░░░░░░░░░░░░░░░░░░░░░░` 17%
 
@@ -59,7 +59,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **25 /
 | Arrays & Hashing | 7 / 9 | `█████████░░░` |
 | Two Pointers | 3 / 5 | `███████░░░░░` |
 | Sliding Window ✓ | 6 / 6 | `████████████` |
-| Stack | 1 / 7 | `██░░░░░░░░░░` |
+| Stack | 2 / 7 | `███░░░░░░░░░` |
 | Binary Search | 1 / 7 | `██░░░░░░░░░░` |
 | Linked List | 0 / 11 | `░░░░░░░░░░░░` |
 | Trees | 0 / 15 | `░░░░░░░░░░░░` |
@@ -92,16 +92,16 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **25 /
 | Divide and Conquer | 4 |
 | Prefix Sum | 3 |
 | Quickselect | 3 |
+| Stack | 3 |
 | Binary Search | 2 |
 | Counting | 2 |
+| Design | 2 |
 | Dynamic Programming | 2 |
-| Stack | 2 |
 | Binary Search Tree | 1 |
 | Binary Tree | 1 |
 | Bit Manipulation | 1 |
 | Bucket Sort | 1 |
 | Data Stream | 1 |
-| Design | 1 |
 | Geometry | 1 |
 | Greedy | 1 |
 | Matrix | 1 |
@@ -133,6 +133,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 125 | [Valid Palindrome](https://github.com/tquangdang/dsa_practice/tree/main/0125-valid-palindrome) | Easy | Two Pointers, String | 11 ms (33%) | 19.8 MB (42%) |
 | 128 | [Longest Consecutive Sequence](https://github.com/tquangdang/dsa_practice/tree/main/0128-longest-consecutive-sequence) | Medium | Array, Hash Table, Union Find | 56 ms (30%) | 36.7 MB (21%) |
 | 136 | [Single Number](https://github.com/tquangdang/dsa_practice/tree/main/0136-single-number) | Easy | Array, Bit Manipulation | 0 ms (100%) | 21.1 MB (69%) |
+| 155 | [Min Stack](https://github.com/tquangdang/dsa_practice/tree/main/0155-min-stack) | Medium | Stack, Design | 105 ms (24%) | 33.0 MB (5%) |
 | 169 | [Majority Element](https://github.com/tquangdang/dsa_practice/tree/main/0169-majority-element) | Easy | Array, Hash Table, Divide and Conquer … | 1 ms (89%) | 21.2 MB (51%) |
 | 202 | [Happy Number](https://github.com/tquangdang/dsa_practice/tree/main/0202-happy-number) | Easy | Hash Table, Math, Two Pointers | 2 ms (43%) | 19.4 MB (6%) |
 | 215 | [Kth Largest Element in an Array](https://github.com/tquangdang/dsa_practice/tree/main/0215-kth-largest-element-in-an-array) | Medium | Array, Divide and Conquer, Sorting … | 105 ms (21%) | 31.4 MB (13%) |

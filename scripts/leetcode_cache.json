@@ -185,6 +185,15 @@
       "Sorting"
     ]
   },
+  "min-stack": {
+    "difficulty": "Medium",
+    "id": "155",
+    "title": "Min Stack",
+    "topics": [
+      "Stack",
+      "Design"
+    ]
+  },
   "minimum-window-substring": {
     "difficulty": "Hard",
     "id": "76",
