@@ -4,13 +4,13 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-31-1F6FEB)
+![Solved](https://img.shields.io/badge/Problems_Solved-32-1F6FEB)
 ![Easy](https://img.shields.io/badge/Easy-18-2DB55D)
 ![Medium](https://img.shields.io/badge/Medium-11-FFB800)
-![Hard](https://img.shields.io/badge/Hard-2-EF4743)
+![Hard](https://img.shields.io/badge/Hard-3-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-24%2F150-1F6FEB)
-![Global Rank](https://img.shields.io/badge/Global_Rank-%23653%2C927-F89F1B)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-25%2F150-1F6FEB)
+![Global Rank](https://img.shields.io/badge/Global_Rank-%23650%2C920-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD)
 
@@ -19,24 +19,24 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 31
-Last updated : 2026-06-26
-Avg runtime  : beats 60% of submissions
+Total solved : 32
+Last updated : 2026-06-27
+Avg runtime  : beats 59% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 18 | `█████████████░░░░░░░░░` 58% |
-| Medium | 11 | `████████░░░░░░░░░░░░░░` 35% |
-| Hard | 2 | `█░░░░░░░░░░░░░░░░░░░░░` 6% |
+| Easy | 18 | `████████████░░░░░░░░░░` 56% |
+| Medium | 11 | `████████░░░░░░░░░░░░░░` 34% |
+| Hard | 3 | `██░░░░░░░░░░░░░░░░░░░░` 9% |
 
 ---
 
 ## Competitive Standing
 
-- **Global rank:** [#653,927](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
+- **Global rank:** [#650,920](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
 - **Contest rating:** 1430  
 - **Contest rank:** #613,807 / 874,587  (top 70.55%)
 - **Contests attended:** 2  
@@ -50,15 +50,15 @@ Avg runtime  : beats 60% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **24 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **25 / 150** complete.
 
-`█████░░░░░░░░░░░░░░░░░░░░░░░░░` 16%
+`█████░░░░░░░░░░░░░░░░░░░░░░░░░` 17%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
 | Arrays & Hashing | 7 / 9 | `█████████░░░` |
 | Two Pointers | 3 / 5 | `███████░░░░░` |
-| Sliding Window | 5 / 6 | `██████████░░` |
+| Sliding Window ✓ | 6 / 6 | `████████████` |
 | Stack | 1 / 7 | `██░░░░░░░░░░` |
 | Binary Search | 1 / 7 | `██░░░░░░░░░░` |
 | Linked List | 0 / 11 | `░░░░░░░░░░░░` |
@@ -81,15 +81,15 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **24 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 21 |
+| Array | 22 |
 | Hash Table | 12 |
 | Sorting | 8 |
 | String | 8 |
+| Heap (Priority Queue) | 6 |
 | Math | 6 |
 | Two Pointers | 6 |
-| Heap (Priority Queue) | 5 |
+| Sliding Window | 5 |
 | Divide and Conquer | 4 |
-| Sliding Window | 4 |
 | Prefix Sum | 3 |
 | Quickselect | 3 |
 | Binary Search | 2 |
@@ -105,7 +105,9 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **24 /
 | Geometry | 1 |
 | Greedy | 1 |
 | Matrix | 1 |
+| Monotonic Queue | 1 |
 | Monotonic Stack | 1 |
+| Queue | 1 |
 | Tree | 1 |
 | Union Find | 1 |
 
@@ -136,6 +138,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 215 | [Kth Largest Element in an Array](https://github.com/tquangdang/dsa_practice/tree/main/0215-kth-largest-element-in-an-array) | Medium | Array, Divide and Conquer, Sorting … | 105 ms (21%) | 31.4 MB (13%) |
 | 217 | [Contains Duplicate](https://github.com/tquangdang/dsa_practice/tree/main/0217-contains-duplicate) | Easy | Array, Hash Table, Sorting | 8 ms (78%) | 31.2 MB (72%) |
 | 238 | [Product of Array Except Self](https://github.com/tquangdang/dsa_practice/tree/main/0238-product-of-array-except-self) | Medium | Array, Prefix Sum | 19 ms (76%) | 25.4 MB (81%) |
+| 239 | [Sliding Window Maximum](https://github.com/tquangdang/dsa_practice/tree/main/0239-sliding-window-maximum) | Hard | Array, Queue, Sliding Window … | 207 ms (28%) | 35.6 MB (21%) |
 | 242 | [Valid Anagram](https://github.com/tquangdang/dsa_practice/tree/main/0242-valid-anagram) | Easy | Hash Table, String, Sorting | 13 ms (50%) | 19.5 MB (45%) |
 | 347 | [Top K Frequent Elements](https://github.com/tquangdang/dsa_practice/tree/main/0347-top-k-frequent-elements) | Medium | Array, Hash Table, Divide and Conquer … | 4 ms (68%) | 22.8 MB (82%) |
 | 424 | [Longest Repeating Character Replacement](https://github.com/tquangdang/dsa_practice/tree/main/0424-longest-repeating-character-replacement) | Medium | Hash Table, String, Sliding Window | 172 ms (16%) | 19.6 MB (85%) |

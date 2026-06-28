@@ -251,6 +251,18 @@
       "Bit Manipulation"
     ]
   },
+  "sliding-window-maximum": {
+    "difficulty": "Hard",
+    "id": "239",
+    "title": "Sliding Window Maximum",
+    "topics": [
+      "Array",
+      "Queue",
+      "Sliding Window",
+      "Heap (Priority Queue)",
+      "Monotonic Queue"
+    ]
+  },
   "top-k-frequent-elements": {
     "difficulty": "Medium",
     "id": "347",
