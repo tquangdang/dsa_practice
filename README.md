@@ -196,6 +196,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 ## Design
 |  |
 | ------- |
+| [0155-min-stack](https://github.com/tquangdang/dsa_practice/tree/master/0155-min-stack) |
 | [0703-kth-largest-element-in-a-stream](https://github.com/tquangdang/dsa_practice/tree/master/0703-kth-largest-element-in-a-stream) |
 ## Binary Search Tree
 |  |
@@ -277,6 +278,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0020-valid-parentheses](https://github.com/tquangdang/dsa_practice/tree/master/0020-valid-parentheses) |
+| [0155-min-stack](https://github.com/tquangdang/dsa_practice/tree/master/0155-min-stack) |
 ## Queue
 |  |
 | ------- |
