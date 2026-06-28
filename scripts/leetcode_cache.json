@@ -47,6 +47,16 @@
       "Prefix Sum"
     ]
   },
+  "evaluate-reverse-polish-notation": {
+    "difficulty": "Medium",
+    "id": "150",
+    "title": "Evaluate Reverse Polish Notation",
+    "topics": [
+      "Array",
+      "Math",
+      "Stack"
+    ]
+  },
   "find-closest-person": {
     "difficulty": "Easy",
     "id": "3830",
