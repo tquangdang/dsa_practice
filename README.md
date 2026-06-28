@@ -224,6 +224,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
+| [0150-evaluate-reverse-polish-notation](https://github.com/tquangdang/dsa_practice/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0202-happy-number](https://github.com/tquangdang/dsa_practice/tree/master/0202-happy-number) |
 | [0973-k-closest-points-to-origin](https://github.com/tquangdang/dsa_practice/tree/master/0973-k-closest-points-to-origin) |
 ## Two Pointers
@@ -239,6 +240,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | [0035-search-insert-position](https://github.com/tquangdang/dsa_practice/tree/master/0035-search-insert-position) |
 | [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
 | [0136-single-number](https://github.com/tquangdang/dsa_practice/tree/master/0136-single-number) |
+| [0150-evaluate-reverse-polish-notation](https://github.com/tquangdang/dsa_practice/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
 | [0215-kth-largest-element-in-an-array](https://github.com/tquangdang/dsa_practice/tree/master/0215-kth-largest-element-in-an-array) |
 | [0217-contains-duplicate](https://github.com/tquangdang/dsa_practice/tree/master/0217-contains-duplicate) |
@@ -279,6 +281,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0020-valid-parentheses](https://github.com/tquangdang/dsa_practice/tree/master/0020-valid-parentheses) |
+| [0150-evaluate-reverse-polish-notation](https://github.com/tquangdang/dsa_practice/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0155-min-stack](https://github.com/tquangdang/dsa_practice/tree/master/0155-min-stack) |
 ## Queue
 |  |
