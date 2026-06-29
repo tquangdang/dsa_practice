@@ -74,6 +74,16 @@
       "Prefix Sum"
     ]
   },
+  "generate-parentheses": {
+    "difficulty": "Medium",
+    "id": "22",
+    "title": "Generate Parentheses",
+    "topics": [
+      "String",
+      "Dynamic Programming",
+      "Backtracking"
+    ]
+  },
   "group-anagrams": {
     "difficulty": "Medium",
     "id": "49",
