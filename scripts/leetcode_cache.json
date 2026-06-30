@@ -47,6 +47,16 @@
       "Prefix Sum"
     ]
   },
+  "daily-temperatures": {
+    "difficulty": "Medium",
+    "id": "739",
+    "title": "Daily Temperatures",
+    "topics": [
+      "Array",
+      "Stack",
+      "Monotonic Stack"
+    ]
+  },
   "evaluate-reverse-polish-notation": {
     "difficulty": "Medium",
     "id": "150",

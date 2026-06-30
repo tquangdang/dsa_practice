@@ -4,13 +4,13 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-35-1F6FEB)
+![Solved](https://img.shields.io/badge/Problems_Solved-36-1F6FEB)
 ![Easy](https://img.shields.io/badge/Easy-18-2DB55D)
-![Medium](https://img.shields.io/badge/Medium-14-FFB800)
+![Medium](https://img.shields.io/badge/Medium-15-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-3-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-28%2F150-1F6FEB)
-![Global Rank](https://img.shields.io/badge/Global_Rank-%23647%2C954-F89F1B)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-29%2F150-1F6FEB)
+![Global Rank](https://img.shields.io/badge/Global_Rank-%23644%2C947-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD)
 
@@ -19,24 +19,24 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 35
+Total solved : 36
 Last updated : 2026-06-29
-Avg runtime  : beats 59% of submissions
+Avg runtime  : beats 58% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 18 | `███████████░░░░░░░░░░░` 51% |
-| Medium | 14 | `█████████░░░░░░░░░░░░░` 40% |
-| Hard | 3 | `██░░░░░░░░░░░░░░░░░░░░` 9% |
+| Easy | 18 | `███████████░░░░░░░░░░░` 50% |
+| Medium | 15 | `█████████░░░░░░░░░░░░░` 42% |
+| Hard | 3 | `██░░░░░░░░░░░░░░░░░░░░` 8% |
 
 ---
 
 ## Competitive Standing
 
-- **Global rank:** [#647,954](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
+- **Global rank:** [#644,947](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
 - **Contest rating:** 1430  
 - **Contest rank:** #613,807 / 874,587  (top 70.55%)
 - **Contests attended:** 2  
@@ -50,7 +50,7 @@ Avg runtime  : beats 59% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **28 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **29 / 150** complete.
 
 `██████░░░░░░░░░░░░░░░░░░░░░░░░` 19%
 
@@ -59,7 +59,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **28 /
 | Arrays & Hashing | 7 / 9 | `█████████░░░` |
 | Two Pointers | 3 / 5 | `███████░░░░░` |
 | Sliding Window ✓ | 6 / 6 | `████████████` |
-| Stack | 4 / 7 | `███████░░░░░` |
+| Stack | 5 / 7 | `█████████░░░` |
 | Binary Search | 1 / 7 | `██░░░░░░░░░░` |
 | Linked List | 0 / 11 | `░░░░░░░░░░░░` |
 | Trees | 0 / 15 | `░░░░░░░░░░░░` |
@@ -81,7 +81,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **28 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 23 |
+| Array | 24 |
 | Hash Table | 12 |
 | String | 9 |
 | Sorting | 8 |
@@ -89,14 +89,15 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **28 /
 | Heap (Priority Queue) | 6 |
 | Two Pointers | 6 |
 | Sliding Window | 5 |
+| Stack | 5 |
 | Divide and Conquer | 4 |
-| Stack | 4 |
 | Dynamic Programming | 3 |
 | Prefix Sum | 3 |
 | Quickselect | 3 |
 | Binary Search | 2 |
 | Counting | 2 |
 | Design | 2 |
+| Monotonic Stack | 2 |
 | Backtracking | 1 |
 | Binary Search Tree | 1 |
 | Binary Tree | 1 |
@@ -107,7 +108,6 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **28 /
 | Greedy | 1 |
 | Matrix | 1 |
 | Monotonic Queue | 1 |
-| Monotonic Stack | 1 |
 | Queue | 1 |
 | Tree | 1 |
 | Union Find | 1 |
@@ -149,6 +149,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 567 | [Permutation in String](https://github.com/tquangdang/dsa_practice/tree/main/0567-permutation-in-string) | Medium | Hash Table, Two Pointers, String … | 71 ms (20%) | 19.3 MB (53%) |
 | 703 | [Kth Largest Element in a Stream](https://github.com/tquangdang/dsa_practice/tree/main/0703-kth-largest-element-in-a-stream) | Easy | Tree, Design, Binary Search Tree … | 7 ms (97%) | 25.4 MB (79%) |
 | 704 | [Binary Search](https://github.com/tquangdang/dsa_practice/tree/main/0704-binary-search) | Easy | Array, Binary Search | 0 ms (100%) | 20.6 MB (35%) |
+| 739 | [Daily Temperatures](https://github.com/tquangdang/dsa_practice/tree/main/0739-daily-temperatures) | Medium | Array, Stack, Monotonic Stack | 102 ms (46%) | 29.4 MB (27%) |
 | 973 | [K Closest Points to Origin](https://github.com/tquangdang/dsa_practice/tree/main/0973-k-closest-points-to-origin) | Medium | Array, Math, Divide and Conquer … | 82 ms (23%) | 24.9 MB (44%) |
 | 1046 | [Last Stone Weight](https://github.com/tquangdang/dsa_practice/tree/main/1046-last-stone-weight) | Easy | Array, Heap (Priority Queue) | 2 ms (15%) | 19.4 MB (35%) |
 | 1732 | [Find the Highest Altitude](https://github.com/tquangdang/dsa_practice/tree/main/1732-find-the-highest-altitude) | Easy | Array, Prefix Sum | 0 ms (100%) | 19.3 MB (52%) |
