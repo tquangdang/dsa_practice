@@ -17,6 +17,17 @@
       "Binary Search"
     ]
   },
+  "car-fleet": {
+    "difficulty": "Medium",
+    "id": "853",
+    "title": "Car Fleet",
+    "topics": [
+      "Array",
+      "Stack",
+      "Sorting",
+      "Monotonic Stack"
+    ]
+  },
   "container-with-most-water": {
     "difficulty": "Medium",
     "id": "11",

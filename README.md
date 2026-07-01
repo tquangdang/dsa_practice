@@ -4,13 +4,13 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-36-1F6FEB)
+![Solved](https://img.shields.io/badge/Problems_Solved-37-1F6FEB)
 ![Easy](https://img.shields.io/badge/Easy-18-2DB55D)
-![Medium](https://img.shields.io/badge/Medium-15-FFB800)
+![Medium](https://img.shields.io/badge/Medium-16-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-3-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-29%2F150-1F6FEB)
-![Global Rank](https://img.shields.io/badge/Global_Rank-%23644%2C947-F89F1B)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-30%2F150-1F6FEB)
+![Global Rank](https://img.shields.io/badge/Global_Rank-%23645%2C447-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD)
 
@@ -19,8 +19,8 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 36
-Last updated : 2026-06-29
+Total solved : 37
+Last updated : 2026-06-30
 Avg runtime  : beats 58% of submissions
 ```
 
@@ -28,15 +28,15 @@ Avg runtime  : beats 58% of submissions
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 18 | `███████████░░░░░░░░░░░` 50% |
-| Medium | 15 | `█████████░░░░░░░░░░░░░` 42% |
+| Easy | 18 | `███████████░░░░░░░░░░░` 49% |
+| Medium | 16 | `██████████░░░░░░░░░░░░` 43% |
 | Hard | 3 | `██░░░░░░░░░░░░░░░░░░░░` 8% |
 
 ---
 
 ## Competitive Standing
 
-- **Global rank:** [#644,947](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
+- **Global rank:** [#645,447](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
 - **Contest rating:** 1430  
 - **Contest rank:** #613,807 / 874,587  (top 70.55%)
 - **Contests attended:** 2  
@@ -50,16 +50,16 @@ Avg runtime  : beats 58% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **29 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **30 / 150** complete.
 
-`██████░░░░░░░░░░░░░░░░░░░░░░░░` 19%
+`██████░░░░░░░░░░░░░░░░░░░░░░░░` 20%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
 | Arrays & Hashing | 7 / 9 | `█████████░░░` |
 | Two Pointers | 3 / 5 | `███████░░░░░` |
 | Sliding Window ✓ | 6 / 6 | `████████████` |
-| Stack | 5 / 7 | `█████████░░░` |
+| Stack | 6 / 7 | `██████████░░` |
 | Binary Search | 1 / 7 | `██░░░░░░░░░░` |
 | Linked List | 0 / 11 | `░░░░░░░░░░░░` |
 | Trees | 0 / 15 | `░░░░░░░░░░░░` |
@@ -81,23 +81,23 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **29 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 24 |
+| Array | 25 |
 | Hash Table | 12 |
+| Sorting | 9 |
 | String | 9 |
-| Sorting | 8 |
 | Math | 7 |
 | Heap (Priority Queue) | 6 |
+| Stack | 6 |
 | Two Pointers | 6 |
 | Sliding Window | 5 |
-| Stack | 5 |
 | Divide and Conquer | 4 |
 | Dynamic Programming | 3 |
+| Monotonic Stack | 3 |
 | Prefix Sum | 3 |
 | Quickselect | 3 |
 | Binary Search | 2 |
 | Counting | 2 |
 | Design | 2 |
-| Monotonic Stack | 2 |
 | Backtracking | 1 |
 | Binary Search Tree | 1 |
 | Binary Tree | 1 |
@@ -150,6 +150,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 703 | [Kth Largest Element in a Stream](https://github.com/tquangdang/dsa_practice/tree/main/0703-kth-largest-element-in-a-stream) | Easy | Tree, Design, Binary Search Tree … | 7 ms (97%) | 25.4 MB (79%) |
 | 704 | [Binary Search](https://github.com/tquangdang/dsa_practice/tree/main/0704-binary-search) | Easy | Array, Binary Search | 0 ms (100%) | 20.6 MB (35%) |
 | 739 | [Daily Temperatures](https://github.com/tquangdang/dsa_practice/tree/main/0739-daily-temperatures) | Medium | Array, Stack, Monotonic Stack | 102 ms (46%) | 29.4 MB (27%) |
+| 853 | [Car Fleet](https://github.com/tquangdang/dsa_practice/tree/main/0853-car-fleet) | Medium | Array, Stack, Sorting … | 194 ms (37%) | 41.8 MB (35%) |
 | 973 | [K Closest Points to Origin](https://github.com/tquangdang/dsa_practice/tree/main/0973-k-closest-points-to-origin) | Medium | Array, Math, Divide and Conquer … | 82 ms (23%) | 24.9 MB (44%) |
 | 1046 | [Last Stone Weight](https://github.com/tquangdang/dsa_practice/tree/main/1046-last-stone-weight) | Easy | Array, Heap (Priority Queue) | 2 ms (15%) | 19.4 MB (35%) |
 | 1732 | [Find the Highest Altitude](https://github.com/tquangdang/dsa_practice/tree/main/1732-find-the-highest-altitude) | Easy | Array, Prefix Sum | 0 ms (100%) | 19.3 MB (52%) |
