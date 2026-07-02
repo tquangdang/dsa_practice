@@ -4,13 +4,13 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-37-1F6FEB)
+![Solved](https://img.shields.io/badge/Problems_Solved-38-1F6FEB)
 ![Easy](https://img.shields.io/badge/Easy-18-2DB55D)
 ![Medium](https://img.shields.io/badge/Medium-16-FFB800)
-![Hard](https://img.shields.io/badge/Hard-3-EF4743)
+![Hard](https://img.shields.io/badge/Hard-4-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-30%2F150-1F6FEB)
-![Global Rank](https://img.shields.io/badge/Global_Rank-%23645%2C447-F89F1B)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-31%2F150-1F6FEB)
+![Global Rank](https://img.shields.io/badge/Global_Rank-%23645%2C947-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD)
 
@@ -19,8 +19,8 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 37
-Last updated : 2026-06-30
+Total solved : 38
+Last updated : 2026-07-01
 Avg runtime  : beats 58% of submissions
 ```
 
@@ -28,17 +28,17 @@ Avg runtime  : beats 58% of submissions
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 18 | `███████████░░░░░░░░░░░` 49% |
-| Medium | 16 | `██████████░░░░░░░░░░░░` 43% |
-| Hard | 3 | `██░░░░░░░░░░░░░░░░░░░░` 8% |
+| Easy | 18 | `██████████░░░░░░░░░░░░` 47% |
+| Medium | 16 | `█████████░░░░░░░░░░░░░` 42% |
+| Hard | 4 | `██░░░░░░░░░░░░░░░░░░░░` 11% |
 
 ---
 
 ## Competitive Standing
 
-- **Global rank:** [#645,447](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
+- **Global rank:** [#645,947](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
 - **Contest rating:** 1430  
-- **Contest rank:** #613,807 / 874,587  (top 70.55%)
+- **Contest rank:** #613,918 / 874,830  (top 70.54%)
 - **Contests attended:** 2  
 - **Contest badge:** none yet
 
@@ -50,16 +50,16 @@ Avg runtime  : beats 58% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **30 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **31 / 150** complete.
 
-`██████░░░░░░░░░░░░░░░░░░░░░░░░` 20%
+`██████░░░░░░░░░░░░░░░░░░░░░░░░` 21%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
 | Arrays & Hashing | 7 / 9 | `█████████░░░` |
 | Two Pointers | 3 / 5 | `███████░░░░░` |
 | Sliding Window ✓ | 6 / 6 | `████████████` |
-| Stack | 6 / 7 | `██████████░░` |
+| Stack ✓ | 7 / 7 | `████████████` |
 | Binary Search | 1 / 7 | `██░░░░░░░░░░` |
 | Linked List | 0 / 11 | `░░░░░░░░░░░░` |
 | Trees | 0 / 15 | `░░░░░░░░░░░░` |
@@ -81,18 +81,18 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **30 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 25 |
+| Array | 26 |
 | Hash Table | 12 |
 | Sorting | 9 |
 | String | 9 |
 | Math | 7 |
+| Stack | 7 |
 | Heap (Priority Queue) | 6 |
-| Stack | 6 |
 | Two Pointers | 6 |
 | Sliding Window | 5 |
 | Divide and Conquer | 4 |
+| Monotonic Stack | 4 |
 | Dynamic Programming | 3 |
-| Monotonic Stack | 3 |
 | Prefix Sum | 3 |
 | Quickselect | 3 |
 | Binary Search | 2 |
@@ -131,6 +131,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 49 | [Group Anagrams](https://github.com/tquangdang/dsa_practice/tree/main/0049-group-anagrams) | Medium | Array, Hash Table, String … | 11 ms (84%) | 22.0 MB (80%) |
 | 66 | [Plus One](https://github.com/tquangdang/dsa_practice/tree/main/0066-plus-one) | Easy | Array, Math | 0 ms (100%) | 19.1 MB (98%) |
 | 76 | [Minimum Window Substring](https://github.com/tquangdang/dsa_practice/tree/main/0076-minimum-window-substring) | Hard | Hash Table, String, Sliding Window | 159 ms (19%) | 19.8 MB (37%) |
+| 84 | [Largest Rectangle in Histogram](https://github.com/tquangdang/dsa_practice/tree/main/0084-largest-rectangle-in-histogram) | Hard | Array, Stack, Monotonic Stack | 123 ms (51%) | 36.5 MB (21%) |
 | 121 | [Best Time to Buy and Sell Stock](https://github.com/tquangdang/dsa_practice/tree/main/0121-best-time-to-buy-and-sell-stock) | Easy | Array, Dynamic Programming | 62 ms (28%) | 28.7 MB (42%) |
 | 125 | [Valid Palindrome](https://github.com/tquangdang/dsa_practice/tree/main/0125-valid-palindrome) | Easy | Two Pointers, String | 11 ms (33%) | 19.8 MB (42%) |
 | 128 | [Longest Consecutive Sequence](https://github.com/tquangdang/dsa_practice/tree/main/0128-longest-consecutive-sequence) | Medium | Array, Hash Table, Union Find | 56 ms (30%) | 36.7 MB (21%) |
