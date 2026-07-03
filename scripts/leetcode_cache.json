@@ -140,6 +140,15 @@
       "Quickselect"
     ]
   },
+  "koko-eating-bananas": {
+    "difficulty": "Medium",
+    "id": "875",
+    "title": "Koko Eating Bananas",
+    "topics": [
+      "Array",
+      "Binary Search"
+    ]
+  },
   "kth-largest-element-in-a-stream": {
     "difficulty": "Easy",
     "id": "703",
