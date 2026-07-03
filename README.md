@@ -213,6 +213,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | [0035-search-insert-position](https://github.com/tquangdang/dsa_practice/tree/master/0035-search-insert-position) |
 | [0074-search-a-2d-matrix](https://github.com/tquangdang/dsa_practice/tree/master/0074-search-a-2d-matrix) |
 | [0703-kth-largest-element-in-a-stream](https://github.com/tquangdang/dsa_practice/tree/master/0703-kth-largest-element-in-a-stream) |
+| [0875-koko-eating-bananas](https://github.com/tquangdang/dsa_practice/tree/master/0875-koko-eating-bananas) |
 ## Heap (Priority Queue)
 |  |
 | ------- |
@@ -258,6 +259,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | [0239-sliding-window-maximum](https://github.com/tquangdang/dsa_practice/tree/master/0239-sliding-window-maximum) |
 | [0739-daily-temperatures](https://github.com/tquangdang/dsa_practice/tree/master/0739-daily-temperatures) |
 | [0853-car-fleet](https://github.com/tquangdang/dsa_practice/tree/master/0853-car-fleet) |
+| [0875-koko-eating-bananas](https://github.com/tquangdang/dsa_practice/tree/master/0875-koko-eating-bananas) |
 | [0973-k-closest-points-to-origin](https://github.com/tquangdang/dsa_practice/tree/master/0973-k-closest-points-to-origin) |
 | [1046-last-stone-weight](https://github.com/tquangdang/dsa_practice/tree/master/1046-last-stone-weight) |
 ## Bit Manipulation
