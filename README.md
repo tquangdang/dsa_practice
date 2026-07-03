@@ -210,6 +210,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0035-search-insert-position](https://github.com/tquangdang/dsa_practice/tree/master/0035-search-insert-position) |
+| [0074-search-a-2d-matrix](https://github.com/tquangdang/dsa_practice/tree/master/0074-search-a-2d-matrix) |
 | [0703-kth-largest-element-in-a-stream](https://github.com/tquangdang/dsa_practice/tree/master/0703-kth-largest-element-in-a-stream) |
 ## Heap (Priority Queue)
 |  |
@@ -246,6 +247,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | [0027-remove-element](https://github.com/tquangdang/dsa_practice/tree/master/0027-remove-element) |
 | [0035-search-insert-position](https://github.com/tquangdang/dsa_practice/tree/master/0035-search-insert-position) |
 | [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
+| [0074-search-a-2d-matrix](https://github.com/tquangdang/dsa_practice/tree/master/0074-search-a-2d-matrix) |
 | [0084-largest-rectangle-in-histogram](https://github.com/tquangdang/dsa_practice/tree/master/0084-largest-rectangle-in-histogram) |
 | [0136-single-number](https://github.com/tquangdang/dsa_practice/tree/master/0136-single-number) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/tquangdang/dsa_practice/tree/master/0150-evaluate-reverse-polish-notation) |
@@ -319,6 +321,10 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | [0084-largest-rectangle-in-histogram](https://github.com/tquangdang/dsa_practice/tree/master/0084-largest-rectangle-in-histogram) |
 | [0739-daily-temperatures](https://github.com/tquangdang/dsa_practice/tree/master/0739-daily-temperatures) |
 | [0853-car-fleet](https://github.com/tquangdang/dsa_practice/tree/master/0853-car-fleet) |
+## Matrix
+|  |
+| ------- |
+| [0074-search-a-2d-matrix](https://github.com/tquangdang/dsa_practice/tree/master/0074-search-a-2d-matrix) |
 <!---LeetCode Topics End-->
 
 </details>
