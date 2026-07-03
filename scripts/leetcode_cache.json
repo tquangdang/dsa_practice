@@ -293,6 +293,16 @@
       "Two Pointers"
     ]
   },
+  "search-a-2d-matrix": {
+    "difficulty": "Medium",
+    "id": "74",
+    "title": "Search a 2D Matrix",
+    "topics": [
+      "Array",
+      "Binary Search",
+      "Matrix"
+    ]
+  },
   "search-insert-position": {
     "difficulty": "Easy",
     "id": "35",
