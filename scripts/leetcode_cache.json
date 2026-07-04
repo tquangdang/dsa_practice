@@ -1,4 +1,14 @@
 {
+  "3sum": {
+    "difficulty": "Medium",
+    "id": "15",
+    "title": "3Sum",
+    "topics": [
+      "Array",
+      "Two Pointers",
+      "Sorting"
+    ]
+  },
   "best-time-to-buy-and-sell-stock": {
     "difficulty": "Easy",
     "id": "121",

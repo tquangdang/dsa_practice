@@ -4,12 +4,12 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-43-1F6FEB)
+![Solved](https://img.shields.io/badge/Problems_Solved-44-1F6FEB)
 ![Easy](https://img.shields.io/badge/Easy-19-2DB55D)
-![Medium](https://img.shields.io/badge/Medium-20-FFB800)
+![Medium](https://img.shields.io/badge/Medium-21-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-4-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-36%2F150-1F6FEB)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-37%2F150-1F6FEB)
 ![Global Rank](https://img.shields.io/badge/Global_Rank-%23646%2C911-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD)
@@ -19,17 +19,17 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 43
+Total solved : 44
 Last updated : 2026-07-03
-Avg runtime  : beats 58% of submissions
+Avg runtime  : beats 57% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 19 | `██████████░░░░░░░░░░░░` 44% |
-| Medium | 20 | `██████████░░░░░░░░░░░░` 47% |
+| Easy | 19 | `██████████░░░░░░░░░░░░` 43% |
+| Medium | 21 | `██████████░░░░░░░░░░░░` 48% |
 | Hard | 4 | `██░░░░░░░░░░░░░░░░░░░░` 9% |
 
 ---
@@ -50,14 +50,14 @@ Avg runtime  : beats 58% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **36 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **37 / 150** complete.
 
-`███████░░░░░░░░░░░░░░░░░░░░░░░` 24%
+`███████░░░░░░░░░░░░░░░░░░░░░░░` 25%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
 | Arrays & Hashing | 8 / 9 | `███████████░` |
-| Two Pointers | 3 / 5 | `███████░░░░░` |
+| Two Pointers | 4 / 5 | `██████████░░` |
 | Sliding Window ✓ | 6 / 6 | `████████████` |
 | Stack ✓ | 7 / 7 | `████████████` |
 | Binary Search | 5 / 7 | `█████████░░░` |
@@ -81,15 +81,15 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **36 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 30 |
+| Array | 31 |
 | Hash Table | 14 |
+| Sorting | 10 |
 | String | 10 |
-| Sorting | 9 |
 | Math | 7 |
 | Stack | 7 |
+| Two Pointers | 7 |
 | Binary Search | 6 |
 | Heap (Priority Queue) | 6 |
-| Two Pointers | 6 |
 | Sliding Window | 5 |
 | Divide and Conquer | 4 |
 | Monotonic Stack | 4 |
@@ -123,6 +123,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 1 | [Two Sum](https://github.com/tquangdang/dsa_practice/tree/main/0001-two-sum) | Easy | Array, Hash Table | 0 ms (100%) | 20.4 MB (59%) |
 | 3 | [Longest Substring Without Repeating Characters](https://github.com/tquangdang/dsa_practice/tree/main/0003-longest-substring-without-repeating-characters) | Medium | Hash Table, String, Sliding Window | 19 ms (23%) | 19.4 MB (8%) |
 | 11 | [Container With Most Water](https://github.com/tquangdang/dsa_practice/tree/main/0011-container-with-most-water) | Medium | Array, Two Pointers, Greedy | 59 ms (52%) | 29.4 MB (98%) |
+| 15 | [3Sum](https://github.com/tquangdang/dsa_practice/tree/main/0015-3sum) | Medium | Array, Two Pointers, Sorting | 643 ms (53%) | 22.3 MB (54%) |
 | 20 | [Valid Parentheses](https://github.com/tquangdang/dsa_practice/tree/main/0020-valid-parentheses) | Easy | String, Stack | 0 ms (100%) | 19.1 MB (99%) |
 | 22 | [Generate Parentheses](https://github.com/tquangdang/dsa_practice/tree/main/0022-generate-parentheses) | Medium | String, Dynamic Programming, Backtracking | 3 ms (30%) | 19.4 MB (34%) |
 | 27 | [Remove Element](https://github.com/tquangdang/dsa_practice/tree/main/0027-remove-element) | Easy | Array, Two Pointers | 0 ms (100%) | 19.3 MB (18%) |
