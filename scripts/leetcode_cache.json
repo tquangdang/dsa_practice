@@ -408,6 +408,16 @@
       "Hash Table"
     ]
   },
+  "two-sum-ii-input-array-is-sorted": {
+    "difficulty": "Medium",
+    "id": "167",
+    "title": "Two Sum II - Input Array Is Sorted",
+    "topics": [
+      "Array",
+      "Two Pointers",
+      "Binary Search"
+    ]
+  },
   "valid-anagram": {
     "difficulty": "Easy",
     "id": "242",

@@ -4,12 +4,12 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-44-1F6FEB)
+![Solved](https://img.shields.io/badge/Problems_Solved-45-1F6FEB)
 ![Easy](https://img.shields.io/badge/Easy-19-2DB55D)
-![Medium](https://img.shields.io/badge/Medium-21-FFB800)
+![Medium](https://img.shields.io/badge/Medium-22-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-4-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-37%2F150-1F6FEB)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-38%2F150-1F6FEB)
 ![Global Rank](https://img.shields.io/badge/Global_Rank-%23646%2C911-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD)
@@ -19,7 +19,7 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 44
+Total solved : 45
 Last updated : 2026-07-03
 Avg runtime  : beats 57% of submissions
 ```
@@ -28,8 +28,8 @@ Avg runtime  : beats 57% of submissions
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 19 | `██████████░░░░░░░░░░░░` 43% |
-| Medium | 21 | `██████████░░░░░░░░░░░░` 48% |
+| Easy | 19 | `█████████░░░░░░░░░░░░░` 42% |
+| Medium | 22 | `███████████░░░░░░░░░░░` 49% |
 | Hard | 4 | `██░░░░░░░░░░░░░░░░░░░░` 9% |
 
 ---
@@ -50,14 +50,14 @@ Avg runtime  : beats 57% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **37 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **38 / 150** complete.
 
-`███████░░░░░░░░░░░░░░░░░░░░░░░` 25%
+`████████░░░░░░░░░░░░░░░░░░░░░░` 25%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
 | Arrays & Hashing | 8 / 9 | `███████████░` |
-| Two Pointers | 4 / 5 | `██████████░░` |
+| Two Pointers ✓ | 5 / 5 | `████████████` |
 | Sliding Window ✓ | 6 / 6 | `████████████` |
 | Stack ✓ | 7 / 7 | `████████████` |
 | Binary Search | 5 / 7 | `█████████░░░` |
@@ -81,14 +81,14 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **37 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 31 |
+| Array | 32 |
 | Hash Table | 14 |
 | Sorting | 10 |
 | String | 10 |
+| Two Pointers | 8 |
+| Binary Search | 7 |
 | Math | 7 |
 | Stack | 7 |
-| Two Pointers | 7 |
-| Binary Search | 6 |
 | Heap (Priority Queue) | 6 |
 | Sliding Window | 5 |
 | Divide and Conquer | 4 |
@@ -142,6 +142,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 150 | [Evaluate Reverse Polish Notation](https://github.com/tquangdang/dsa_practice/tree/main/0150-evaluate-reverse-polish-notation) | Medium | Array, Math, Stack | 0 ms (100%) | 20.5 MB (93%) |
 | 153 | [Find Minimum in Rotated Sorted Array](https://github.com/tquangdang/dsa_practice/tree/main/0153-find-minimum-in-rotated-sorted-array) | Medium | Array, Binary Search | 0 ms (100%) | 19.3 MB (66%) |
 | 155 | [Min Stack](https://github.com/tquangdang/dsa_practice/tree/main/0155-min-stack) | Medium | Stack, Design | 105 ms (24%) | 33.0 MB (5%) |
+| 167 | [Two Sum II - Input Array Is Sorted](https://github.com/tquangdang/dsa_practice/tree/main/0167-two-sum-ii-input-array-is-sorted) | Medium | Array, Two Pointers, Binary Search | 6 ms (32%) | 20.7 MB (8%) |
 | 169 | [Majority Element](https://github.com/tquangdang/dsa_practice/tree/main/0169-majority-element) | Easy | Array, Hash Table, Divide and Conquer … | 1 ms (89%) | 21.2 MB (51%) |
 | 202 | [Happy Number](https://github.com/tquangdang/dsa_practice/tree/main/0202-happy-number) | Easy | Hash Table, Math, Two Pointers | 2 ms (43%) | 19.4 MB (6%) |
 | 215 | [Kth Largest Element in an Array](https://github.com/tquangdang/dsa_practice/tree/main/0215-kth-largest-element-in-an-array) | Medium | Array, Divide and Conquer, Sorting … | 105 ms (21%) | 31.4 MB (13%) |
