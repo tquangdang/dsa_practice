@@ -264,6 +264,15 @@
       "Sorting"
     ]
   },
+  "merge-two-sorted-lists": {
+    "difficulty": "Easy",
+    "id": "21",
+    "title": "Merge Two Sorted Lists",
+    "topics": [
+      "Linked List",
+      "Recursion"
+    ]
+  },
   "min-stack": {
     "difficulty": "Medium",
     "id": "155",

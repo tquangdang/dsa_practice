@@ -4,12 +4,12 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-46-1F6FEB)
-![Easy](https://img.shields.io/badge/Easy-20-2DB55D)
+![Solved](https://img.shields.io/badge/Problems_Solved-47-1F6FEB)
+![Easy](https://img.shields.io/badge/Easy-21-2DB55D)
 ![Medium](https://img.shields.io/badge/Medium-22-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-4-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-39%2F150-1F6FEB)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-40%2F150-1F6FEB)
 ![Global Rank](https://img.shields.io/badge/Global_Rank-%23646%2C911-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD)
@@ -19,17 +19,17 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 46
+Total solved : 47
 Last updated : 2026-07-04
-Avg runtime  : beats 58% of submissions
+Avg runtime  : beats 57% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 20 | `██████████░░░░░░░░░░░░` 43% |
-| Medium | 22 | `███████████░░░░░░░░░░░` 48% |
+| Easy | 21 | `██████████░░░░░░░░░░░░` 45% |
+| Medium | 22 | `██████████░░░░░░░░░░░░` 47% |
 | Hard | 4 | `██░░░░░░░░░░░░░░░░░░░░` 9% |
 
 ---
@@ -50,9 +50,9 @@ Avg runtime  : beats 58% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **39 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **40 / 150** complete.
 
-`████████░░░░░░░░░░░░░░░░░░░░░░` 26%
+`████████░░░░░░░░░░░░░░░░░░░░░░` 27%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
@@ -61,7 +61,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **39 /
 | Sliding Window ✓ | 6 / 6 | `████████████` |
 | Stack ✓ | 7 / 7 | `████████████` |
 | Binary Search | 5 / 7 | `█████████░░░` |
-| Linked List | 1 / 11 | `█░░░░░░░░░░░` |
+| Linked List | 2 / 11 | `██░░░░░░░░░░` |
 | Trees | 0 / 15 | `░░░░░░░░░░░░` |
 | Tries | 0 / 3 | `░░░░░░░░░░░░` |
 | Heap / Priority Queue | 4 / 7 | `███████░░░░░` |
@@ -98,7 +98,9 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **39 /
 | Prefix Sum | 3 |
 | Quickselect | 3 |
 | Counting | 2 |
+| Linked List | 2 |
 | Matrix | 2 |
+| Recursion | 2 |
 | Backtracking | 1 |
 | Binary Search Tree | 1 |
 | Binary Tree | 1 |
@@ -107,10 +109,8 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **39 /
 | Data Stream | 1 |
 | Geometry | 1 |
 | Greedy | 1 |
-| Linked List | 1 |
 | Monotonic Queue | 1 |
 | Queue | 1 |
-| Recursion | 1 |
 | Tree | 1 |
 | Union Find | 1 |
 
@@ -127,6 +127,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 11 | [Container With Most Water](https://github.com/tquangdang/dsa_practice/tree/main/0011-container-with-most-water) | Medium | Array, Two Pointers, Greedy | 59 ms (52%) | 29.4 MB (98%) |
 | 15 | [3Sum](https://github.com/tquangdang/dsa_practice/tree/main/0015-3sum) | Medium | Array, Two Pointers, Sorting | 643 ms (53%) | 22.3 MB (54%) |
 | 20 | [Valid Parentheses](https://github.com/tquangdang/dsa_practice/tree/main/0020-valid-parentheses) | Easy | String, Stack | 0 ms (100%) | 19.1 MB (99%) |
+| 21 | [Merge Two Sorted Lists](https://github.com/tquangdang/dsa_practice/tree/main/0021-merge-two-sorted-lists) | Easy | Linked List, Recursion | 1 ms (19%) | 19.2 MB (94%) |
 | 22 | [Generate Parentheses](https://github.com/tquangdang/dsa_practice/tree/main/0022-generate-parentheses) | Medium | String, Dynamic Programming, Backtracking | 3 ms (30%) | 19.4 MB (34%) |
 | 27 | [Remove Element](https://github.com/tquangdang/dsa_practice/tree/main/0027-remove-element) | Easy | Array, Two Pointers | 0 ms (100%) | 19.3 MB (18%) |
 | 35 | [Search Insert Position](https://github.com/tquangdang/dsa_practice/tree/main/0035-search-insert-position) | Easy | Array, Binary Search | 0 ms (100%) | 19.9 MB (42%) |
