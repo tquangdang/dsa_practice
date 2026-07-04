@@ -254,6 +254,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 ## Two Pointers
 |  |
 | ------- |
+| [0015-3sum](https://github.com/tquangdang/dsa_practice/tree/master/0015-3sum) |
 | [0027-remove-element](https://github.com/tquangdang/dsa_practice/tree/master/0027-remove-element) |
 | [0202-happy-number](https://github.com/tquangdang/dsa_practice/tree/master/0202-happy-number) |
 | [0567-permutation-in-string](https://github.com/tquangdang/dsa_practice/tree/master/0567-permutation-in-string) |
@@ -261,6 +262,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/tquangdang/dsa_practice/tree/master/0001-two-sum) |
+| [0015-3sum](https://github.com/tquangdang/dsa_practice/tree/master/0015-3sum) |
 | [0027-remove-element](https://github.com/tquangdang/dsa_practice/tree/master/0027-remove-element) |
 | [0035-search-insert-position](https://github.com/tquangdang/dsa_practice/tree/master/0035-search-insert-position) |
 | [0049-group-anagrams](https://github.com/tquangdang/dsa_practice/tree/master/0049-group-anagrams) |
@@ -296,6 +298,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 ## Sorting
 |  |
 | ------- |
+| [0015-3sum](https://github.com/tquangdang/dsa_practice/tree/master/0015-3sum) |
 | [0049-group-anagrams](https://github.com/tquangdang/dsa_practice/tree/master/0049-group-anagrams) |
 | [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
 | [0215-kth-largest-element-in-an-array](https://github.com/tquangdang/dsa_practice/tree/master/0215-kth-largest-element-in-an-array) |
