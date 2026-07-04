@@ -180,6 +180,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | ------- |
 | [0001-two-sum](https://github.com/tquangdang/dsa_practice/tree/master/0001-two-sum) |
 | [0003-longest-substring-without-repeating-characters](https://github.com/tquangdang/dsa_practice/tree/master/0003-longest-substring-without-repeating-characters) |
+| [0049-group-anagrams](https://github.com/tquangdang/dsa_practice/tree/master/0049-group-anagrams) |
 | [0076-minimum-window-substring](https://github.com/tquangdang/dsa_practice/tree/master/0076-minimum-window-substring) |
 | [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
 | [0202-happy-number](https://github.com/tquangdang/dsa_practice/tree/master/0202-happy-number) |
@@ -194,6 +195,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | [0003-longest-substring-without-repeating-characters](https://github.com/tquangdang/dsa_practice/tree/master/0003-longest-substring-without-repeating-characters) |
 | [0020-valid-parentheses](https://github.com/tquangdang/dsa_practice/tree/master/0020-valid-parentheses) |
 | [0022-generate-parentheses](https://github.com/tquangdang/dsa_practice/tree/master/0022-generate-parentheses) |
+| [0049-group-anagrams](https://github.com/tquangdang/dsa_practice/tree/master/0049-group-anagrams) |
 | [0076-minimum-window-substring](https://github.com/tquangdang/dsa_practice/tree/master/0076-minimum-window-substring) |
 | [0242-valid-anagram](https://github.com/tquangdang/dsa_practice/tree/master/0242-valid-anagram) |
 | [0424-longest-repeating-character-replacement](https://github.com/tquangdang/dsa_practice/tree/master/0424-longest-repeating-character-replacement) |
@@ -261,6 +263,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | [0001-two-sum](https://github.com/tquangdang/dsa_practice/tree/master/0001-two-sum) |
 | [0027-remove-element](https://github.com/tquangdang/dsa_practice/tree/master/0027-remove-element) |
 | [0035-search-insert-position](https://github.com/tquangdang/dsa_practice/tree/master/0035-search-insert-position) |
+| [0049-group-anagrams](https://github.com/tquangdang/dsa_practice/tree/master/0049-group-anagrams) |
 | [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
 | [0074-search-a-2d-matrix](https://github.com/tquangdang/dsa_practice/tree/master/0074-search-a-2d-matrix) |
 | [0084-largest-rectangle-in-histogram](https://github.com/tquangdang/dsa_practice/tree/master/0084-largest-rectangle-in-histogram) |
@@ -293,6 +296,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 ## Sorting
 |  |
 | ------- |
+| [0049-group-anagrams](https://github.com/tquangdang/dsa_practice/tree/master/0049-group-anagrams) |
 | [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
 | [0215-kth-largest-element-in-an-array](https://github.com/tquangdang/dsa_practice/tree/master/0215-kth-largest-element-in-an-array) |
 | [0217-contains-duplicate](https://github.com/tquangdang/dsa_practice/tree/master/0217-contains-duplicate) |
