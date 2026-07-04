@@ -213,6 +213,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | ------- |
 | [0035-search-insert-position](https://github.com/tquangdang/dsa_practice/tree/master/0035-search-insert-position) |
 | [0074-search-a-2d-matrix](https://github.com/tquangdang/dsa_practice/tree/master/0074-search-a-2d-matrix) |
+| [0153-find-minimum-in-rotated-sorted-array](https://github.com/tquangdang/dsa_practice/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0703-kth-largest-element-in-a-stream](https://github.com/tquangdang/dsa_practice/tree/master/0703-kth-largest-element-in-a-stream) |
 | [0875-koko-eating-bananas](https://github.com/tquangdang/dsa_practice/tree/master/0875-koko-eating-bananas) |
 ## Heap (Priority Queue)
@@ -254,6 +255,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | [0084-largest-rectangle-in-histogram](https://github.com/tquangdang/dsa_practice/tree/master/0084-largest-rectangle-in-histogram) |
 | [0136-single-number](https://github.com/tquangdang/dsa_practice/tree/master/0136-single-number) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/tquangdang/dsa_practice/tree/master/0150-evaluate-reverse-polish-notation) |
+| [0153-find-minimum-in-rotated-sorted-array](https://github.com/tquangdang/dsa_practice/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
 | [0215-kth-largest-element-in-an-array](https://github.com/tquangdang/dsa_practice/tree/master/0215-kth-largest-element-in-an-array) |
 | [0217-contains-duplicate](https://github.com/tquangdang/dsa_practice/tree/master/0217-contains-duplicate) |
