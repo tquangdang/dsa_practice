@@ -37,6 +37,7 @@ LEETHUB_END = "<!---LeetCode Topics End-->"
 
 DIFFICULTY_ORDER = {"Easy": 0, "Medium": 1, "Hard": 2}
 DIFFICULTY_COLOR = {"Easy": "2DB55D", "Medium": "FFB800", "Hard": "EF4743"}
+DIFFICULTY_DOT = {"Easy": "\U0001F7E2", "Medium": "\U0001F7E1", "Hard": "\U0001F534"}
 
 # Community-known approximate contest rating cut-offs for LeetCode badges.
 RATING_TIERS = [(1850, "Knight"), (2200, "Guardian")]
@@ -289,6 +290,39 @@ def fmt_int(n) -> str:
         return "\u2014"
 
 
+def _shield_enc(s: str) -> str:
+    """Encode a shields.io path segment (order matters)."""
+    return (
+        str(s)
+        .replace("%", "%25")
+        .replace("#", "%23")
+        .replace(",", "%2C")
+        .replace("/", "%2F")
+        .replace("-", "--")
+        .replace("_", "__")
+        .replace(" ", "_")
+    )
+
+
+def badge(label: str, message: str, color: str, style: str = "flat-square",
+          logo: str | None = None) -> str:
+    url = (
+        f"https://img.shields.io/badge/"
+        f"{_shield_enc(label)}-{_shield_enc(message)}-{color}?style={style}"
+    )
+    if logo:
+        url += f"&logo={logo}&logoColor=white"
+    return f"![{label}]({url})"
+
+
+def slug_to_category(neetcode: dict) -> dict:
+    mapping: dict[str, str] = {}
+    for category, slugs in neetcode.items():
+        for s in slugs:
+            mapping.setdefault(s, category)
+    return mapping
+
+
 def next_rating_tier(rating: float | None) -> tuple[str, int, int] | None:
     if rating is None:
         return None
@@ -300,6 +334,7 @@ def next_rating_tier(rating: float | None) -> tuple[str, int, int] | None:
 
 def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -> str:
     base = f"https://github.com/{repo}/tree/{branch}"
+    dash = "\u2014"
     total = len(problems)
     counts = Counter(p["difficulty"] for p in problems)
     easy, medium, hard = counts["Easy"], counts["Medium"], counts["Hard"]
@@ -321,46 +356,67 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
     nc_done = sum(
         1 for slugs in neetcode.values() for s in slugs if s in solved_slugs
     )
+    nc_frac = nc_done / nc_total if nc_total else 0
 
     L: list[str] = []
     a = L.append
 
+    # ---- Header (centered) ----
     a(PROFILE_START)
+    a("")
+    a('<div align="center">')
     a("")
     a("# Data Structures & Algorithms \u2014 Practice Log")
     a("")
-    a("Solutions to LeetCode problems I've worked through in Python while studying "
-      "data structures, algorithms, and preparing for technical interviews. "
-      "Each folder holds the problem statement and my solution.")
+    a("*Python solutions to LeetCode problems \u2014 my data structures, "
+      "algorithms, and interview-prep journal.*")
     a("")
-    a(f"![Solved](https://img.shields.io/badge/Problems_Solved-{total}-1F6FEB)")
-    a(f"![Easy](https://img.shields.io/badge/Easy-{easy}-{DIFFICULTY_COLOR['Easy']})")
-    a(f"![Medium](https://img.shields.io/badge/Medium-{medium}-{DIFFICULTY_COLOR['Medium']})")
-    a(f"![Hard](https://img.shields.io/badge/Hard-{hard}-{DIFFICULTY_COLOR['Hard']})")
-    a("![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)")
+    nav = ["[Overview](#overview)"]
+    if ranking:
+        nav.append("[Competitive](#competitive-standing)")
     if nc_total:
-        a(f"![NeetCode](https://img.shields.io/badge/NeetCode_150-{nc_done}%2F{nc_total}-1F6FEB)")
+        nav.append("[NeetCode 150](#neetcode-150)")
+    nav.append("[Topics](#topics)")
+    nav.append("[Solutions](#solutions)")
+    a(" &nbsp;&bull;&nbsp; ".join(nav))
+    a("")
+    a(badge("Solved", str(total), "1F6FEB", "for-the-badge"))
+    a(badge("Easy", str(easy), DIFFICULTY_COLOR["Easy"], "for-the-badge"))
+    a(badge("Medium", str(medium), DIFFICULTY_COLOR["Medium"], "for-the-badge"))
+    a(badge("Hard", str(hard), DIFFICULTY_COLOR["Hard"], "for-the-badge"))
+    a("")
+    a(badge("Language", "Python", "3776AB", "flat-square", logo="python"))
+    if nc_total:
+        a(badge("NeetCode 150", f"{nc_done}/{nc_total}", "1F6FEB", "flat-square",
+                logo="leetcode"))
     if ranking:
         if ranking.get("overall_ranking"):
-            rank_enc = fmt_int(ranking["overall_ranking"]).replace(",", "%2C")
-            a(f"![Global Rank](https://img.shields.io/badge/Global_Rank-%23{rank_enc}-F89F1B)")
+            a(badge("Global Rank", f"#{fmt_int(ranking['overall_ranking'])}",
+                    "F89F1B", "flat-square", logo="leetcode"))
         if ranking.get("contest_rating"):
-            a(f"![Contest Rating](https://img.shields.io/badge/Contest_Rating-{round(ranking['contest_rating'])}-8E44AD)")
-        if ranking.get("contest_top_percentage"):
-            top_enc = f"{ranking['contest_top_percentage']:.1f}%25"
-            a(f"![Contest Top](https://img.shields.io/badge/Contest_Top-{top_enc}-8E44AD)")
+            a(badge("Contest Rating", str(round(ranking["contest_rating"])),
+                    "8E44AD", "flat-square", logo="leetcode"))
+        if ranking.get("contest_top_percentage") is not None:
+            a(badge("Contest Top", f"{ranking['contest_top_percentage']:.1f}%",
+                    "8E44AD", "flat-square"))
     a("")
+    a("</div>")
+    a("")
+
+    # ---- Overview ----
     a("---")
     a("")
-    a("## Progress")
+    a("## Overview")
     a("")
-    a("```text")
-    a(f"Total solved : {total}")
-    if updated:
-        a(f"Last updated : {updated}")
+    a("| Metric | Value |")
+    a("| :----- | :---- |")
+    a(f"| Total solved | **{total}** |")
     if solved:
-        a(f"Avg runtime  : beats {avg_speed:.0f}% of submissions")
-    a("```")
+        a(f"| Avg runtime | beats {avg_speed:.0f}% of submissions |")
+    if nc_total:
+        a(f"| NeetCode 150 | {nc_done} / {nc_total} ({nc_frac * 100:.0f}%) |")
+    if updated:
+        a(f"| Last updated | {updated} |")
     a("")
     a("**By difficulty**")
     a("")
@@ -369,103 +425,148 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
     for diff in ("Easy", "Medium", "Hard"):
         n = counts[diff]
         frac = n / total if total else 0
-        a(f"| {diff} | {n} | `{pct_bar(frac)}` {frac * 100:.0f}% |")
+        a(f"| {diff} | {n} | `{pct_bar(frac, width=24)}` {frac * 100:.0f}% |")
     a("")
+
+    # ---- Competitive Standing ----
     if ranking:
         a("---")
         a("")
         a("## Competitive Standing")
         a("")
         uname = ranking.get("username") or ""
-        if ranking.get("overall_ranking"):
-            a(f"- **Global rank:** [#{fmt_int(ranking['overall_ranking'])}]"
-              f"(https://leetcode.com/u/{uname}/) worldwide (by problems solved)")
         rating = ranking.get("contest_rating")
-        if rating and ranking.get("contest_attended"):
-            top = ranking.get("contest_top_percentage")
-            grank = ranking.get("contest_global_ranking")
-            participants = ranking.get("contest_total_participants")
-            badge = ranking.get("contest_badge") or "none yet"
-            a(f"- **Contest rating:** {rating:.0f}  ")
-            line = f"- **Contest rank:** #{fmt_int(grank)}"
-            if participants:
-                line += f" / {fmt_int(participants)}"
+        top = ranking.get("contest_top_percentage")
+        has_contest = bool(rating and ranking.get("contest_attended"))
+        rows: list[tuple[str, str]] = []
+        if ranking.get("overall_ranking"):
+            rows.append((
+                "Global rank",
+                f"[#{fmt_int(ranking['overall_ranking'])}]"
+                f"(https://leetcode.com/u/{uname}/) worldwide",
+            ))
+        if has_contest:
+            rows.append(("Contest rating", f"{rating:.0f}"))
+            rankval = f"#{fmt_int(ranking.get('contest_global_ranking'))}"
+            if ranking.get("contest_total_participants"):
+                rankval += f" / {fmt_int(ranking['contest_total_participants'])}"
             if top is not None:
-                line += f"  (top {top:.2f}%)"
-            a(line)
-            a(f"- **Contests attended:** {ranking['contest_attended']}  ")
-            a(f"- **Contest badge:** {badge}")
-            if top is not None:
-                ahead = max(0.0, 100.0 - top)
-                a("")
-                a(f"`{pct_bar(ahead / 100, width=30)}` ahead of {ahead:.1f}% of contestants")
+                rankval += f" (top {top:.2f}%)"
+            rows.append(("Contest rank", rankval))
+            rows.append(("Contests attended", str(ranking["contest_attended"])))
+            rows.append(("Contest badge", ranking.get("contest_badge") or "none yet"))
+        a("| Metric | Value |")
+        a("| :----- | :---- |")
+        for k, v in rows:
+            a(f"| {k} | {v} |")
+        a("")
+        if has_contest and top is not None:
+            ahead = max(0.0, 100.0 - top)
+            a(f"`{pct_bar(ahead / 100, width=30)}` ahead of {ahead:.1f}% of contestants")
+            a("")
             tier = next_rating_tier(rating)
             if tier:
                 name, cutoff, gap = tier
+                a(f"> Next tier: **{name}** (~{cutoff} rating, approx) "
+                  f"\u2014 {gap} rating to go.")
                 a("")
-                a(f"> Next tier: **{name}** (~{cutoff} rating, approx) \u2014 {gap} rating to go.")
-        else:
+        elif not has_contest:
+            a("> No rated contests yet \u2014 jump into a weekly contest to start "
+              "climbing the global leaderboard.")
             a("")
-            a("> No rated contests yet \u2014 jump into a weekly contest to start climbing the global leaderboard.")
-        a("")
+
+    # ---- NeetCode 150 ----
     if nc_total:
         a("---")
         a("")
         a("## NeetCode 150")
         a("")
-        overall = nc_done / nc_total if nc_total else 0
         a(f"Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: "
           f"**{nc_done} / {nc_total}** complete.")
         a("")
-        a(f"`{pct_bar(overall, width=30)}` {overall * 100:.0f}%")
+        a(f"`{pct_bar(nc_frac, width=30)}` {nc_frac * 100:.0f}%")
         a("")
         a("| Category | Done | Progress |")
         a("| :------- | :--: | :------- |")
+        cat_rows = []
         for category, slugs in neetcode.items():
             done = sum(1 for s in slugs if s in solved_slugs)
             frac = done / len(slugs) if slugs else 0
-            mark = " \u2713" if done == len(slugs) and slugs else ""
-            a(f"| {category}{mark} | {done} / {len(slugs)} | `{pct_bar(frac, width=12)}` |")
-    a("")
+            cat_rows.append((frac, category, done, len(slugs)))
+        cat_rows.sort(key=lambda r: (-r[0], r[1]))
+        for frac, category, done, tot in cat_rows:
+            mark = " \u2713" if done == tot and tot else ""
+            a(f"| {category}{mark} | {done} / {tot} | `{pct_bar(frac, width=12)}` |")
+        a("")
+
+    # ---- Topics (chips) ----
     a("---")
     a("")
     a("## Topics")
     a("")
-    a("| Topic | Solved |")
-    a("| :---- | :----: |")
-    for topic, n in sorted(topic_counts.items(), key=lambda kv: (-kv[1], kv[0])):
-        a(f"| {topic} | {n} |")
+    a('<div align="center">')
     a("")
+    for topic, n in sorted(topic_counts.items(), key=lambda kv: (-kv[1], kv[0])):
+        a(badge(topic, str(n), "555", "flat-square"))
+    a("")
+    a("</div>")
+    a("")
+
+    # ---- Solutions (grouped by NeetCode category, collapsible) ----
     a("---")
     a("")
     a("## Solutions")
     a("")
-    a("Runtime / memory percentiles are taken from my accepted LeetCode submissions.")
+    a("Runtime / memory percentiles are from my accepted LeetCode submissions, "
+      "grouped by NeetCode 150 category.")
     a("")
-    a("| # | Problem | Difficulty | Topics | Runtime | Memory |")
-    a("| --: | :------ | :--------- | :----- | :------ | :----- |")
-    dash = "\u2014"
-    for p in sorted(problems, key=lambda x: x["id"]):
-        topics = p["topics"][:3]
-        topics_str = ", ".join(topics) + (" \u2026" if len(p["topics"]) > 3 else "")
-        if not topics_str:
-            topics_str = dash
-        rt = p["runtime"]
-        if rt:
-            runtime_str = f"{rt['time_ms']:.0f} ms ({rt['time_pct']:.0f}%)"
-            memory_str = f"{rt['space_mb']:.1f} MB ({rt['space_pct']:.0f}%)"
+    cat_map = slug_to_category(neetcode)
+    groups: dict[str, list[dict]] = {cat: [] for cat in neetcode}
+    other: list[dict] = []
+    for p in problems:
+        cat = cat_map.get(p["slug"])
+        if cat:
+            groups[cat].append(p)
         else:
-            runtime_str = memory_str = dash
-        a(
-            f"| {p['id']} | [{p['title']}]({base}/{p['folder']}) "
-            f"| {p['difficulty']} | {topics_str} | {runtime_str} | {memory_str} |"
-        )
-    a("")
+            other.append(p)
+
+    def emit_group(title: str, probs: list[dict], tot: int | None) -> None:
+        if not probs:
+            return
+        count = f"{len(probs)} / {tot}" if tot is not None else str(len(probs))
+        a("<details>")
+        a(f"<summary><strong>{title}</strong> &nbsp;({count})</summary>")
+        a("")
+        a("| # | Problem | Difficulty | Runtime | Memory |")
+        a("| --: | :------ | :--------- | :------ | :----- |")
+        for p in sorted(probs, key=lambda x: x["id"]):
+            rt = p["runtime"]
+            if rt:
+                runtime_str = f"{rt['time_ms']:.0f} ms ({rt['time_pct']:.0f}%)"
+                memory_str = f"{rt['space_mb']:.1f} MB ({rt['space_pct']:.0f}%)"
+            else:
+                runtime_str = memory_str = dash
+            dot = DIFFICULTY_DOT.get(p["difficulty"], "")
+            a(f"| {p['id']} | [{p['title']}]({base}/{p['folder']}) "
+              f"| {dot} {p['difficulty']} | {runtime_str} | {memory_str} |")
+        a("")
+        a("</details>")
+        a("")
+
+    for category, slugs in neetcode.items():
+        emit_group(category, groups[category], tot=len(slugs))
+    emit_group("Other practice (not in NeetCode 150)", other, tot=None)
+
+    # ---- Footer ----
     a("---")
     a("")
-    a("<sub>This file is generated automatically from the repository after each commit "
-      f"by [`scripts/generate_readme.py`]({base}/scripts/generate_readme.py). "
-      "Problems are synced via [LeetHub v2](https://github.com/arunbhardwaj/LeetHub-2.0).</sub>")
+    a('<div align="center">')
+    a("")
+    a("<sub>Auto-generated from the repository after each commit by "
+      f"[`scripts/generate_readme.py`]({base}/scripts/generate_readme.py). "
+      "Problems synced via [LeetHub v2](https://github.com/arunbhardwaj/LeetHub-2.0).</sub>")
+    a("")
+    a("</div>")
     a("")
     a(PROFILE_END)
     return "\n".join(L)
