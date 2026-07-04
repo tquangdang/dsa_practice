@@ -177,6 +177,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 ## Hash Table
 |  |
 | ------- |
+| [0001-two-sum](https://github.com/tquangdang/dsa_practice/tree/master/0001-two-sum) |
 | [0003-longest-substring-without-repeating-characters](https://github.com/tquangdang/dsa_practice/tree/master/0003-longest-substring-without-repeating-characters) |
 | [0076-minimum-window-substring](https://github.com/tquangdang/dsa_practice/tree/master/0076-minimum-window-substring) |
 | [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
@@ -256,6 +257,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 ## Array
 |  |
 | ------- |
+| [0001-two-sum](https://github.com/tquangdang/dsa_practice/tree/master/0001-two-sum) |
 | [0027-remove-element](https://github.com/tquangdang/dsa_practice/tree/master/0027-remove-element) |
 | [0035-search-insert-position](https://github.com/tquangdang/dsa_practice/tree/master/0035-search-insert-position) |
 | [0066-plus-one](https://github.com/tquangdang/dsa_practice/tree/master/0066-plus-one) |
