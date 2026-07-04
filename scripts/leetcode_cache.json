@@ -86,6 +86,15 @@
       "Math"
     ]
   },
+  "find-minimum-in-rotated-sorted-array": {
+    "difficulty": "Medium",
+    "id": "153",
+    "title": "Find Minimum in Rotated Sorted Array",
+    "topics": [
+      "Array",
+      "Binary Search"
+    ]
+  },
   "find-the-highest-altitude": {
     "difficulty": "Easy",
     "id": "1833",

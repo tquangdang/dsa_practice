@@ -4,13 +4,13 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-40-1F6FEB)
+![Solved](https://img.shields.io/badge/Problems_Solved-41-1F6FEB)
 ![Easy](https://img.shields.io/badge/Easy-18-2DB55D)
-![Medium](https://img.shields.io/badge/Medium-18-FFB800)
+![Medium](https://img.shields.io/badge/Medium-19-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-4-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-33%2F150-1F6FEB)
-![Global Rank](https://img.shields.io/badge/Global_Rank-%23646%2C428-F89F1B)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-34%2F150-1F6FEB)
+![Global Rank](https://img.shields.io/badge/Global_Rank-%23646%2C911-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD)
 
@@ -19,24 +19,24 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 40
+Total solved : 41
 Last updated : 2026-07-03
-Avg runtime  : beats 56% of submissions
+Avg runtime  : beats 57% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 18 | `██████████░░░░░░░░░░░░` 45% |
-| Medium | 18 | `██████████░░░░░░░░░░░░` 45% |
+| Easy | 18 | `██████████░░░░░░░░░░░░` 44% |
+| Medium | 19 | `██████████░░░░░░░░░░░░` 46% |
 | Hard | 4 | `██░░░░░░░░░░░░░░░░░░░░` 10% |
 
 ---
 
 ## Competitive Standing
 
-- **Global rank:** [#646,428](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
+- **Global rank:** [#646,911](https://leetcode.com/u/quang_dang/) worldwide (by problems solved)
 - **Contest rating:** 1430  
 - **Contest rank:** #613,918 / 874,830  (top 70.54%)
 - **Contests attended:** 2  
@@ -50,9 +50,9 @@ Avg runtime  : beats 56% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **33 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **34 / 150** complete.
 
-`███████░░░░░░░░░░░░░░░░░░░░░░░` 22%
+`███████░░░░░░░░░░░░░░░░░░░░░░░` 23%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
@@ -60,7 +60,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **33 /
 | Two Pointers | 3 / 5 | `███████░░░░░` |
 | Sliding Window ✓ | 6 / 6 | `████████████` |
 | Stack ✓ | 7 / 7 | `████████████` |
-| Binary Search | 3 / 7 | `█████░░░░░░░` |
+| Binary Search | 4 / 7 | `███████░░░░░` |
 | Linked List | 0 / 11 | `░░░░░░░░░░░░` |
 | Trees | 0 / 15 | `░░░░░░░░░░░░` |
 | Tries | 0 / 3 | `░░░░░░░░░░░░` |
@@ -81,7 +81,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **33 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 28 |
+| Array | 29 |
 | Hash Table | 12 |
 | Sorting | 9 |
 | String | 9 |
@@ -89,8 +89,8 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **33 /
 | Stack | 7 |
 | Heap (Priority Queue) | 6 |
 | Two Pointers | 6 |
+| Binary Search | 5 |
 | Sliding Window | 5 |
-| Binary Search | 4 |
 | Divide and Conquer | 4 |
 | Monotonic Stack | 4 |
 | Dynamic Programming | 3 |
@@ -138,6 +138,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 | 128 | [Longest Consecutive Sequence](https://github.com/tquangdang/dsa_practice/tree/main/0128-longest-consecutive-sequence) | Medium | Array, Hash Table, Union Find | 56 ms (30%) | 36.7 MB (21%) |
 | 136 | [Single Number](https://github.com/tquangdang/dsa_practice/tree/main/0136-single-number) | Easy | Array, Bit Manipulation | 0 ms (100%) | 21.1 MB (69%) |
 | 150 | [Evaluate Reverse Polish Notation](https://github.com/tquangdang/dsa_practice/tree/main/0150-evaluate-reverse-polish-notation) | Medium | Array, Math, Stack | 0 ms (100%) | 20.5 MB (93%) |
+| 153 | [Find Minimum in Rotated Sorted Array](https://github.com/tquangdang/dsa_practice/tree/main/0153-find-minimum-in-rotated-sorted-array) | Medium | Array, Binary Search | 0 ms (100%) | 19.3 MB (66%) |
 | 155 | [Min Stack](https://github.com/tquangdang/dsa_practice/tree/main/0155-min-stack) | Medium | Stack, Design | 105 ms (24%) | 33.0 MB (5%) |
 | 169 | [Majority Element](https://github.com/tquangdang/dsa_practice/tree/main/0169-majority-element) | Easy | Array, Hash Table, Divide and Conquer … | 1 ms (89%) | 21.2 MB (51%) |
 | 202 | [Happy Number](https://github.com/tquangdang/dsa_practice/tree/main/0202-happy-number) | Easy | Hash Table, Math, Two Pointers | 2 ms (43%) | 19.4 MB (6%) |
