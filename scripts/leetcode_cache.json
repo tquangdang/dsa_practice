@@ -351,6 +351,17 @@
       "Monotonic Queue"
     ]
   },
+  "time-based-key-value-store": {
+    "difficulty": "Medium",
+    "id": "981",
+    "title": "Time Based Key-Value Store",
+    "topics": [
+      "Hash Table",
+      "String",
+      "Binary Search",
+      "Design"
+    ]
+  },
   "top-k-frequent-elements": {
     "difficulty": "Medium",
     "id": "347",
