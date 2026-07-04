@@ -4,12 +4,12 @@
 
 Solutions to LeetCode problems I've worked through in Python while studying data structures, algorithms, and preparing for technical interviews. Each folder holds the problem statement and my solution.
 
-![Solved](https://img.shields.io/badge/Problems_Solved-42-1F6FEB)
-![Easy](https://img.shields.io/badge/Easy-18-2DB55D)
+![Solved](https://img.shields.io/badge/Problems_Solved-43-1F6FEB)
+![Easy](https://img.shields.io/badge/Easy-19-2DB55D)
 ![Medium](https://img.shields.io/badge/Medium-20-FFB800)
 ![Hard](https://img.shields.io/badge/Hard-4-EF4743)
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
-![NeetCode](https://img.shields.io/badge/NeetCode_150-35%2F150-1F6FEB)
+![NeetCode](https://img.shields.io/badge/NeetCode_150-36%2F150-1F6FEB)
 ![Global Rank](https://img.shields.io/badge/Global_Rank-%23646%2C911-F89F1B)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD)
@@ -19,18 +19,18 @@ Solutions to LeetCode problems I've worked through in Python while studying data
 ## Progress
 
 ```text
-Total solved : 42
+Total solved : 43
 Last updated : 2026-07-03
-Avg runtime  : beats 57% of submissions
+Avg runtime  : beats 58% of submissions
 ```
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 18 | `█████████░░░░░░░░░░░░░` 43% |
-| Medium | 20 | `██████████░░░░░░░░░░░░` 48% |
-| Hard | 4 | `██░░░░░░░░░░░░░░░░░░░░` 10% |
+| Easy | 19 | `██████████░░░░░░░░░░░░` 44% |
+| Medium | 20 | `██████████░░░░░░░░░░░░` 47% |
+| Hard | 4 | `██░░░░░░░░░░░░░░░░░░░░` 9% |
 
 ---
 
@@ -50,13 +50,13 @@ Avg runtime  : beats 57% of submissions
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **35 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **36 / 150** complete.
 
-`███████░░░░░░░░░░░░░░░░░░░░░░░` 23%
+`███████░░░░░░░░░░░░░░░░░░░░░░░` 24%
 
 | Category | Done | Progress |
 | :------- | :--: | :------- |
-| Arrays & Hashing | 7 / 9 | `█████████░░░` |
+| Arrays & Hashing | 8 / 9 | `███████████░` |
 | Two Pointers | 3 / 5 | `███████░░░░░` |
 | Sliding Window ✓ | 6 / 6 | `████████████` |
 | Stack ✓ | 7 / 7 | `████████████` |
@@ -81,8 +81,8 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **35 /
 
 | Topic | Solved |
 | :---- | :----: |
-| Array | 29 |
-| Hash Table | 13 |
+| Array | 30 |
+| Hash Table | 14 |
 | String | 10 |
 | Sorting | 9 |
 | Math | 7 |
@@ -120,6 +120,7 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 
 | # | Problem | Difficulty | Topics | Runtime | Memory |
 | --: | :------ | :--------- | :----- | :------ | :----- |
+| 1 | [Two Sum](https://github.com/tquangdang/dsa_practice/tree/main/0001-two-sum) | Easy | Array, Hash Table | 0 ms (100%) | 20.4 MB (59%) |
 | 3 | [Longest Substring Without Repeating Characters](https://github.com/tquangdang/dsa_practice/tree/main/0003-longest-substring-without-repeating-characters) | Medium | Hash Table, String, Sliding Window | 19 ms (23%) | 19.4 MB (8%) |
 | 11 | [Container With Most Water](https://github.com/tquangdang/dsa_practice/tree/main/0011-container-with-most-water) | Medium | Array, Two Pointers, Greedy | 59 ms (52%) | 29.4 MB (98%) |
 | 20 | [Valid Parentheses](https://github.com/tquangdang/dsa_practice/tree/main/0020-valid-parentheses) | Easy | String, Stack | 0 ms (100%) | 19.1 MB (99%) |

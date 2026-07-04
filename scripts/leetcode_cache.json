@@ -389,6 +389,15 @@
       "Monotonic Stack"
     ]
   },
+  "two-sum": {
+    "difficulty": "Easy",
+    "id": "1",
+    "title": "Two Sum",
+    "topics": [
+      "Array",
+      "Hash Table"
+    ]
+  },
   "valid-anagram": {
     "difficulty": "Easy",
     "id": "242",
