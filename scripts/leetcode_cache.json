@@ -321,6 +321,15 @@
       "Two Pointers"
     ]
   },
+  "reverse-linked-list": {
+    "difficulty": "Easy",
+    "id": "206",
+    "title": "Reverse Linked List",
+    "topics": [
+      "Linked List",
+      "Recursion"
+    ]
+  },
   "search-a-2d-matrix": {
     "difficulty": "Medium",
     "id": "74",
