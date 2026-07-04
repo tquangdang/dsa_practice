@@ -355,6 +355,14 @@ Runtime / memory percentiles are taken from my accepted LeetCode submissions.
 |  |
 | ------- |
 | [0074-search-a-2d-matrix](https://github.com/tquangdang/dsa_practice/tree/master/0074-search-a-2d-matrix) |
+## Linked List
+|  |
+| ------- |
+| [0206-reverse-linked-list](https://github.com/tquangdang/dsa_practice/tree/master/0206-reverse-linked-list) |
+## Recursion
+|  |
+| ------- |
+| [0206-reverse-linked-list](https://github.com/tquangdang/dsa_practice/tree/master/0206-reverse-linked-list) |
 <!---LeetCode Topics End-->
 
 </details>
