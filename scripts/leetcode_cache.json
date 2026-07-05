@@ -330,6 +330,15 @@
       "Two Pointers"
     ]
   },
+  "remove-nth-node-from-end-of-list": {
+    "difficulty": "Medium",
+    "id": "19",
+    "title": "Remove Nth Node From End of List",
+    "topics": [
+      "Linked List",
+      "Two Pointers"
+    ]
+  },
   "reorder-list": {
     "difficulty": "Medium",
     "id": "143",
