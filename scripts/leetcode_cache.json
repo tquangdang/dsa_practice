@@ -330,6 +330,17 @@
       "Two Pointers"
     ]
   },
+  "reorder-list": {
+    "difficulty": "Medium",
+    "id": "143",
+    "title": "Reorder List",
+    "topics": [
+      "Linked List",
+      "Two Pointers",
+      "Stack",
+      "Recursion"
+    ]
+  },
   "reverse-linked-list": {
     "difficulty": "Easy",
     "id": "206",
