@@ -9,6 +9,16 @@
       "Sorting"
     ]
   },
+  "add-two-numbers": {
+    "difficulty": "Medium",
+    "id": "2",
+    "title": "Add Two Numbers",
+    "topics": [
+      "Linked List",
+      "Math",
+      "Recursion"
+    ]
+  },
   "best-time-to-buy-and-sell-stock": {
     "difficulty": "Easy",
     "id": "121",

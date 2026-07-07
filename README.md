@@ -8,13 +8,13 @@
 
 [Overview](#overview) &nbsp;&bull;&nbsp; [Competitive](#competitive-standing) &nbsp;&bull;&nbsp; [NeetCode 150](#neetcode-150) &nbsp;&bull;&nbsp; [Topics](#topics) &nbsp;&bull;&nbsp; [Solutions](#solutions)
 
-![Solved](https://img.shields.io/badge/Solved-50-1F6FEB?style=for-the-badge)
+![Solved](https://img.shields.io/badge/Solved-51-1F6FEB?style=for-the-badge)
 ![Easy](https://img.shields.io/badge/Easy-21-2DB55D?style=for-the-badge)
-![Medium](https://img.shields.io/badge/Medium-25-FFB800?style=for-the-badge)
+![Medium](https://img.shields.io/badge/Medium-26-FFB800?style=for-the-badge)
 ![Hard](https://img.shields.io/badge/Hard-4-EF4743?style=for-the-badge)
 
 ![Language](https://img.shields.io/badge/Language-Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![NeetCode 150](https://img.shields.io/badge/NeetCode_150-43%2F150-1F6FEB?style=flat-square&logo=leetcode&logoColor=white)
+![NeetCode 150](https://img.shields.io/badge/NeetCode_150-44%2F150-1F6FEB?style=flat-square&logo=leetcode&logoColor=white)
 ![Global Rank](https://img.shields.io/badge/Global_Rank-%23642%2C193-F89F1B?style=flat-square&logo=leetcode&logoColor=white)
 ![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD?style=flat-square&logo=leetcode&logoColor=white)
 ![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD?style=flat-square)
@@ -27,17 +27,17 @@
 
 | Metric | Value |
 | :----- | :---- |
-| Total solved | **50** |
-| Avg runtime | beats 59% of submissions |
-| NeetCode 150 | 43 / 150 (29%) |
+| Total solved | **51** |
+| Avg runtime | beats 58% of submissions |
+| NeetCode 150 | 44 / 150 (29%) |
 | Last updated | 2026-07-07 |
 
 **By difficulty**
 
 | Difficulty | Solved | Share |
 | :--------- | :----: | :---- |
-| Easy | 21 | `██████████░░░░░░░░░░░░░░` 42% |
-| Medium | 25 | `████████████░░░░░░░░░░░░` 50% |
+| Easy | 21 | `██████████░░░░░░░░░░░░░░` 41% |
+| Medium | 26 | `████████████░░░░░░░░░░░░` 51% |
 | Hard | 4 | `██░░░░░░░░░░░░░░░░░░░░░░` 8% |
 
 ---
@@ -60,7 +60,7 @@
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **43 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **44 / 150** complete.
 
 `█████████░░░░░░░░░░░░░░░░░░░░░` 29%
 
@@ -72,7 +72,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **43 /
 | Arrays & Hashing | 8 / 9 | `███████████░` |
 | Binary Search | 5 / 7 | `█████████░░░` |
 | Heap / Priority Queue | 4 / 7 | `███████░░░░░` |
-| Linked List | 5 / 11 | `█████░░░░░░░` |
+| Linked List | 6 / 11 | `███████░░░░░` |
 | Math & Geometry | 2 / 8 | `███░░░░░░░░░` |
 | Bit Manipulation | 1 / 7 | `██░░░░░░░░░░` |
 | 1-D Dynamic Programming | 0 / 12 | `░░░░░░░░░░░░` |
@@ -96,19 +96,19 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **43 /
 ![Sorting](https://img.shields.io/badge/Sorting-10-555?style=flat-square)
 ![String](https://img.shields.io/badge/String-10-555?style=flat-square)
 ![Two Pointers](https://img.shields.io/badge/Two_Pointers-10-555?style=flat-square)
+![Math](https://img.shields.io/badge/Math-8-555?style=flat-square)
 ![Stack](https://img.shields.io/badge/Stack-8-555?style=flat-square)
 ![Binary Search](https://img.shields.io/badge/Binary_Search-7-555?style=flat-square)
-![Math](https://img.shields.io/badge/Math-7-555?style=flat-square)
 ![Heap (Priority Queue)](https://img.shields.io/badge/Heap_(Priority_Queue)-6-555?style=flat-square)
-![Linked List](https://img.shields.io/badge/Linked_List-5-555?style=flat-square)
+![Linked List](https://img.shields.io/badge/Linked_List-6-555?style=flat-square)
 ![Sliding Window](https://img.shields.io/badge/Sliding_Window-5-555?style=flat-square)
 ![Divide and Conquer](https://img.shields.io/badge/Divide_and_Conquer-4-555?style=flat-square)
 ![Monotonic Stack](https://img.shields.io/badge/Monotonic_Stack-4-555?style=flat-square)
+![Recursion](https://img.shields.io/badge/Recursion-4-555?style=flat-square)
 ![Design](https://img.shields.io/badge/Design-3-555?style=flat-square)
 ![Dynamic Programming](https://img.shields.io/badge/Dynamic_Programming-3-555?style=flat-square)
 ![Prefix Sum](https://img.shields.io/badge/Prefix_Sum-3-555?style=flat-square)
 ![Quickselect](https://img.shields.io/badge/Quickselect-3-555?style=flat-square)
-![Recursion](https://img.shields.io/badge/Recursion-3-555?style=flat-square)
 ![Counting](https://img.shields.io/badge/Counting-2-555?style=flat-square)
 ![Matrix](https://img.shields.io/badge/Matrix-2-555?style=flat-square)
 ![Backtracking](https://img.shields.io/badge/Backtracking-1-555?style=flat-square)
@@ -204,10 +204,11 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 </details>
 
 <details>
-<summary><strong>Linked List</strong> &nbsp;(5 / 11)</summary>
+<summary><strong>Linked List</strong> &nbsp;(6 / 11)</summary>
 
 | # | Problem | Difficulty | Runtime | Memory |
 | --: | :------ | :--------- | :------ | :----- |
+| 2 | [Add Two Numbers](https://github.com/tquangdang/dsa_practice/tree/main/0002-add-two-numbers) | 🟡 Medium | 8 ms (13%) | 19.1 MB (96%) |
 | 19 | [Remove Nth Node From End of List](https://github.com/tquangdang/dsa_practice/tree/main/0019-remove-nth-node-from-end-of-list) | 🟡 Medium | 0 ms (100%) | 19.3 MB (63%) |
 | 21 | [Merge Two Sorted Lists](https://github.com/tquangdang/dsa_practice/tree/main/0021-merge-two-sorted-lists) | 🟢 Easy | 1 ms (19%) | 19.2 MB (94%) |
 | 138 | [Copy List with Random Pointer](https://github.com/tquangdang/dsa_practice/tree/main/0138-copy-list-with-random-pointer) | 🟡 Medium | 32 ms (100%) | 20.2 MB (19%) |
