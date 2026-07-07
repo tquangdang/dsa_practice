@@ -58,6 +58,15 @@
       "Sorting"
     ]
   },
+  "copy-list-with-random-pointer": {
+    "difficulty": "Medium",
+    "id": "138",
+    "title": "Copy List with Random Pointer",
+    "topics": [
+      "Hash Table",
+      "Linked List"
+    ]
+  },
   "count-partitions-with-even-sum-difference": {
     "difficulty": "Easy",
     "id": "3704",
