@@ -124,6 +124,17 @@
       "Binary Search"
     ]
   },
+  "find-the-duplicate-number": {
+    "difficulty": "Medium",
+    "id": "287",
+    "title": "Find the Duplicate Number",
+    "topics": [
+      "Array",
+      "Two Pointers",
+      "Binary Search",
+      "Bit Manipulation"
+    ]
+  },
   "find-the-highest-altitude": {
     "difficulty": "Easy",
     "id": "1833",
