@@ -283,6 +283,7 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 | [0003-longest-substring-without-repeating-characters](https://github.com/tquangdang/dsa_practice/tree/master/0003-longest-substring-without-repeating-characters) |
 | [0049-group-anagrams](https://github.com/tquangdang/dsa_practice/tree/master/0049-group-anagrams) |
 | [0076-minimum-window-substring](https://github.com/tquangdang/dsa_practice/tree/master/0076-minimum-window-substring) |
+| [0138-copy-list-with-random-pointer](https://github.com/tquangdang/dsa_practice/tree/master/0138-copy-list-with-random-pointer) |
 | [0169-majority-element](https://github.com/tquangdang/dsa_practice/tree/master/0169-majority-element) |
 | [0202-happy-number](https://github.com/tquangdang/dsa_practice/tree/master/0202-happy-number) |
 | [0217-contains-duplicate](https://github.com/tquangdang/dsa_practice/tree/master/0217-contains-duplicate) |
@@ -462,6 +463,7 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 | ------- |
 | [0019-remove-nth-node-from-end-of-list](https://github.com/tquangdang/dsa_practice/tree/master/0019-remove-nth-node-from-end-of-list) |
 | [0021-merge-two-sorted-lists](https://github.com/tquangdang/dsa_practice/tree/master/0021-merge-two-sorted-lists) |
+| [0138-copy-list-with-random-pointer](https://github.com/tquangdang/dsa_practice/tree/master/0138-copy-list-with-random-pointer) |
 | [0143-reorder-list](https://github.com/tquangdang/dsa_practice/tree/master/0143-reorder-list) |
 | [0206-reverse-linked-list](https://github.com/tquangdang/dsa_practice/tree/master/0206-reverse-linked-list) |
 ## Recursion
