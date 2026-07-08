@@ -6,18 +6,9 @@
 
 *Python solutions to LeetCode problems — my data structures, algorithms, and interview-prep journal.*
 
+<img src="assets/stats-banner.svg" alt="Solved 52 — NeetCode 45/150 — stats overview" />
+
 [Overview](#overview) &nbsp;&bull;&nbsp; [Activity](#activity) &nbsp;&bull;&nbsp; [Competitive](#competitive-standing) &nbsp;&bull;&nbsp; [NeetCode 150](#neetcode-150) &nbsp;&bull;&nbsp; [Achievements](#achievements) &nbsp;&bull;&nbsp; [Topics](#topics) &nbsp;&bull;&nbsp; [Solutions](#solutions)
-
-![Solved](https://img.shields.io/badge/Solved-52-1F6FEB?style=for-the-badge)
-![Easy](https://img.shields.io/badge/Easy-21-2DB55D?style=for-the-badge)
-![Medium](https://img.shields.io/badge/Medium-27-FFB800?style=for-the-badge)
-![Hard](https://img.shields.io/badge/Hard-4-EF4743?style=for-the-badge)
-
-![Language](https://img.shields.io/badge/Language-Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![NeetCode 150](https://img.shields.io/badge/NeetCode_150-45%2F150-1F6FEB?style=flat-square&logo=leetcode&logoColor=white)
-![Global Rank](https://img.shields.io/badge/Global_Rank-%23642%2C193-F89F1B?style=flat-square&logo=leetcode&logoColor=white)
-![Contest Rating](https://img.shields.io/badge/Contest_Rating-1430-8E44AD?style=flat-square&logo=leetcode&logoColor=white)
-![Contest Top](https://img.shields.io/badge/Contest_Top-70.5%25-8E44AD?style=flat-square)
 
 </div>
 
@@ -48,17 +39,11 @@
 | :-------: | :--------: | :---------: |
 | **3** ⬇ -12 vs last week | **15** | **15** |
 
-```text
-Last 13 weeks
-Mon ···········▒·
-Tue ·········█▒░▓
-Wed ···········░ 
-Thu ··········█░ 
-Fri ·········▒▒█ 
-Sat ·········█░█ 
-Sun ··········▒· 
-Less ·░▒▓█ More
-```
+<div align="center">
+
+<img src="assets/activity-heatmap.svg" alt="Contribution heatmap of the last 13 weeks" />
+
+</div>
 
 **Recently solved**
 

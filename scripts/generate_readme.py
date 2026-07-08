@@ -29,6 +29,9 @@ CACHE_FILE = Path(__file__).resolve().parent / "leetcode_cache.json"
 NEETCODE_FILE = Path(__file__).resolve().parent / "neetcode150.json"
 CONFIG_FILE = Path(__file__).resolve().parent / "config.json"
 USER_CACHE_FILE = Path(__file__).resolve().parent / "leetcode_user_cache.json"
+ASSETS_DIR = REPO_ROOT / "assets"
+HEATMAP_FILE = ASSETS_DIR / "activity-heatmap.svg"
+BANNER_FILE = ASSETS_DIR / "stats-banner.svg"
 
 PROFILE_START = "<!-- PROFILE:START -->"
 PROFILE_END = "<!-- PROFILE:END -->"
@@ -348,6 +351,197 @@ def next_rating_tier(rating: float | None) -> tuple[str, int, int] | None:
     return None
 
 
+def write_if_changed(path: Path, content: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists() and path.read_text(encoding="utf-8") == content:
+        return
+    path.write_text(content, encoding="utf-8")
+
+
+# GitHub-style contribution palette (0 = empty, then increasing intensity).
+HEATMAP_PALETTE = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"]
+HEATMAP_TEXT = "#768390"
+MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
+                      weeks: int = 13) -> str:
+    """Render a GitHub-style contribution heatmap as a standalone SVG string."""
+    counts_by_day = Counter(p["date"] for p in dated)
+    cell, gap = 14, 3
+    step = cell + gap
+    left_pad, top_pad = 34, 22
+    grid_start = week_start - timedelta(weeks=weeks - 1)
+    grid_w = weeks * step - gap
+    grid_h = 7 * step - gap
+    legend_h = 26
+    width = left_pad + grid_w + 14
+    height = top_pad + grid_h + legend_h
+
+    def level(c: int) -> int:
+        return 0 if c <= 0 else min(4, c)
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+        f'viewBox="0 0 {width} {height}" '
+        f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" '
+        f'font-size="9">'
+    ]
+
+    # Month labels along the top (when the column's month changes).
+    prev_month = None
+    for wk in range(weeks):
+        month = (grid_start + timedelta(days=wk * 7)).month
+        if month != prev_month:
+            x = left_pad + wk * step
+            parts.append(
+                f'<text x="{x}" y="{top_pad - 8}" fill="{HEATMAP_TEXT}">'
+                f'{MONTH_ABBR[month - 1]}</text>'
+            )
+            prev_month = month
+
+    # Weekday labels (Mon / Wed / Fri, like GitHub).
+    for wd, label in {0: "Mon", 2: "Wed", 4: "Fri"}.items():
+        y = top_pad + wd * step + cell - 3
+        parts.append(
+            f'<text x="{left_pad - 6}" y="{y}" text-anchor="end" '
+            f'fill="{HEATMAP_TEXT}">{label}</text>'
+        )
+
+    # Day cells.
+    for wd in range(7):
+        for wk in range(weeks):
+            day = grid_start + timedelta(days=wk * 7 + wd)
+            if day > today:
+                continue
+            c = counts_by_day.get(day, 0)
+            fill = HEATMAP_PALETTE[level(c)]
+            x = left_pad + wk * step
+            y = top_pad + wd * step
+            noun = "solve" if c == 1 else "solves"
+            parts.append(
+                f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="3" ry="3" '
+                f'fill="{fill}"><title>{day.isoformat()}: {c} {noun}</title></rect>'
+            )
+
+    # Legend.
+    ly = top_pad + grid_h + 8
+    lx = left_pad
+    parts.append(
+        f'<text x="{lx}" y="{ly + cell - 3}" fill="{HEATMAP_TEXT}">Less</text>'
+    )
+    lx += 28
+    for color in HEATMAP_PALETTE:
+        parts.append(
+            f'<rect x="{lx}" y="{ly}" width="{cell}" height="{cell}" rx="3" ry="3" '
+            f'fill="{color}"/>'
+        )
+        lx += step
+    parts.append(
+        f'<text x="{lx + 2}" y="{ly + cell - 3}" fill="{HEATMAP_TEXT}">More</text>'
+    )
+    parts.append("</svg>")
+    return "\n".join(parts) + "\n"
+
+
+def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
+                           nc_done: int, nc_total: int,
+                           ranking: dict | None) -> str:
+    """Render a hero stats card (4 tiles) as a standalone SVG string."""
+    width, height = 720, 150
+    pad = 24
+    tw = (width - 2 * pad) / 4
+    label_c, div_c = "#768390", "#d0d7de"
+    blue, purple = "#1F6FEB", "#8E44AD"
+    ec = f"#{DIFFICULTY_COLOR['Easy']}"
+    mc = f"#{DIFFICULTY_COLOR['Medium']}"
+    hc = f"#{DIFFICULTY_COLOR['Hard']}"
+
+    def cx(i: int) -> float:
+        return pad + tw * (i + 0.5)
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+        f'viewBox="0 0 {width} {height}" '
+        f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">'
+    ]
+    for i in (1, 2, 3):
+        x = pad + tw * i
+        parts.append(
+            f'<line x1="{x:.0f}" y1="30" x2="{x:.0f}" y2="120" '
+            f'stroke="{div_c}" stroke-width="1"/>'
+        )
+
+    def label(i: int, s: str) -> None:
+        parts.append(
+            f'<text x="{cx(i):.0f}" y="48" text-anchor="middle" fill="{label_c}" '
+            f'font-size="12" letter-spacing="1.5">{s}</text>'
+        )
+
+    def value(i: int, s: str, color: str) -> None:
+        parts.append(
+            f'<text x="{cx(i):.0f}" y="92" text-anchor="middle" fill="{color}" '
+            f'font-size="40" font-weight="700">{s}</text>'
+        )
+
+    def sub(i: int, s: str) -> None:
+        parts.append(
+            f'<text x="{cx(i):.0f}" y="114" text-anchor="middle" fill="{label_c}" '
+            f'font-size="13">{s}</text>'
+        )
+
+    # Tile 0: total solved.
+    label(0, "SOLVED")
+    value(0, str(total), blue)
+    sub(0, "Python")
+
+    # Tile 1: difficulty split (stacked bar + coloured counts).
+    label(1, "BY DIFFICULTY")
+    bw = tw - 56
+    bx = cx(1) - bw / 2
+    by, bh = 66, 14
+    tot = max(1, easy + medium + hard)
+    we, wm = bw * easy / tot, bw * medium / tot
+    wh = bw - we - wm
+    parts.append(f'<rect x="{bx:.1f}" y="{by}" width="{we:.1f}" height="{bh}" fill="{ec}"/>')
+    parts.append(f'<rect x="{bx + we:.1f}" y="{by}" width="{wm:.1f}" height="{bh}" fill="{mc}"/>')
+    parts.append(f'<rect x="{bx + we + wm:.1f}" y="{by}" width="{wh:.1f}" height="{bh}" fill="{hc}"/>')
+    parts.append(
+        f'<text x="{cx(1):.0f}" y="106" text-anchor="middle" font-size="14" '
+        f'font-weight="600"><tspan fill="{ec}">{easy}</tspan>'
+        f'<tspan fill="{label_c}"> / </tspan><tspan fill="{mc}">{medium}</tspan>'
+        f'<tspan fill="{label_c}"> / </tspan><tspan fill="{hc}">{hard}</tspan></text>'
+    )
+
+    # Tile 2: NeetCode 150 progress.
+    label(2, "NEETCODE 150")
+    if nc_total:
+        value(2, f"{round(nc_done / nc_total * 100)}%", blue)
+        sub(2, f"{nc_done} / {nc_total}")
+    else:
+        value(2, "\u2014", blue)
+
+    # Tile 3: contest rating / global rank.
+    rating = ranking.get("contest_rating") if ranking else None
+    rank = ranking.get("overall_ranking") if ranking else None
+    if rating:
+        label(3, "CONTEST")
+        value(3, f"{rating:.0f}", purple)
+        sub(3, f"Rank #{fmt_int(rank)}" if rank else "rated")
+    elif rank:
+        label(3, "GLOBAL RANK")
+        value(3, f"#{fmt_int(rank)}", purple)
+        sub(3, "worldwide")
+    else:
+        label(3, "CONTEST")
+        value(3, "\u2014", purple)
+        sub(3, "not yet")
+
+    parts.append("</svg>")
+    return "\n".join(parts) + "\n"
+
+
 def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -> str:
     base = f"https://github.com/{repo}/tree/{branch}"
     dash = "\u2014"
@@ -400,6 +594,14 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
     a("*Python solutions to LeetCode problems \u2014 my data structures, "
       "algorithms, and interview-prep journal.*")
     a("")
+    write_if_changed(
+        BANNER_FILE,
+        build_stats_banner_svg(total, easy, medium, hard, nc_done, nc_total, ranking),
+    )
+    banner_rel = BANNER_FILE.relative_to(REPO_ROOT).as_posix()
+    a(f'<img src="{banner_rel}" alt="Solved {total} \u2014 NeetCode {nc_done}/'
+      f'{nc_total} \u2014 stats overview" />')
+    a("")
     nav = ["[Overview](#overview)"]
     if dated:
         nav.append("[Activity](#activity)")
@@ -411,26 +613,6 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
     nav.append("[Topics](#topics)")
     nav.append("[Solutions](#solutions)")
     a(" &nbsp;&bull;&nbsp; ".join(nav))
-    a("")
-    a(badge("Solved", str(total), "1F6FEB", "for-the-badge"))
-    a(badge("Easy", str(easy), DIFFICULTY_COLOR["Easy"], "for-the-badge"))
-    a(badge("Medium", str(medium), DIFFICULTY_COLOR["Medium"], "for-the-badge"))
-    a(badge("Hard", str(hard), DIFFICULTY_COLOR["Hard"], "for-the-badge"))
-    a("")
-    a(badge("Language", "Python", "3776AB", "flat-square", logo="python"))
-    if nc_total:
-        a(badge("NeetCode 150", f"{nc_done}/{nc_total}", "1F6FEB", "flat-square",
-                logo="leetcode"))
-    if ranking:
-        if ranking.get("overall_ranking"):
-            a(badge("Global Rank", f"#{fmt_int(ranking['overall_ranking'])}",
-                    "F89F1B", "flat-square", logo="leetcode"))
-        if ranking.get("contest_rating"):
-            a(badge("Contest Rating", str(round(ranking["contest_rating"])),
-                    "8E44AD", "flat-square", logo="leetcode"))
-        if ranking.get("contest_top_percentage") is not None:
-            a(badge("Contest Top", f"{ranking['contest_top_percentage']:.1f}%",
-                    "8E44AD", "flat-square"))
     a("")
     a("</div>")
     a("")
@@ -476,33 +658,15 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
         a(f"| **{this_week}**{wk_arrow} | **{this_month}** | **{active_days}** |")
         a("")
 
-        # 13-week contribution heatmap (rows = weekday, cols = week).
-        weeks = 13
-        grid_start = week_start - timedelta(weeks=weeks - 1)
-        counts_by_day = Counter(p["date"] for p in dated)
-
-        def heat(c: int) -> str:
-            if c <= 0:
-                return "\u00b7"
-            if c == 1:
-                return "\u2591"
-            if c == 2:
-                return "\u2592"
-            if c == 3:
-                return "\u2593"
-            return "\u2588"
-
-        labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-        a("```text")
-        a(f"Last {weeks} weeks")
-        for wd in range(7):
-            cells = []
-            for wk in range(weeks):
-                day = grid_start + timedelta(days=wk * 7 + wd)
-                cells.append(" " if day > today else heat(counts_by_day.get(day, 0)))
-            a(f"{labels[wd]} {''.join(cells)}")
-        a("Less \u00b7\u2591\u2592\u2593\u2588 More")
-        a("```")
+        # 13-week contribution heatmap, rendered as a committed SVG image so it
+        # stays pixel-aligned (block-character ASCII drifts in GitHub's font).
+        write_if_changed(HEATMAP_FILE, build_heatmap_svg(dated, today, week_start))
+        heatmap_rel = HEATMAP_FILE.relative_to(REPO_ROOT).as_posix()
+        a('<div align="center">')
+        a("")
+        a(f'<img src="{heatmap_rel}" alt="Contribution heatmap of the last 13 weeks" />')
+        a("")
+        a("</div>")
         a("")
 
         # Recent activity feed.

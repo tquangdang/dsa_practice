@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="150" viewBox="0 0 720 150" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+<line x1="192" y1="30" x2="192" y2="120" stroke="#d0d7de" stroke-width="1"/>
+<line x1="360" y1="30" x2="360" y2="120" stroke="#d0d7de" stroke-width="1"/>
+<line x1="528" y1="30" x2="528" y2="120" stroke="#d0d7de" stroke-width="1"/>
+<text x="108" y="48" text-anchor="middle" fill="#768390" font-size="12" letter-spacing="1.5">SOLVED</text>
+<text x="108" y="92" text-anchor="middle" fill="#1F6FEB" font-size="40" font-weight="700">52</text>
+<text x="108" y="114" text-anchor="middle" fill="#768390" font-size="13">Python</text>
+<text x="276" y="48" text-anchor="middle" fill="#768390" font-size="12" letter-spacing="1.5">BY DIFFICULTY</text>
+<rect x="220.0" y="66" width="45.2" height="14" fill="#2DB55D"/>
+<rect x="265.2" y="66" width="58.2" height="14" fill="#FFB800"/>
+<rect x="323.4" y="66" width="8.6" height="14" fill="#EF4743"/>
+<text x="276" y="106" text-anchor="middle" font-size="14" font-weight="600"><tspan fill="#2DB55D">21</tspan><tspan fill="#768390"> / </tspan><tspan fill="#FFB800">27</tspan><tspan fill="#768390"> / </tspan><tspan fill="#EF4743">4</tspan></text>
+<text x="444" y="48" text-anchor="middle" fill="#768390" font-size="12" letter-spacing="1.5">NEETCODE 150</text>
+<text x="444" y="92" text-anchor="middle" fill="#1F6FEB" font-size="40" font-weight="700">30%</text>
+<text x="444" y="114" text-anchor="middle" fill="#768390" font-size="13">45 / 150</text>
+<text x="612" y="48" text-anchor="middle" fill="#768390" font-size="12" letter-spacing="1.5">CONTEST</text>
+<text x="612" y="92" text-anchor="middle" fill="#8E44AD" font-size="40" font-weight="700">1430</text>
+<text x="612" y="114" text-anchor="middle" fill="#768390" font-size="13">Rank #642,193</text>
+</svg>
