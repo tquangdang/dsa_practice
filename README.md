@@ -41,7 +41,7 @@
 
 <div align="center">
 
-<img src="assets/activity-heatmap.svg" alt="Contribution heatmap of the last 13 weeks" />
+<img src="assets/activity-heatmap.svg" alt="Contribution heatmap of the last 26 weeks" />
 
 </div>
 

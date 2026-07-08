@@ -366,7 +366,7 @@ MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 
 
 def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
-                      weeks: int = 13) -> str:
+                      weeks: int = 26) -> str:
     """Render a GitHub-style contribution heatmap as a standalone SVG string."""
     counts_by_day = Counter(p["date"] for p in dated)
     cell, gap = 14, 3
@@ -658,13 +658,13 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
         a(f"| **{this_week}**{wk_arrow} | **{this_month}** | **{active_days}** |")
         a("")
 
-        # 13-week contribution heatmap, rendered as a committed SVG image so it
+        # 26-week contribution heatmap, rendered as a committed SVG image so it
         # stays pixel-aligned (block-character ASCII drifts in GitHub's font).
         write_if_changed(HEATMAP_FILE, build_heatmap_svg(dated, today, week_start))
         heatmap_rel = HEATMAP_FILE.relative_to(REPO_ROOT).as_posix()
         a('<div align="center">')
         a("")
-        a(f'<img src="{heatmap_rel}" alt="Contribution heatmap of the last 13 weeks" />')
+        a(f'<img src="{heatmap_rel}" alt="Contribution heatmap of the last 26 weeks" />')
         a("")
         a("</div>")
         a("")
