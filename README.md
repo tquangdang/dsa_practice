@@ -6,7 +6,7 @@
 
 *Python solutions to LeetCode problems — my data structures, algorithms, and interview-prep journal.*
 
-<img src="assets/stats-banner.svg" width="100%" alt="Solved 52 — NeetCode 45/150 — stats overview" />
+<img src="assets/stats-banner.svg" width="100%" alt="Solved 53 — NeetCode 46/150 — stats overview" />
 
 [Overview](#overview) &nbsp;&bull;&nbsp; [Activity](#activity) &nbsp;&bull;&nbsp; [Competitive](#competitive-standing) &nbsp;&bull;&nbsp; [NeetCode 150](#neetcode-150) &nbsp;&bull;&nbsp; [Topics](#topics) &nbsp;&bull;&nbsp; [Solutions](#solutions)
 
@@ -18,16 +18,16 @@
 
 | Metric | Value |
 | :----- | :---- |
-| Total solved | **52** |
-| Avg runtime | beats 57% of submissions |
-| NeetCode 150 | 45 / 150 (30%) |
-| Last updated | 2026-07-07 |
+| Total solved | **53** |
+| Avg runtime | beats 58% of submissions |
+| NeetCode 150 | 46 / 150 (31%) |
+| Last updated | 2026-07-08 |
 
 **By difficulty**
 
 <div align="center">
 
-<img src="assets/difficulty-donut.svg" alt="Difficulty breakdown: 21 Easy, 27 Medium, 4 Hard" />
+<img src="assets/difficulty-donut.svg" alt="Difficulty breakdown: 22 Easy, 27 Medium, 4 Hard" />
 
 </div>
 
@@ -37,7 +37,7 @@
 
 | This week | This month | Active days |
 | :-------: | :--------: | :---------: |
-| **3** ⬇ -12 vs last week | **15** | **15** |
+| **4** ⬇ -11 vs last week | **16** | **16** |
 
 <div align="center">
 
@@ -49,11 +49,11 @@
 
 | Date | # | Problem | Difficulty |
 | :--- | --: | :------ | :--------- |
+| 2026-07-08 | 226 | [Invert Binary Tree](https://github.com/tquangdang/dsa_practice/tree/main/0226-invert-binary-tree) | 🟢 Easy |
 | 2026-07-07 | 287 | [Find the Duplicate Number](https://github.com/tquangdang/dsa_practice/tree/main/0287-find-the-duplicate-number) | 🟡 Medium |
 | 2026-07-07 | 138 | [Copy List with Random Pointer](https://github.com/tquangdang/dsa_practice/tree/main/0138-copy-list-with-random-pointer) | 🟡 Medium |
 | 2026-07-07 | 2 | [Add Two Numbers](https://github.com/tquangdang/dsa_practice/tree/main/0002-add-two-numbers) | 🟡 Medium |
 | 2026-07-04 | 206 | [Reverse Linked List](https://github.com/tquangdang/dsa_practice/tree/main/0206-reverse-linked-list) | 🟢 Easy |
-| 2026-07-04 | 143 | [Reorder List](https://github.com/tquangdang/dsa_practice/tree/main/0143-reorder-list) | 🟡 Medium |
 
 ---
 
@@ -61,7 +61,7 @@
 
 | Metric | Value |
 | :----- | :---- |
-| Global rank | [#642,193](https://leetcode.com/u/quang_dang/) worldwide |
+| Global rank | [#639,354](https://leetcode.com/u/quang_dang/) worldwide |
 | Contest rating | 1430 |
 | Contest rank | #613,918 / 874,830 (top 70.54%) |
 | Contests attended | 2 |
@@ -75,7 +75,7 @@
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **45 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **46 / 150** complete.
 
 <div align="center">
 
@@ -91,7 +91,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **45 /
 
 <img src="assets/topics.svg" alt="Topics solved, by problem count" />
 
-<sub>+16 more topics</sub>
+<sub>+18 more topics</sub>
 
 </div>
 
@@ -184,6 +184,15 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 | 143 | [Reorder List](https://github.com/tquangdang/dsa_practice/tree/main/0143-reorder-list) | 🟡 Medium | 3 ms (52%) | 28.0 MB (22%) |
 | 206 | [Reverse Linked List](https://github.com/tquangdang/dsa_practice/tree/main/0206-reverse-linked-list) | 🟢 Easy | 0 ms (100%) | 20.5 MB (65%) |
 | 287 | [Find the Duplicate Number](https://github.com/tquangdang/dsa_practice/tree/main/0287-find-the-duplicate-number) | 🟡 Medium | 203 ms (5%) | 33.5 MB (49%) |
+
+</details>
+
+<details>
+<summary><strong>Trees</strong> &nbsp;(1 / 15)</summary>
+
+| # | Problem | Difficulty | Runtime | Memory |
+| --: | :------ | :--------- | :------ | :----- |
+| 226 | [Invert Binary Tree](https://github.com/tquangdang/dsa_practice/tree/main/0226-invert-binary-tree) | 🟢 Easy | 0 ms (100%) | 19.3 MB (20%) |
 
 </details>
 

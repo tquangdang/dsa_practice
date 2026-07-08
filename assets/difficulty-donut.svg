@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="480" height="200" viewBox="0 0 480 200" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
 <circle cx="108" cy="100" r="78" fill="none" stroke="#ebedf0" stroke-width="28" />
 <g transform="rotate(-90 108 100)">
-<circle cx="108" cy="100" r="78" fill="none" stroke="#2DB55D" stroke-width="28" stroke-dasharray="197.92 490.09" stroke-dashoffset="-0.00" />
-<circle cx="108" cy="100" r="78" fill="none" stroke="#FFB800" stroke-width="28" stroke-dasharray="254.47 490.09" stroke-dashoffset="-197.92" />
-<circle cx="108" cy="100" r="78" fill="none" stroke="#EF4743" stroke-width="28" stroke-dasharray="37.70 490.09" stroke-dashoffset="-452.39" />
+<circle cx="108" cy="100" r="78" fill="none" stroke="#2DB55D" stroke-width="28" stroke-dasharray="203.43 490.09" stroke-dashoffset="-0.00" />
+<circle cx="108" cy="100" r="78" fill="none" stroke="#FFB800" stroke-width="28" stroke-dasharray="249.67 490.09" stroke-dashoffset="-203.43" />
+<circle cx="108" cy="100" r="78" fill="none" stroke="#EF4743" stroke-width="28" stroke-dasharray="36.99 490.09" stroke-dashoffset="-453.10" />
 </g>
-<text x="108" y="102" text-anchor="middle" font-size="38" font-weight="700" fill="#1F6FEB">52</text>
+<text x="108" y="102" text-anchor="middle" font-size="38" font-weight="700" fill="#1F6FEB">53</text>
 <text x="108" y="124" text-anchor="middle" font-size="12" fill="#768390">solved</text>
 <rect x="250" y="54" width="15" height="15" rx="3" fill="#2DB55D" />
-<text x="274" y="66" font-size="14" fill="#768390">Easy &#8212; 21 (40%)</text>
+<text x="274" y="66" font-size="14" fill="#768390">Easy &#8212; 22 (42%)</text>
 <rect x="250" y="88" width="15" height="15" rx="3" fill="#FFB800" />
-<text x="274" y="100" font-size="14" fill="#768390">Medium &#8212; 27 (52%)</text>
+<text x="274" y="100" font-size="14" fill="#768390">Medium &#8212; 27 (51%)</text>
 <rect x="250" y="122" width="15" height="15" rx="3" fill="#EF4743" />
 <text x="274" y="134" font-size="14" fill="#768390">Hard &#8212; 4 (8%)</text>
 </svg>

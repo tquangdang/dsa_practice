@@ -175,6 +175,17 @@
       "Two Pointers"
     ]
   },
+  "invert-binary-tree": {
+    "difficulty": "Easy",
+    "id": "226",
+    "title": "Invert Binary Tree",
+    "topics": [
+      "Tree",
+      "Depth-First Search",
+      "Breadth-First Search",
+      "Binary Tree"
+    ]
+  },
   "k-closest-points-to-origin": {
     "difficulty": "Medium",
     "id": "973",
