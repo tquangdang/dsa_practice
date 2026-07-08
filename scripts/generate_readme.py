@@ -13,6 +13,7 @@ generator never overwrite each other.
 from __future__ import annotations
 
 import json
+import math
 import os
 import re
 import subprocess
@@ -32,6 +33,9 @@ USER_CACHE_FILE = Path(__file__).resolve().parent / "leetcode_user_cache.json"
 ASSETS_DIR = REPO_ROOT / "assets"
 HEATMAP_FILE = ASSETS_DIR / "activity-heatmap.svg"
 BANNER_FILE = ASSETS_DIR / "stats-banner.svg"
+TOPICS_FILE = ASSETS_DIR / "topics.svg"
+NEETCODE_SVG_FILE = ASSETS_DIR / "neetcode.svg"
+DIFFICULTY_FILE = ASSETS_DIR / "difficulty-donut.svg"
 
 PROFILE_START = "<!-- PROFILE:START -->"
 PROFILE_END = "<!-- PROFILE:END -->"
@@ -542,6 +546,199 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
     return "\n".join(parts) + "\n"
 
 
+def _xml(s) -> str:
+    return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def _blue_scale(f: float) -> str:
+    """Light-to-dark blue by fraction f in [0, 1] (darker = larger)."""
+    lo = (158, 197, 251)  # #9EC5FB
+    hi = (13, 71, 161)     # #0D47A1
+    r, g, b = (round(lo[i] + (hi[i] - lo[i]) * f) for i in range(3))
+    return f"#{r:02x}{g:02x}{b:02x}"
+
+
+def _arc_circle(cx: float, cy: float, r: float, sw: int, color: str,
+                frac: float, offset: float) -> str:
+    """A donut/ring segment via stroke-dasharray (group is rotated -90)."""
+    c = 2 * math.pi * r
+    dash = max(0.0, frac) * c
+    return (
+        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{color}" '
+        f'stroke-width="{sw}" stroke-dasharray="{dash:.2f} {c:.2f}" '
+        f'stroke-dashoffset="{-offset * c:.2f}" />'
+    )
+
+
+def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
+    """Horizontal bar chart of topic counts (sorted desc), as an SVG string."""
+    rows = items[:top_n]
+    width = 560
+    label_w = 170
+    bar_x = label_w + 8
+    bar_max = width - bar_x - 44
+    row_h, bar_h, top_pad = 22, 12, 12
+    height = top_pad + len(rows) * row_h + 12
+    max_count = max((n for _, n in rows), default=1)
+    label_c = "#768390"
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+        f'viewBox="0 0 {width} {height}" '
+        f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" '
+        f'font-size="11">'
+    ]
+    for i, (topic, n) in enumerate(rows):
+        row_y = top_pad + i * row_h
+        by = row_y + (row_h - bar_h) / 2
+        ty = row_y + row_h / 2 + 4
+        frac = n / max_count if max_count else 0
+        fill_len = bar_max * frac
+        parts.append(
+            f'<text x="{label_w - 6}" y="{ty:.0f}" text-anchor="end" '
+            f'fill="{label_c}">{_xml(topic)}</text>'
+        )
+        parts.append(
+            f'<rect x="{bar_x}" y="{by:.0f}" width="{bar_max}" height="{bar_h}" '
+            f'rx="6" ry="6" fill="#ebedf0" />'
+        )
+        parts.append(
+            f'<rect x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" height="{bar_h}" '
+            f'rx="6" ry="6" fill="{_blue_scale(frac)}" />'
+        )
+        parts.append(
+            f'<text x="{bar_x + fill_len + 6:.0f}" y="{ty:.0f}" '
+            f'fill="{label_c}" font-weight="600">{n}</text>'
+        )
+    parts.append("</svg>")
+    return "\n".join(parts) + "\n"
+
+
+def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
+    """Donut chart of the difficulty split with a legend, as an SVG string."""
+    width, height = 360, 180
+    cx, cy, r, sw = 90, 90, 62, 22
+    total = easy + medium + hard
+    label_c = "#768390"
+    segs = [
+        ("Easy", easy, f"#{DIFFICULTY_COLOR['Easy']}"),
+        ("Medium", medium, f"#{DIFFICULTY_COLOR['Medium']}"),
+        ("Hard", hard, f"#{DIFFICULTY_COLOR['Hard']}"),
+    ]
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+        f'viewBox="0 0 {width} {height}" '
+        f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">'
+    ]
+    parts.append(
+        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#ebedf0" '
+        f'stroke-width="{sw}" />'
+    )
+    parts.append(f'<g transform="rotate(-90 {cx} {cy})">')
+    cum = 0.0
+    for _, val, color in segs:
+        if val <= 0 or total <= 0:
+            continue
+        frac = val / total
+        parts.append(_arc_circle(cx, cy, r, sw, color, frac, cum))
+        cum += frac
+    parts.append("</g>")
+    parts.append(
+        f'<text x="{cx}" y="{cy - 2}" text-anchor="middle" font-size="30" '
+        f'font-weight="700" fill="#1F6FEB">{total}</text>'
+    )
+    parts.append(
+        f'<text x="{cx}" y="{cy + 16}" text-anchor="middle" font-size="11" '
+        f'fill="{label_c}">solved</text>'
+    )
+    lx, ly = 200, 52
+    for name, val, color in segs:
+        pct = (val / total * 100) if total else 0
+        parts.append(
+            f'<rect x="{lx}" y="{ly - 11}" width="13" height="13" rx="3" '
+            f'fill="{color}" />'
+        )
+        parts.append(
+            f'<text x="{lx + 20}" y="{ly}" font-size="13" fill="{label_c}">'
+            f'{name} &#8212; {val} ({pct:.0f}%)</text>'
+        )
+        ly += 30
+    parts.append("</svg>")
+    return "\n".join(parts) + "\n"
+
+
+def build_neetcode_svg(cat_rows: list[tuple], nc_done: int, nc_total: int,
+                       nc_frac: float) -> str:
+    """Overall progress ring + per-category bars, as an SVG string.
+
+    ``cat_rows`` is a list of ``(frac, category, done, total)`` sorted desc.
+    """
+    width = 560
+    label_w = 168
+    bar_x = label_w + 8
+    bar_max = width - bar_x - 58
+    row_h, bar_h = 22, 12
+    top_h = 132
+    height = top_h + len(cat_rows) * row_h + 12
+    label_c, done_c, part_c = "#768390", "#2DB55D", "#1F6FEB"
+
+    cx, cy, r, sw = 74, 62, 46, 12
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+        f'viewBox="0 0 {width} {height}" '
+        f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">'
+    ]
+    # Overall progress ring.
+    parts.append(
+        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#ebedf0" '
+        f'stroke-width="{sw}" />'
+    )
+    parts.append(f'<g transform="rotate(-90 {cx} {cy})">')
+    parts.append(_arc_circle(cx, cy, r, sw, part_c, nc_frac, 0.0))
+    parts.append("</g>")
+    parts.append(
+        f'<text x="{cx}" y="{cy + 2}" text-anchor="middle" font-size="20" '
+        f'font-weight="700" fill="{part_c}">{nc_frac * 100:.0f}%</text>'
+    )
+    parts.append(
+        f'<text x="{cx + r + 20}" y="{cy - 6}" font-size="26" font-weight="700" '
+        f'fill="{part_c}">{nc_done} / {nc_total}</text>'
+    )
+    parts.append(
+        f'<text x="{cx + r + 20}" y="{cy + 16}" font-size="12" fill="{label_c}">'
+        f'problems on the roadmap</text>'
+    )
+
+    # Per-category bars.
+    for i, (frac, category, done, tot) in enumerate(cat_rows):
+        row_y = top_h + i * row_h
+        by = row_y + (row_h - bar_h) / 2
+        ty = row_y + row_h / 2 + 4
+        complete = done == tot and tot
+        fill = done_c if complete else part_c
+        fill_len = bar_max * frac
+        label = f"{_xml(category)} \u2713" if complete else _xml(category)
+        parts.append(
+            f'<text x="{label_w - 6}" y="{ty:.0f}" text-anchor="end" '
+            f'font-size="11" fill="{label_c}">{label}</text>'
+        )
+        parts.append(
+            f'<rect x="{bar_x}" y="{by:.0f}" width="{bar_max}" height="{bar_h}" '
+            f'rx="6" ry="6" fill="#ebedf0" />'
+        )
+        if fill_len > 0:
+            parts.append(
+                f'<rect x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" '
+                f'height="{bar_h}" rx="6" ry="6" fill="{fill}" />'
+            )
+        parts.append(
+            f'<text x="{width - 6}" y="{ty:.0f}" text-anchor="end" font-size="11" '
+            f'font-weight="600" fill="{label_c}">{done}/{tot}</text>'
+        )
+    parts.append("</svg>")
+    return "\n".join(parts) + "\n"
+
+
 def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -> str:
     base = f"https://github.com/{repo}/tree/{branch}"
     dash = "\u2014"
@@ -609,7 +806,6 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
         nav.append("[Competitive](#competitive-standing)")
     if nc_total:
         nav.append("[NeetCode 150](#neetcode-150)")
-    nav.append("[Achievements](#achievements)")
     nav.append("[Topics](#topics)")
     nav.append("[Solutions](#solutions)")
     a(" &nbsp;&bull;&nbsp; ".join(nav))
@@ -634,12 +830,14 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
     a("")
     a("**By difficulty**")
     a("")
-    a("| Difficulty | Solved | Share |")
-    a("| :--------- | :----: | :---- |")
-    for diff in ("Easy", "Medium", "Hard"):
-        n = counts[diff]
-        frac = n / total if total else 0
-        a(f"| {diff} | {n} | `{pct_bar(frac, width=24)}` {frac * 100:.0f}% |")
+    write_if_changed(DIFFICULTY_FILE, build_difficulty_donut_svg(easy, medium, hard))
+    difficulty_rel = DIFFICULTY_FILE.relative_to(REPO_ROOT).as_posix()
+    a('<div align="center">')
+    a("")
+    a(f'<img src="{difficulty_rel}" alt="Difficulty breakdown: '
+      f'{easy} Easy, {medium} Medium, {hard} Hard" />')
+    a("")
+    a("</div>")
     a("")
 
     # ---- Activity ----
@@ -737,78 +935,39 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
         a(f"Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: "
           f"**{nc_done} / {nc_total}** complete.")
         a("")
-        a(f"`{pct_bar(nc_frac, width=30)}` {nc_frac * 100:.0f}%")
-        a("")
-        a("| Category | Done | Progress |")
-        a("| :------- | :--: | :------- |")
         cat_rows = []
         for category, slugs in neetcode.items():
             done = sum(1 for s in slugs if s in solved_slugs)
             frac = done / len(slugs) if slugs else 0
             cat_rows.append((frac, category, done, len(slugs)))
         cat_rows.sort(key=lambda r: (-r[0], r[1]))
-        for frac, category, done, tot in cat_rows:
-            mark = " \u2713" if done == tot and tot else ""
-            a(f"| {category}{mark} | {done} / {tot} | `{pct_bar(frac, width=12)}` |")
+        write_if_changed(
+            NEETCODE_SVG_FILE, build_neetcode_svg(cat_rows, nc_done, nc_total, nc_frac)
+        )
+        neetcode_rel = NEETCODE_SVG_FILE.relative_to(REPO_ROOT).as_posix()
+        a('<div align="center">')
+        a("")
+        a(f'<img src="{neetcode_rel}" alt="NeetCode 150 progress by category" />')
+        a("")
+        a("</div>")
         a("")
 
-    # ---- Achievements ----
-    cleared_cats = sum(
-        1 for slugs in neetcode.values()
-        if slugs and all(s in solved_slugs for s in slugs)
-    )
-    achievements = [
-        ("\U0001F3AF First Blood", "solve your first problem", total, 1),
-        ("\U0001F51F Getting Started", "10 problems solved", total, 10),
-        ("\U0001F949 Quarter Century", "25 problems solved", total, 25),
-        ("\U0001F948 Half Century", "50 problems solved", total, 50),
-        ("\U0001F947 Centurion", "100 problems solved", total, 100),
-        ("\U0001F7E2 Easy Rider", "10 Easy solved", easy, 10),
-        ("\U0001F7E1 Mid Grinder", "20 Medium solved", medium, 20),
-        ("\U0001F534 Hard Mode", "first Hard solved", hard, 1),
-        ("\u2694\uFE0F Iron Will", "5 Hard solved", hard, 5),
-        ("\U0001F9E9 Category Cleared", "clear a NeetCode category", cleared_cats, 1),
-        ("\U0001F5FA\uFE0F Trailblazer", "clear 5 NeetCode categories", cleared_cats, 5),
-    ]
-    if nc_total:
-        achievements += [
-            ("\U0001F4D7 NeetCode Rookie", "25 of NeetCode 150", nc_done, 25),
-            ("\U0001F4D8 NeetCode Adept", "50 of NeetCode 150", nc_done, 50),
-            ("\U0001F4D5 NeetCode Expert", "100 of NeetCode 150", nc_done, 100),
-            ("\U0001F3C6 NeetCode 150", "complete the roadmap", nc_done, 150),
-        ]
-    unlocked = sum(1 for _, _, cur, tgt in achievements if cur >= tgt)
-    achievements.sort(key=lambda x: (x[2] < x[3], -min(x[2], x[3]) / x[3]))
-    a("---")
-    a("")
-    a("## Achievements")
-    a("")
-    a("<details>")
-    a(f"<summary><strong>Achievements</strong> &nbsp;({unlocked} / "
-      f"{len(achievements)} unlocked)</summary>")
-    a("")
-    a("| Badge | Achievement | Status |")
-    a("| :---- | :---------- | :----- |")
-    for name, desc, cur, tgt in achievements:
-        if cur >= tgt:
-            status = "\u2705 Unlocked"
-        else:
-            status = f"\U0001F512 {min(cur, tgt)} / {tgt}"
-        a(f"| {name} | {desc} | {status} |")
-    a("")
-    a("</details>")
-    a("")
-
-    # ---- Topics (chips) ----
+    # ---- Topics (bar chart) ----
     a("---")
     a("")
     a("## Topics")
     a("")
+    topic_items = sorted(topic_counts.items(), key=lambda kv: (-kv[1], kv[0]))
+    write_if_changed(TOPICS_FILE, build_topics_bar_svg(topic_items))
+    topics_rel = TOPICS_FILE.relative_to(REPO_ROOT).as_posix()
     a('<div align="center">')
     a("")
-    for topic, n in sorted(topic_counts.items(), key=lambda kv: (-kv[1], kv[0])):
-        a(badge(topic, str(n), "555", "flat-square"))
+    a(f'<img src="{topics_rel}" alt="Topics solved, by problem count" />')
     a("")
+    extra = len(topic_items) - 16
+    if extra > 0:
+        a(f"<sub>+{extra} more topics</sub>")
+        a("")
     a("</div>")
     a("")
 

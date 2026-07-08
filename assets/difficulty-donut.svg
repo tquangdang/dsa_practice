@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="180" viewBox="0 0 360 180" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+<circle cx="90" cy="90" r="62" fill="none" stroke="#ebedf0" stroke-width="22" />
+<g transform="rotate(-90 90 90)">
+<circle cx="90" cy="90" r="62" fill="none" stroke="#2DB55D" stroke-width="22" stroke-dasharray="157.32 389.56" stroke-dashoffset="-0.00" />
+<circle cx="90" cy="90" r="62" fill="none" stroke="#FFB800" stroke-width="22" stroke-dasharray="202.27 389.56" stroke-dashoffset="-157.32" />
+<circle cx="90" cy="90" r="62" fill="none" stroke="#EF4743" stroke-width="22" stroke-dasharray="29.97 389.56" stroke-dashoffset="-359.59" />
+</g>
+<text x="90" y="88" text-anchor="middle" font-size="30" font-weight="700" fill="#1F6FEB">52</text>
+<text x="90" y="106" text-anchor="middle" font-size="11" fill="#768390">solved</text>
+<rect x="200" y="41" width="13" height="13" rx="3" fill="#2DB55D" />
+<text x="220" y="52" font-size="13" fill="#768390">Easy &#8212; 21 (40%)</text>
+<rect x="200" y="71" width="13" height="13" rx="3" fill="#FFB800" />
+<text x="220" y="82" font-size="13" fill="#768390">Medium &#8212; 27 (52%)</text>
+<rect x="200" y="101" width="13" height="13" rx="3" fill="#EF4743" />
+<text x="220" y="112" font-size="13" fill="#768390">Hard &#8212; 4 (8%)</text>
+</svg>

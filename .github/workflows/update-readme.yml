@@ -32,7 +32,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          files="README.md assets/activity-heatmap.svg assets/stats-banner.svg scripts/leetcode_cache.json scripts/leetcode_user_cache.json"
+          files="README.md assets/activity-heatmap.svg assets/stats-banner.svg assets/topics.svg assets/neetcode.svg assets/difficulty-donut.svg scripts/leetcode_cache.json scripts/leetcode_user_cache.json"
           # Regenerate on top of the freshest remote each attempt so we never
           # lose a non-fast-forward race against LeetHub's rapid commits.
           for attempt in 1 2 3 4 5; do

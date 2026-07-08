@@ -8,7 +8,7 @@
 
 <img src="assets/stats-banner.svg" alt="Solved 52 — NeetCode 45/150 — stats overview" />
 
-[Overview](#overview) &nbsp;&bull;&nbsp; [Activity](#activity) &nbsp;&bull;&nbsp; [Competitive](#competitive-standing) &nbsp;&bull;&nbsp; [NeetCode 150](#neetcode-150) &nbsp;&bull;&nbsp; [Achievements](#achievements) &nbsp;&bull;&nbsp; [Topics](#topics) &nbsp;&bull;&nbsp; [Solutions](#solutions)
+[Overview](#overview) &nbsp;&bull;&nbsp; [Activity](#activity) &nbsp;&bull;&nbsp; [Competitive](#competitive-standing) &nbsp;&bull;&nbsp; [NeetCode 150](#neetcode-150) &nbsp;&bull;&nbsp; [Topics](#topics) &nbsp;&bull;&nbsp; [Solutions](#solutions)
 
 </div>
 
@@ -25,11 +25,11 @@
 
 **By difficulty**
 
-| Difficulty | Solved | Share |
-| :--------- | :----: | :---- |
-| Easy | 21 | `██████████░░░░░░░░░░░░░░` 40% |
-| Medium | 27 | `████████████░░░░░░░░░░░░` 52% |
-| Hard | 4 | `██░░░░░░░░░░░░░░░░░░░░░░` 8% |
+<div align="center">
+
+<img src="assets/difficulty-donut.svg" alt="Difficulty breakdown: 21 Easy, 27 Medium, 4 Hard" />
+
+</div>
 
 ---
 
@@ -77,55 +77,11 @@
 
 Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **45 / 150** complete.
 
-`█████████░░░░░░░░░░░░░░░░░░░░░` 30%
+<div align="center">
 
-| Category | Done | Progress |
-| :------- | :--: | :------- |
-| Sliding Window ✓ | 6 / 6 | `████████████` |
-| Stack ✓ | 7 / 7 | `████████████` |
-| Two Pointers ✓ | 5 / 5 | `████████████` |
-| Arrays & Hashing | 8 / 9 | `███████████░` |
-| Binary Search | 5 / 7 | `█████████░░░` |
-| Linked List | 7 / 11 | `████████░░░░` |
-| Heap / Priority Queue | 4 / 7 | `███████░░░░░` |
-| Math & Geometry | 2 / 8 | `███░░░░░░░░░` |
-| Bit Manipulation | 1 / 7 | `██░░░░░░░░░░` |
-| 1-D Dynamic Programming | 0 / 12 | `░░░░░░░░░░░░` |
-| 2-D Dynamic Programming | 0 / 11 | `░░░░░░░░░░░░` |
-| Advanced Graphs | 0 / 6 | `░░░░░░░░░░░░` |
-| Backtracking | 0 / 9 | `░░░░░░░░░░░░` |
-| Graphs | 0 / 13 | `░░░░░░░░░░░░` |
-| Greedy | 0 / 8 | `░░░░░░░░░░░░` |
-| Intervals | 0 / 6 | `░░░░░░░░░░░░` |
-| Trees | 0 / 15 | `░░░░░░░░░░░░` |
-| Tries | 0 / 3 | `░░░░░░░░░░░░` |
+<img src="assets/neetcode.svg" alt="NeetCode 150 progress by category" />
 
----
-
-## Achievements
-
-<details>
-<summary><strong>Achievements</strong> &nbsp;(9 / 15 unlocked)</summary>
-
-| Badge | Achievement | Status |
-| :---- | :---------- | :----- |
-| 🎯 First Blood | solve your first problem | ✅ Unlocked |
-| 🔟 Getting Started | 10 problems solved | ✅ Unlocked |
-| 🥉 Quarter Century | 25 problems solved | ✅ Unlocked |
-| 🥈 Half Century | 50 problems solved | ✅ Unlocked |
-| 🟢 Easy Rider | 10 Easy solved | ✅ Unlocked |
-| 🟡 Mid Grinder | 20 Medium solved | ✅ Unlocked |
-| 🔴 Hard Mode | first Hard solved | ✅ Unlocked |
-| 🧩 Category Cleared | clear a NeetCode category | ✅ Unlocked |
-| 📗 NeetCode Rookie | 25 of NeetCode 150 | ✅ Unlocked |
-| 📘 NeetCode Adept | 50 of NeetCode 150 | 🔒 45 / 50 |
-| ⚔️ Iron Will | 5 Hard solved | 🔒 4 / 5 |
-| 🗺️ Trailblazer | clear 5 NeetCode categories | 🔒 3 / 5 |
-| 🥇 Centurion | 100 problems solved | 🔒 52 / 100 |
-| 📕 NeetCode Expert | 100 of NeetCode 150 | 🔒 45 / 100 |
-| 🏆 NeetCode 150 | complete the roadmap | 🔒 45 / 150 |
-
-</details>
+</div>
 
 ---
 
@@ -133,38 +89,9 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **45 /
 
 <div align="center">
 
-![Array](https://img.shields.io/badge/Array-33-555?style=flat-square)
-![Hash Table](https://img.shields.io/badge/Hash_Table-15-555?style=flat-square)
-![Two Pointers](https://img.shields.io/badge/Two_Pointers-11-555?style=flat-square)
-![Sorting](https://img.shields.io/badge/Sorting-10-555?style=flat-square)
-![String](https://img.shields.io/badge/String-10-555?style=flat-square)
-![Binary Search](https://img.shields.io/badge/Binary_Search-8-555?style=flat-square)
-![Math](https://img.shields.io/badge/Math-8-555?style=flat-square)
-![Stack](https://img.shields.io/badge/Stack-8-555?style=flat-square)
-![Heap (Priority Queue)](https://img.shields.io/badge/Heap_(Priority_Queue)-6-555?style=flat-square)
-![Linked List](https://img.shields.io/badge/Linked_List-6-555?style=flat-square)
-![Sliding Window](https://img.shields.io/badge/Sliding_Window-5-555?style=flat-square)
-![Divide and Conquer](https://img.shields.io/badge/Divide_and_Conquer-4-555?style=flat-square)
-![Monotonic Stack](https://img.shields.io/badge/Monotonic_Stack-4-555?style=flat-square)
-![Recursion](https://img.shields.io/badge/Recursion-4-555?style=flat-square)
-![Design](https://img.shields.io/badge/Design-3-555?style=flat-square)
-![Dynamic Programming](https://img.shields.io/badge/Dynamic_Programming-3-555?style=flat-square)
-![Prefix Sum](https://img.shields.io/badge/Prefix_Sum-3-555?style=flat-square)
-![Quickselect](https://img.shields.io/badge/Quickselect-3-555?style=flat-square)
-![Bit Manipulation](https://img.shields.io/badge/Bit_Manipulation-2-555?style=flat-square)
-![Counting](https://img.shields.io/badge/Counting-2-555?style=flat-square)
-![Matrix](https://img.shields.io/badge/Matrix-2-555?style=flat-square)
-![Backtracking](https://img.shields.io/badge/Backtracking-1-555?style=flat-square)
-![Binary Search Tree](https://img.shields.io/badge/Binary_Search_Tree-1-555?style=flat-square)
-![Binary Tree](https://img.shields.io/badge/Binary_Tree-1-555?style=flat-square)
-![Bucket Sort](https://img.shields.io/badge/Bucket_Sort-1-555?style=flat-square)
-![Data Stream](https://img.shields.io/badge/Data_Stream-1-555?style=flat-square)
-![Geometry](https://img.shields.io/badge/Geometry-1-555?style=flat-square)
-![Greedy](https://img.shields.io/badge/Greedy-1-555?style=flat-square)
-![Monotonic Queue](https://img.shields.io/badge/Monotonic_Queue-1-555?style=flat-square)
-![Queue](https://img.shields.io/badge/Queue-1-555?style=flat-square)
-![Tree](https://img.shields.io/badge/Tree-1-555?style=flat-square)
-![Union Find](https://img.shields.io/badge/Union_Find-1-555?style=flat-square)
+<img src="assets/topics.svg" alt="Topics solved, by problem count" />
+
+<sub>+16 more topics</sub>
 
 </div>
 
