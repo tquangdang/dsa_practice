@@ -6,7 +6,7 @@
 
 *Python solutions to LeetCode problems — my data structures, algorithms, and interview-prep journal.*
 
-<img src="assets/stats-banner.svg" alt="Solved 52 — NeetCode 45/150 — stats overview" />
+<img src="assets/stats-banner.svg" width="100%" alt="Solved 52 — NeetCode 45/150 — stats overview" />
 
 [Overview](#overview) &nbsp;&bull;&nbsp; [Activity](#activity) &nbsp;&bull;&nbsp; [Competitive](#competitive-standing) &nbsp;&bull;&nbsp; [NeetCode 150](#neetcode-150) &nbsp;&bull;&nbsp; [Topics](#topics) &nbsp;&bull;&nbsp; [Solutions](#solutions)
 
@@ -41,7 +41,7 @@
 
 <div align="center">
 
-<img src="assets/activity-heatmap.svg" alt="Contribution heatmap of the last 26 weeks" />
+<img src="assets/activity-heatmap.svg" width="100%" alt="Contribution heatmap of the past year" />
 
 </div>
 

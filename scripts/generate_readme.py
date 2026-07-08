@@ -370,7 +370,7 @@ MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 
 
 def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
-                      weeks: int = 26) -> str:
+                      weeks: int = 53) -> str:
     """Render a GitHub-style contribution heatmap as a standalone SVG string."""
     counts_by_day = Counter(p["date"] for p in dated)
     cell, gap = 14, 3
@@ -573,10 +573,10 @@ def _arc_circle(cx: float, cy: float, r: float, sw: int, color: str,
 def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
     """Horizontal bar chart of topic counts (sorted desc), as an SVG string."""
     rows = items[:top_n]
-    width = 560
-    label_w = 170
+    width = 880
+    label_w = 180
     bar_x = label_w + 8
-    bar_max = width - bar_x - 44
+    bar_max = width - bar_x - 48
     row_h, bar_h, top_pad = 22, 12, 12
     height = top_pad + len(rows) * row_h + 12
     max_count = max((n for _, n in rows), default=1)
@@ -616,8 +616,8 @@ def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
 
 def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
     """Donut chart of the difficulty split with a legend, as an SVG string."""
-    width, height = 360, 180
-    cx, cy, r, sw = 90, 90, 62, 22
+    width, height = 480, 200
+    cx, cy, r, sw = 108, 100, 78, 28
     total = easy + medium + hard
     label_c = "#768390"
     segs = [
@@ -644,25 +644,25 @@ def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
         cum += frac
     parts.append("</g>")
     parts.append(
-        f'<text x="{cx}" y="{cy - 2}" text-anchor="middle" font-size="30" '
+        f'<text x="{cx}" y="{cy + 2}" text-anchor="middle" font-size="38" '
         f'font-weight="700" fill="#1F6FEB">{total}</text>'
     )
     parts.append(
-        f'<text x="{cx}" y="{cy + 16}" text-anchor="middle" font-size="11" '
+        f'<text x="{cx}" y="{cy + 24}" text-anchor="middle" font-size="12" '
         f'fill="{label_c}">solved</text>'
     )
-    lx, ly = 200, 52
+    lx, ly = 250, 66
     for name, val, color in segs:
         pct = (val / total * 100) if total else 0
         parts.append(
-            f'<rect x="{lx}" y="{ly - 11}" width="13" height="13" rx="3" '
+            f'<rect x="{lx}" y="{ly - 12}" width="15" height="15" rx="3" '
             f'fill="{color}" />'
         )
         parts.append(
-            f'<text x="{lx + 20}" y="{ly}" font-size="13" fill="{label_c}">'
+            f'<text x="{lx + 24}" y="{ly}" font-size="14" fill="{label_c}">'
             f'{name} &#8212; {val} ({pct:.0f}%)</text>'
         )
-        ly += 30
+        ly += 34
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
@@ -673,10 +673,10 @@ def build_neetcode_svg(cat_rows: list[tuple], nc_done: int, nc_total: int,
 
     ``cat_rows`` is a list of ``(frac, category, done, total)`` sorted desc.
     """
-    width = 560
-    label_w = 168
+    width = 880
+    label_w = 180
     bar_x = label_w + 8
-    bar_max = width - bar_x - 58
+    bar_max = width - bar_x - 62
     row_h, bar_h = 22, 12
     top_h = 132
     height = top_h + len(cat_rows) * row_h + 12
@@ -796,8 +796,8 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
         build_stats_banner_svg(total, easy, medium, hard, nc_done, nc_total, ranking),
     )
     banner_rel = BANNER_FILE.relative_to(REPO_ROOT).as_posix()
-    a(f'<img src="{banner_rel}" alt="Solved {total} \u2014 NeetCode {nc_done}/'
-      f'{nc_total} \u2014 stats overview" />')
+    a(f'<img src="{banner_rel}" width="100%" alt="Solved {total} \u2014 NeetCode '
+      f'{nc_done}/{nc_total} \u2014 stats overview" />')
     a("")
     nav = ["[Overview](#overview)"]
     if dated:
@@ -856,13 +856,14 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
         a(f"| **{this_week}**{wk_arrow} | **{this_month}** | **{active_days}** |")
         a("")
 
-        # 26-week contribution heatmap, rendered as a committed SVG image so it
+        # Full-year contribution heatmap, rendered as a committed SVG image so it
         # stays pixel-aligned (block-character ASCII drifts in GitHub's font).
         write_if_changed(HEATMAP_FILE, build_heatmap_svg(dated, today, week_start))
         heatmap_rel = HEATMAP_FILE.relative_to(REPO_ROOT).as_posix()
         a('<div align="center">')
         a("")
-        a(f'<img src="{heatmap_rel}" alt="Contribution heatmap of the last 26 weeks" />')
+        a(f'<img src="{heatmap_rel}" width="100%" '
+          f'alt="Contribution heatmap of the past year" />')
         a("")
         a("</div>")
         a("")
