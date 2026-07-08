@@ -286,6 +286,7 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 ## Tree
 |  |
 | ------- |
+| [0226-invert-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0226-invert-binary-tree) |
 | [0703-kth-largest-element-in-a-stream](https://github.com/tquangdang/dsa_practice/tree/master/0703-kth-largest-element-in-a-stream) |
 ## Design
 |  |
@@ -315,6 +316,7 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 ## Binary Tree
 |  |
 | ------- |
+| [0226-invert-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0226-invert-binary-tree) |
 | [0703-kth-largest-element-in-a-stream](https://github.com/tquangdang/dsa_practice/tree/master/0703-kth-largest-element-in-a-stream) |
 ## Data Stream
 |  |
@@ -451,6 +453,14 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 | [0021-merge-two-sorted-lists](https://github.com/tquangdang/dsa_practice/tree/master/0021-merge-two-sorted-lists) |
 | [0143-reorder-list](https://github.com/tquangdang/dsa_practice/tree/master/0143-reorder-list) |
 | [0206-reverse-linked-list](https://github.com/tquangdang/dsa_practice/tree/master/0206-reverse-linked-list) |
+## Depth-First Search
+|  |
+| ------- |
+| [0226-invert-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0226-invert-binary-tree) |
+## Breadth-First Search
+|  |
+| ------- |
+| [0226-invert-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0226-invert-binary-tree) |
 <!---LeetCode Topics End-->
 
 </details>
