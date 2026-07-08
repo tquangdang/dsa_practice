@@ -21,7 +21,7 @@ import time
 import urllib.error
 import urllib.request
 from collections import Counter
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -181,6 +181,21 @@ def last_updated() -> str | None:
     return out or None
 
 
+def solved_date_for(folder: str) -> date | None:
+    """Earliest commit date touching the folder (i.e. when it was first solved)."""
+    out = run_git(
+        ["log", "--reverse", "--format=%ad", "--date=short", "--", folder]
+    ).splitlines()
+    for line in out:
+        line = line.strip()
+        if line:
+            try:
+                return date.fromisoformat(line)
+            except ValueError:
+                return None
+    return None
+
+
 def load_neetcode() -> dict[str, list[str]]:
     if NEETCODE_FILE.exists():
         try:
@@ -272,6 +287,7 @@ def build_problems() -> list[dict]:
                 "difficulty": difficulty,
                 "topics": meta.get("topics") or [],
                 "runtime": runtime_for(folder),
+                "date": solved_date_for(folder),
             }
         )
     save_cache(cache)
@@ -358,6 +374,19 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
     )
     nc_frac = nc_done / nc_total if nc_total else 0
 
+    # Activity metrics (from per-problem solved dates).
+    dated = sorted(
+        (p for p in problems if p.get("date")), key=lambda p: (p["date"], p["id"])
+    )
+    today = date.today()
+    week_start = today - timedelta(days=today.weekday())
+    last_week_start = week_start - timedelta(days=7)
+    month_start = today.replace(day=1)
+    this_week = sum(1 for p in dated if p["date"] >= week_start)
+    last_week = sum(1 for p in dated if last_week_start <= p["date"] < week_start)
+    this_month = sum(1 for p in dated if p["date"] >= month_start)
+    active_days = len({p["date"] for p in dated})
+
     L: list[str] = []
     a = L.append
 
@@ -372,10 +401,13 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
       "algorithms, and interview-prep journal.*")
     a("")
     nav = ["[Overview](#overview)"]
+    if dated:
+        nav.append("[Activity](#activity)")
     if ranking:
         nav.append("[Competitive](#competitive-standing)")
     if nc_total:
         nav.append("[NeetCode 150](#neetcode-150)")
+    nav.append("[Achievements](#achievements)")
     nav.append("[Topics](#topics)")
     nav.append("[Solutions](#solutions)")
     a(" &nbsp;&bull;&nbsp; ".join(nav))
@@ -427,6 +459,63 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
         frac = n / total if total else 0
         a(f"| {diff} | {n} | `{pct_bar(frac, width=24)}` {frac * 100:.0f}% |")
     a("")
+
+    # ---- Activity ----
+    if dated:
+        a("---")
+        a("")
+        a("## Activity")
+        a("")
+        wk_arrow = ""
+        if this_week > last_week:
+            wk_arrow = f" \u2b06 +{this_week - last_week} vs last week"
+        elif this_week < last_week:
+            wk_arrow = f" \u2b07 {this_week - last_week} vs last week"
+        a("| This week | This month | Active days |")
+        a("| :-------: | :--------: | :---------: |")
+        a(f"| **{this_week}**{wk_arrow} | **{this_month}** | **{active_days}** |")
+        a("")
+
+        # 13-week contribution heatmap (rows = weekday, cols = week).
+        weeks = 13
+        grid_start = week_start - timedelta(weeks=weeks - 1)
+        counts_by_day = Counter(p["date"] for p in dated)
+
+        def heat(c: int) -> str:
+            if c <= 0:
+                return "\u00b7"
+            if c == 1:
+                return "\u2591"
+            if c == 2:
+                return "\u2592"
+            if c == 3:
+                return "\u2593"
+            return "\u2588"
+
+        labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        a("```text")
+        a(f"Last {weeks} weeks")
+        for wd in range(7):
+            cells = []
+            for wk in range(weeks):
+                day = grid_start + timedelta(days=wk * 7 + wd)
+                cells.append(" " if day > today else heat(counts_by_day.get(day, 0)))
+            a(f"{labels[wd]} {''.join(cells)}")
+        a("Less \u00b7\u2591\u2592\u2593\u2588 More")
+        a("```")
+        a("")
+
+        # Recent activity feed.
+        recent = sorted(dated, key=lambda p: (p["date"], p["id"]), reverse=True)[:5]
+        a("**Recently solved**")
+        a("")
+        a("| Date | # | Problem | Difficulty |")
+        a("| :--- | --: | :------ | :--------- |")
+        for p in recent:
+            dot = DIFFICULTY_DOT.get(p["difficulty"], "")
+            a(f"| {p['date'].isoformat()} | {p['id']} "
+              f"| [{p['title']}]({base}/{p['folder']}) | {dot} {p['difficulty']} |")
+        a("")
 
     # ---- Competitive Standing ----
     if ranking:
@@ -498,6 +587,53 @@ def render(problems: list[dict], repo: str, branch: str, ranking: dict | None) -
             mark = " \u2713" if done == tot and tot else ""
             a(f"| {category}{mark} | {done} / {tot} | `{pct_bar(frac, width=12)}` |")
         a("")
+
+    # ---- Achievements ----
+    cleared_cats = sum(
+        1 for slugs in neetcode.values()
+        if slugs and all(s in solved_slugs for s in slugs)
+    )
+    achievements = [
+        ("\U0001F3AF First Blood", "solve your first problem", total, 1),
+        ("\U0001F51F Getting Started", "10 problems solved", total, 10),
+        ("\U0001F949 Quarter Century", "25 problems solved", total, 25),
+        ("\U0001F948 Half Century", "50 problems solved", total, 50),
+        ("\U0001F947 Centurion", "100 problems solved", total, 100),
+        ("\U0001F7E2 Easy Rider", "10 Easy solved", easy, 10),
+        ("\U0001F7E1 Mid Grinder", "20 Medium solved", medium, 20),
+        ("\U0001F534 Hard Mode", "first Hard solved", hard, 1),
+        ("\u2694\uFE0F Iron Will", "5 Hard solved", hard, 5),
+        ("\U0001F9E9 Category Cleared", "clear a NeetCode category", cleared_cats, 1),
+        ("\U0001F5FA\uFE0F Trailblazer", "clear 5 NeetCode categories", cleared_cats, 5),
+    ]
+    if nc_total:
+        achievements += [
+            ("\U0001F4D7 NeetCode Rookie", "25 of NeetCode 150", nc_done, 25),
+            ("\U0001F4D8 NeetCode Adept", "50 of NeetCode 150", nc_done, 50),
+            ("\U0001F4D5 NeetCode Expert", "100 of NeetCode 150", nc_done, 100),
+            ("\U0001F3C6 NeetCode 150", "complete the roadmap", nc_done, 150),
+        ]
+    unlocked = sum(1 for _, _, cur, tgt in achievements if cur >= tgt)
+    achievements.sort(key=lambda x: (x[2] < x[3], -min(x[2], x[3]) / x[3]))
+    a("---")
+    a("")
+    a("## Achievements")
+    a("")
+    a("<details>")
+    a(f"<summary><strong>Achievements</strong> &nbsp;({unlocked} / "
+      f"{len(achievements)} unlocked)</summary>")
+    a("")
+    a("| Badge | Achievement | Status |")
+    a("| :---- | :---------- | :----- |")
+    for name, desc, cur, tgt in achievements:
+        if cur >= tgt:
+            status = "\u2705 Unlocked"
+        else:
+            status = f"\U0001F512 {min(cur, tgt)} / {tgt}"
+        a(f"| {name} | {desc} | {status} |")
+    a("")
+    a("</details>")
+    a("")
 
     # ---- Topics (chips) ----
     a("---")

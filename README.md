@@ -6,7 +6,7 @@
 
 *Python solutions to LeetCode problems — my data structures, algorithms, and interview-prep journal.*
 
-[Overview](#overview) &nbsp;&bull;&nbsp; [Competitive](#competitive-standing) &nbsp;&bull;&nbsp; [NeetCode 150](#neetcode-150) &nbsp;&bull;&nbsp; [Topics](#topics) &nbsp;&bull;&nbsp; [Solutions](#solutions)
+[Overview](#overview) &nbsp;&bull;&nbsp; [Activity](#activity) &nbsp;&bull;&nbsp; [Competitive](#competitive-standing) &nbsp;&bull;&nbsp; [NeetCode 150](#neetcode-150) &nbsp;&bull;&nbsp; [Achievements](#achievements) &nbsp;&bull;&nbsp; [Topics](#topics) &nbsp;&bull;&nbsp; [Solutions](#solutions)
 
 ![Solved](https://img.shields.io/badge/Solved-52-1F6FEB?style=for-the-badge)
 ![Easy](https://img.shields.io/badge/Easy-21-2DB55D?style=for-the-badge)
@@ -39,6 +39,36 @@
 | Easy | 21 | `██████████░░░░░░░░░░░░░░` 40% |
 | Medium | 27 | `████████████░░░░░░░░░░░░` 52% |
 | Hard | 4 | `██░░░░░░░░░░░░░░░░░░░░░░` 8% |
+
+---
+
+## Activity
+
+| This week | This month | Active days |
+| :-------: | :--------: | :---------: |
+| **3** ⬇ -12 vs last week | **15** | **15** |
+
+```text
+Last 13 weeks
+Mon ···········▒·
+Tue ·········█▒░▓
+Wed ···········░ 
+Thu ··········█░ 
+Fri ·········▒▒█ 
+Sat ·········█░█ 
+Sun ··········▒· 
+Less ·░▒▓█ More
+```
+
+**Recently solved**
+
+| Date | # | Problem | Difficulty |
+| :--- | --: | :------ | :--------- |
+| 2026-07-07 | 287 | [Find the Duplicate Number](https://github.com/tquangdang/dsa_practice/tree/main/0287-find-the-duplicate-number) | 🟡 Medium |
+| 2026-07-07 | 138 | [Copy List with Random Pointer](https://github.com/tquangdang/dsa_practice/tree/main/0138-copy-list-with-random-pointer) | 🟡 Medium |
+| 2026-07-07 | 2 | [Add Two Numbers](https://github.com/tquangdang/dsa_practice/tree/main/0002-add-two-numbers) | 🟡 Medium |
+| 2026-07-04 | 206 | [Reverse Linked List](https://github.com/tquangdang/dsa_practice/tree/main/0206-reverse-linked-list) | 🟢 Easy |
+| 2026-07-04 | 143 | [Reorder List](https://github.com/tquangdang/dsa_practice/tree/main/0143-reorder-list) | 🟡 Medium |
 
 ---
 
@@ -84,6 +114,33 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **45 /
 | Intervals | 0 / 6 | `░░░░░░░░░░░░` |
 | Trees | 0 / 15 | `░░░░░░░░░░░░` |
 | Tries | 0 / 3 | `░░░░░░░░░░░░` |
+
+---
+
+## Achievements
+
+<details>
+<summary><strong>Achievements</strong> &nbsp;(9 / 15 unlocked)</summary>
+
+| Badge | Achievement | Status |
+| :---- | :---------- | :----- |
+| 🎯 First Blood | solve your first problem | ✅ Unlocked |
+| 🔟 Getting Started | 10 problems solved | ✅ Unlocked |
+| 🥉 Quarter Century | 25 problems solved | ✅ Unlocked |
+| 🥈 Half Century | 50 problems solved | ✅ Unlocked |
+| 🟢 Easy Rider | 10 Easy solved | ✅ Unlocked |
+| 🟡 Mid Grinder | 20 Medium solved | ✅ Unlocked |
+| 🔴 Hard Mode | first Hard solved | ✅ Unlocked |
+| 🧩 Category Cleared | clear a NeetCode category | ✅ Unlocked |
+| 📗 NeetCode Rookie | 25 of NeetCode 150 | ✅ Unlocked |
+| 📘 NeetCode Adept | 50 of NeetCode 150 | 🔒 45 / 50 |
+| ⚔️ Iron Will | 5 Hard solved | 🔒 4 / 5 |
+| 🗺️ Trailblazer | clear 5 NeetCode categories | 🔒 3 / 5 |
+| 🥇 Centurion | 100 problems solved | 🔒 52 / 100 |
+| 📕 NeetCode Expert | 100 of NeetCode 150 | 🔒 45 / 100 |
+| 🏆 NeetCode 150 | complete the roadmap | 🔒 45 / 150 |
+
+</details>
 
 ---
 
