@@ -367,6 +367,10 @@ def write_if_changed(path: Path, content: str) -> None:
 # GitHub-style contribution palette (0 = empty, then increasing intensity).
 HEATMAP_PALETTE = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"]
 HEATMAP_TEXT = "#768390"
+# Neutral gray for empty tracks/rings; used at low opacity so it reads as a
+# faint pill on both dark and light backgrounds (an <img> SVG can't detect
+# GitHub's theme, so we avoid theme-specific light/dark colors).
+TRACK = "#8b949e"
 MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
               "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
@@ -514,13 +518,21 @@ def rough_filter_defs(boil: bool = True) -> str:
     )
 
 
-def hachure_pattern(pid: str, color: str, gap: int = 5, sw: float = 1.4,
-                    angle: int = 45) -> str:
-    """A pencil-shading pattern: parallel diagonal strokes in ``color``."""
+def hachure_pattern(pid: str, color: str, gap: int = 5, sw: float = 1.6,
+                    angle: int = 45, base_opacity: float = 0.22) -> str:
+    """A pencil-shading pattern: a faint same-color base tile plus parallel
+    diagonal strokes in ``color``. The base tint makes filled bars read as a
+    solid-ish colored pill (rather than thin lines over the page) so they stay
+    legible on dark backgrounds."""
+    base = (
+        f'<rect width="{gap}" height="{gap}" fill="{color}" '
+        f'fill-opacity="{base_opacity}"/>'
+        if base_opacity else ""
+    )
     return (
         f'<pattern id="{pid}" patternUnits="userSpaceOnUse" width="{gap}" '
         f'height="{gap}" patternTransform="rotate({angle})">'
-        f'<line x1="0" y1="0" x2="0" y2="{gap}" stroke="{color}" '
+        f'{base}<line x1="0" y1="0" x2="0" y2="{gap}" stroke="{color}" '
         f'stroke-width="{sw}"/></pattern>'
     )
 
@@ -572,6 +584,13 @@ def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
     def level(c: int) -> int:
         return 0 if c <= 0 else min(4, c)
 
+    def cell_fill(lv: int) -> str:
+        """Fill attrs for a heatmap level; empty (0) is a faint neutral so it
+        never glares white on a dark page."""
+        if lv <= 0:
+            return f'fill="{TRACK}" fill-opacity="0.16"'
+        return f'fill="{HEATMAP_PALETTE[lv]}"'
+
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" '
@@ -595,14 +614,13 @@ def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
             if day > today:
                 continue
             c = counts_by_day.get(day, 0)
-            fill = HEATMAP_PALETTE[level(c)]
             x = left_pad + wk * step
             y = top_pad + wd * step
             noun = "solve" if c == 1 else "solves"
             pulse = anim_pulse(2.2) if day == today else ""
             col_cells.append(
                 f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" '
-                f'rx="3" ry="3" fill="{fill}">'
+                f'rx="3" ry="3" {cell_fill(level(c))}>'
                 f'<title>{day.isoformat()}: {c} {noun}</title>{pulse}</rect>'
             )
         if col_cells:
@@ -613,10 +631,10 @@ def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
     # Legend swatches (shapes).
     ly = top_pad + grid_h + 8
     lx = left_pad + 28
-    for color in HEATMAP_PALETTE:
+    for lv in range(len(HEATMAP_PALETTE)):
         shp.append(
             f'<rect x="{lx}" y="{ly}" width="{cell}" height="{cell}" rx="3" ry="3" '
-            f'fill="{color}"/>'
+            f'{cell_fill(lv)}/>'
         )
         lx += step
     parts.append(rough_g("".join(shp)))
@@ -856,7 +874,7 @@ def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
             top_geom = (by, fill_len)
         shp.append(
             f'<rect x="{bar_x}" y="{by:.0f}" width="{bar_max}" height="{bar_h}" '
-            f'rx="6" ry="6" fill="#ebedf0" />'
+            f'rx="6" ry="6" fill="{TRACK}" fill-opacity="0.18" />'
         )
         shp.append(
             f'<rect x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" '
@@ -929,8 +947,8 @@ def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
     shp = [
         f'<rect x="4" y="4" width="{width - 8}" height="{height - 8}" rx="14" '
         f'fill="none" stroke="#b8bcc4" stroke-width="1.8" stroke-linecap="round"/>',
-        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#ebedf0" '
-        f'stroke-width="{sw}" />',
+        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{TRACK}" '
+        f'stroke-opacity="0.22" stroke-width="{sw}" />',
         f'<g transform="rotate(-90 {cx} {cy})">',
     ]
     cum = 0.0
@@ -1004,14 +1022,15 @@ def build_neetcode_svg(cat_rows: list[tuple], nc_done: int, nc_total: int,
     shp = [
         f'<rect x="4" y="4" width="{width - 8}" height="{height - 8}" rx="14" '
         f'fill="none" stroke="#b8bcc4" stroke-width="1.8" stroke-linecap="round"/>',
-        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#ebedf0" '
-        f'stroke-width="{sw}" />',
+        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{TRACK}" '
+        f'stroke-opacity="0.22" stroke-width="{sw}" />',
         f'<g transform="rotate(-90 {cx} {cy})">'
         + _arc_circle(cx, cy, r, sw, part_c, nc_frac, 0.0,
                       inner=anim_draw(nc_frac * c, c, 0.0, 0.9))
         + "</g>",
         f'<g>{anim_spin(cx, cy, 4.0)}<circle cx="{cx}" cy="{cy}" r="{r}" '
-        f'fill="none" stroke="#cfe3ff" stroke-width="{sw}" stroke-linecap="round" '
+        f'fill="none" stroke="#cfe3ff" stroke-opacity="0.7" stroke-width="{sw}" '
+        f'stroke-linecap="round" '
         f'stroke-dasharray="4 {c:.2f}" transform="rotate(-90 {cx} {cy})"/></g>',
     ]
     texts: list[str] = []
@@ -1027,7 +1046,7 @@ def build_neetcode_svg(cat_rows: list[tuple], nc_done: int, nc_total: int,
         delay = 0.25 + i * 0.03
         shp.append(
             f'<rect x="{bar_x}" y="{by:.0f}" width="{bar_max}" height="{bar_h}" '
-            f'rx="6" ry="6" fill="#ebedf0" />'
+            f'rx="6" ry="6" fill="{TRACK}" fill-opacity="0.18" />'
         )
         if fill_len > 0:
             shp.append(
