@@ -12,6 +12,7 @@ generator never overwrite each other.
 """
 from __future__ import annotations
 
+import base64
 import json
 import math
 import os
@@ -31,6 +32,7 @@ NEETCODE_FILE = Path(__file__).resolve().parent / "neetcode150.json"
 CONFIG_FILE = Path(__file__).resolve().parent / "config.json"
 USER_CACHE_FILE = Path(__file__).resolve().parent / "leetcode_user_cache.json"
 ASSETS_DIR = REPO_ROOT / "assets"
+FONTS_DIR = ASSETS_DIR / "fonts"
 HEATMAP_FILE = ASSETS_DIR / "activity-heatmap.svg"
 BANNER_FILE = ASSETS_DIR / "stats-banner.svg"
 TOPICS_FILE = ASSETS_DIR / "topics.svg"
@@ -445,6 +447,114 @@ def anim_sweep_x(x0: float, x1: float, dur: float = 6.0) -> str:
     )
 
 
+# ---- Doodle (hand-drawn) styling toolkit ----
+# Everything here is self-contained (inline data-URI font, SVG filters and
+# patterns) so it renders inside GitHub's <img>/camo sandbox, unlike external
+# webfonts. Flip DOODLE off to fall back to the clean charts.
+DOODLE = True
+_FONT_CACHE: dict[str, str] = {}
+
+
+def _font_data_uri(path: Path) -> str:
+    key = str(path)
+    if key not in _FONT_CACHE:
+        try:
+            raw = path.read_bytes()
+            _FONT_CACHE[key] = (
+                "data:font/woff2;base64," + base64.b64encode(raw).decode("ascii")
+            )
+        except OSError:
+            _FONT_CACHE[key] = ""
+    return _FONT_CACHE[key]
+
+
+def font_face_defs() -> str:
+    """Embed the Kalam handwriting font (regular + bold) as base64 @font-face."""
+    if not DOODLE:
+        return ""
+    reg = _font_data_uri(FONTS_DIR / "kalam-regular.woff2")
+    if not reg:
+        return ""
+    faces = (
+        "@font-face{font-family:'Doodle';font-style:normal;font-weight:400;"
+        f"src:url({reg}) format('woff2');}}"
+    )
+    bold = _font_data_uri(FONTS_DIR / "kalam-bold.woff2")
+    if bold:
+        faces += (
+            "@font-face{font-family:'Doodle';font-style:normal;font-weight:700;"
+            f"src:url({bold}) format('woff2');}}"
+        )
+    return f"<style>{faces}</style>"
+
+
+def doodle_font_family() -> str:
+    if DOODLE:
+        return "'Doodle','Comic Sans MS','Segoe Print','Bradley Hand',cursive"
+    return "-apple-system,Segoe UI,Helvetica,Arial,sans-serif"
+
+
+def rough_filter_defs(boil: bool = True) -> str:
+    """A hand-drawn wobble filter; animating the turbulence seed makes edges
+    'boil' like a sketch being redrawn frame to frame."""
+    if not DOODLE:
+        return ""
+    seed_anim = (
+        '<animate attributeName="seed" values="7;19;31;11" dur="0.5s" '
+        'calcMode="discrete" repeatCount="indefinite"/>'
+        if (boil and ANIMATIONS) else ""
+    )
+    return (
+        '<filter id="rough" x="-6%" y="-6%" width="112%" height="112%">'
+        '<feTurbulence type="fractalNoise" baseFrequency="0.018 0.028" '
+        f'numOctaves="2" seed="7" result="n">{seed_anim}</feTurbulence>'
+        '<feDisplacementMap in="SourceGraphic" in2="n" scale="3.4" '
+        'xChannelSelector="R" yChannelSelector="G"/>'
+        '</filter>'
+    )
+
+
+def hachure_pattern(pid: str, color: str, gap: int = 5, sw: float = 1.4,
+                    angle: int = 45) -> str:
+    """A pencil-shading pattern: parallel diagonal strokes in ``color``."""
+    return (
+        f'<pattern id="{pid}" patternUnits="userSpaceOnUse" width="{gap}" '
+        f'height="{gap}" patternTransform="rotate({angle})">'
+        f'<line x1="0" y1="0" x2="0" y2="{gap}" stroke="{color}" '
+        f'stroke-width="{sw}"/></pattern>'
+    )
+
+
+def svg_defs(extra: str = "") -> str:
+    """Bundle the shared font + rough filter (and any per-chart defs) once."""
+    inner = font_face_defs() + rough_filter_defs() + extra
+    return f"<defs>{inner}</defs>" if inner else ""
+
+
+def rough_g(inner: str) -> str:
+    """Wrap shape markup so it picks up the hand-drawn wobble/boil filter."""
+    if not DOODLE or not inner:
+        return inner
+    return f'<g filter="url(#rough)">{inner}</g>'
+
+
+def anim_pop(cx: float, cy: float, inner: str, delay: float = 0.0,
+             dur: float = 0.5) -> str:
+    """Centered pop-in (scale 0 -> slight overshoot -> 1) around (cx, cy)."""
+    if not (DOODLE and ANIMATIONS):
+        return inner
+    total = delay + dur
+    kt1 = delay / total if total else 0.0
+    kt2 = (delay + dur * 0.7) / total if total else 0.7
+    return (
+        f'<g transform="translate({cx:.1f} {cy:.1f})"><g>'
+        f'<animateTransform attributeName="transform" type="scale" '
+        f'values="0;0;1.12;1" keyTimes="0;{kt1:.3f};{kt2:.3f};1" '
+        f'dur="{total:.3f}s" fill="freeze"/>'
+        f'<g transform="translate({-cx:.1f} {-cy:.1f})">{inner}</g></g></g>'
+    )
+
+
 def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
                       weeks: int = 53) -> str:
     """Render a GitHub-style contribution heatmap as a standalone SVG string."""
@@ -465,9 +575,51 @@ def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" '
-        f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" '
-        f'font-size="9">'
+        f'font-family="{doodle_font_family()}" '
+        f'font-size="11">'
     ]
+    parts.append(svg_defs())
+
+    # Hand-drawn shapes (cells, legend swatches, frame) go under the wobble
+    # filter; text labels stay crisp for legibility.
+    shp = [
+        f'<rect x="3" y="3" width="{width - 6}" height="{height - 6}" rx="12" '
+        f'fill="none" stroke="#b8bcc4" stroke-width="1.6" stroke-linecap="round"/>'
+    ]
+
+    # Day cells, grouped per week column so the reveal sweeps left to right.
+    for wk in range(weeks):
+        col_cells = []
+        for wd in range(7):
+            day = grid_start + timedelta(days=wk * 7 + wd)
+            if day > today:
+                continue
+            c = counts_by_day.get(day, 0)
+            fill = HEATMAP_PALETTE[level(c)]
+            x = left_pad + wk * step
+            y = top_pad + wd * step
+            noun = "solve" if c == 1 else "solves"
+            pulse = anim_pulse(2.2) if day == today else ""
+            col_cells.append(
+                f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" '
+                f'rx="3" ry="3" fill="{fill}">'
+                f'<title>{day.isoformat()}: {c} {noun}</title>{pulse}</rect>'
+            )
+        if col_cells:
+            shp.append(f'<g>{anim_fade(wk * 0.012, 0.45)}')
+            shp.extend(col_cells)
+            shp.append("</g>")
+
+    # Legend swatches (shapes).
+    ly = top_pad + grid_h + 8
+    lx = left_pad + 28
+    for color in HEATMAP_PALETTE:
+        shp.append(
+            f'<rect x="{lx}" y="{ly}" width="{cell}" height="{cell}" rx="3" ry="3" '
+            f'fill="{color}"/>'
+        )
+        lx += step
+    parts.append(rough_g("".join(shp)))
 
     # Month labels along the top (when the column's month changes).
     prev_month = None
@@ -489,42 +641,10 @@ def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
             f'fill="{HEATMAP_TEXT}">{label}</text>'
         )
 
-    # Day cells, grouped per week column so the reveal sweeps left to right.
-    for wk in range(weeks):
-        col_cells = []
-        for wd in range(7):
-            day = grid_start + timedelta(days=wk * 7 + wd)
-            if day > today:
-                continue
-            c = counts_by_day.get(day, 0)
-            fill = HEATMAP_PALETTE[level(c)]
-            x = left_pad + wk * step
-            y = top_pad + wd * step
-            noun = "solve" if c == 1 else "solves"
-            pulse = anim_pulse(2.2) if day == today else ""
-            col_cells.append(
-                f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" '
-                f'rx="3" ry="3" fill="{fill}">'
-                f'<title>{day.isoformat()}: {c} {noun}</title>{pulse}</rect>'
-            )
-        if col_cells:
-            parts.append(f'<g>{anim_fade(wk * 0.012, 0.45)}')
-            parts.extend(col_cells)
-            parts.append("</g>")
-
-    # Legend.
-    ly = top_pad + grid_h + 8
-    lx = left_pad
+    # Legend labels (crisp text).
     parts.append(
-        f'<text x="{lx}" y="{ly + cell - 3}" fill="{HEATMAP_TEXT}">Less</text>'
+        f'<text x="{left_pad}" y="{ly + cell - 3}" fill="{HEATMAP_TEXT}">Less</text>'
     )
-    lx += 28
-    for color in HEATMAP_PALETTE:
-        parts.append(
-            f'<rect x="{lx}" y="{ly}" width="{cell}" height="{cell}" rx="3" ry="3" '
-            f'fill="{color}"/>'
-        )
-        lx += step
     parts.append(
         f'<text x="{lx + 2}" y="{ly + cell - 3}" fill="{HEATMAP_TEXT}">More</text>'
     )
@@ -551,10 +671,9 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" '
-        f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">'
+        f'font-family="{doodle_font_family()}">'
     ]
-    parts.append(
-        '<defs>'
+    extra = (
         '<linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">'
         '<stop offset="0" stop-color="#4f8ff5" stop-opacity="0"/>'
         '<stop offset="0.5" stop-color="#4f8ff5" stop-opacity="0.28"/>'
@@ -562,14 +681,23 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
         '</linearGradient>'
         f'<clipPath id="bclip"><rect width="{width}" height="{height}" rx="10"/>'
         '</clipPath>'
-        '</defs>'
+        + hachure_pattern("hachE", ec) + hachure_pattern("hachM", mc)
+        + hachure_pattern("hachH", hc)
     )
+    parts.append(svg_defs(extra))
+
+    # Frame + dividers are hand-drawn (rough); text stays crisp.
+    shp = [
+        f'<rect x="4" y="4" width="{width - 8}" height="{height - 8}" rx="14" '
+        f'fill="none" stroke="#b8bcc4" stroke-width="1.8" stroke-linecap="round"/>'
+    ]
     for i in (1, 2, 3):
         x = pad + tw * i
-        parts.append(
+        shp.append(
             f'<line x1="{x:.0f}" y1="30" x2="{x:.0f}" y2="120" '
-            f'stroke="{div_c}" stroke-width="1">{anim_fade(0.2, 0.7)}</line>'
+            f'stroke="{div_c}" stroke-width="1.4">{anim_fade(0.2, 0.7)}</line>'
         )
+    parts.append(rough_g("".join(shp)))
 
     def label(i: int, s: str) -> None:
         parts.append(
@@ -605,9 +733,14 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
     tot = max(1, easy + medium + hard)
     we, wm = bw * easy / tot, bw * medium / tot
     wh = bw - we - wm
-    parts.append(f'<rect x="{bx:.1f}" y="{by}" width="{we:.1f}" height="{bh}" fill="{ec}"/>')
-    parts.append(f'<rect x="{bx + we:.1f}" y="{by}" width="{wm:.1f}" height="{bh}" fill="{mc}"/>')
-    parts.append(f'<rect x="{bx + we + wm:.1f}" y="{by}" width="{wh:.1f}" height="{bh}" fill="{hc}"/>')
+    parts.append(rough_g(
+        f'<rect x="{bx:.1f}" y="{by}" width="{we:.1f}" height="{bh}" '
+        f'fill="url(#hachE)" stroke="{ec}" stroke-width="1.3"/>'
+        f'<rect x="{bx + we:.1f}" y="{by}" width="{wm:.1f}" height="{bh}" '
+        f'fill="url(#hachM)" stroke="{mc}" stroke-width="1.3"/>'
+        f'<rect x="{bx + we + wm:.1f}" y="{by}" width="{wh:.1f}" height="{bh}" '
+        f'fill="url(#hachH)" stroke="{hc}" stroke-width="1.3"/>'
+    ))
     parts.append(
         f'<text x="{cx(1):.0f}" y="106" text-anchor="middle" font-size="14" '
         f'font-weight="600"><tspan fill="{ec}">{easy}</tspan>'
@@ -688,21 +821,27 @@ def _arc_circle(cx: float, cy: float, r: float, sw: int, color: str,
 def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
     """Horizontal bar chart of topic counts (sorted desc), as an SVG string."""
     rows = items[:top_n]
-    width = 880
-    label_w = 180
-    bar_x = label_w + 8
-    bar_max = width - bar_x - 48
-    row_h, bar_h, top_pad = 22, 12, 12
-    height = top_pad + len(rows) * row_h + 12
+    width = 900
+    label_w = 210
+    bar_x = label_w + 10
+    bar_max = width - bar_x - 56
+    row_h, bar_h, top_pad = 24, 14, 16
+    height = top_pad + len(rows) * row_h + 16
     max_count = max((n for _, n in rows), default=1)
     label_c = "#768390"
 
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" '
-        f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" '
-        f'font-size="11">'
+        f'font-family="{doodle_font_family()}" '
+        f'font-size="13">'
     ]
+    shp = [
+        f'<rect x="4" y="4" width="{width - 8}" height="{height - 8}" rx="14" '
+        f'fill="none" stroke="#b8bcc4" stroke-width="1.8" stroke-linecap="round"/>'
+    ]
+    texts: list[str] = []
+    hach_defs: list[str] = []
     top_geom = None
     for i, (topic, n) in enumerate(rows):
         row_y = top_pad + i * row_h
@@ -710,31 +849,36 @@ def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
         ty = row_y + row_h / 2 + 4
         frac = n / max_count if max_count else 0
         fill_len = bar_max * frac
+        col = _blue_scale(frac)
+        pid = f"hachT{i}"
+        hach_defs.append(hachure_pattern(pid, col))
         if i == 0:
             top_geom = (by, fill_len)
-        parts.append(
-            f'<text x="{label_w - 6}" y="{ty:.0f}" text-anchor="end" '
-            f'fill="{label_c}">{_xml(topic)}</text>'
-        )
-        parts.append(
+        shp.append(
             f'<rect x="{bar_x}" y="{by:.0f}" width="{bar_max}" height="{bar_h}" '
             f'rx="6" ry="6" fill="#ebedf0" />'
         )
-        parts.append(
+        shp.append(
             f'<rect x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" '
-            f'height="{bar_h}" rx="6" ry="6" fill="{_blue_scale(frac)}">'
+            f'height="{bar_h}" rx="6" ry="6" fill="url(#{pid})" '
+            f'stroke="{col}" stroke-width="1.3">'
             f'{anim_grow_width(fill_len, i * 0.04, 0.6)}</rect>'
         )
-        parts.append(
-            f'<text x="{bar_x + fill_len + 6:.0f}" y="{ty:.0f}" '
-            f'fill="{label_c}" font-weight="600">{anim_fade(0.4, 0.6)}{n}</text>'
+        texts.append(
+            f'<text x="{label_w - 6}" y="{ty:.0f}" text-anchor="end" '
+            f'fill="{label_c}">{_xml(topic)}</text>'
+        )
+        texts.append(
+            f'<text x="{bar_x + fill_len + 8:.0f}" y="{ty:.0f}" '
+            f'fill="{label_c}" font-weight="700">{anim_fade(0.4, 0.6)}{n}</text>'
         )
 
     # Continuous accent: a soft glint sweeping the longest (top) bar.
+    glint = ""
+    tshine_def = ""
     if top_geom:
         top_by, top_len = top_geom
-        parts.append(
-            '<defs>'
+        tshine_def = (
             '<linearGradient id="tshine" x1="0" y1="0" x2="1" y2="0">'
             '<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>'
             '<stop offset="0.5" stop-color="#ffffff" stop-opacity="0.55"/>'
@@ -742,13 +886,17 @@ def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
             '</linearGradient>'
             f'<clipPath id="tbar"><rect x="{bar_x}" y="{top_by:.0f}" '
             f'width="{top_len:.1f}" height="{bar_h}" rx="6" ry="6"/></clipPath>'
-            '</defs>'
         )
-        parts.append(
+        glint = (
             f'<g clip-path="url(#tbar)"><rect x="{bar_x - 44}" '
             f'y="{top_by:.0f}" width="44" height="{bar_h}" fill="url(#tshine)">'
             f'{anim_sweep_x(0, top_len + 44, 3.2)}</rect></g>'
         )
+    parts.append(svg_defs("".join(hach_defs) + tshine_def))
+    parts.append(rough_g("".join(shp)))
+    parts.extend(texts)
+    if glint:
+        parts.append(glint)
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
@@ -765,16 +913,26 @@ def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
         ("Hard", hard, f"#{DIFFICULTY_COLOR['Hard']}"),
     ]
     c = 2 * math.pi * r
+    seg_pat = {"Easy": "hachE", "Medium": "hachM", "Hard": "hachH"}
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" '
-        f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">'
+        f'font-family="{doodle_font_family()}">'
     ]
-    parts.append(
+    parts.append(svg_defs(
+        hachure_pattern("hachE", f"#{DIFFICULTY_COLOR['Easy']}")
+        + hachure_pattern("hachM", f"#{DIFFICULTY_COLOR['Medium']}")
+        + hachure_pattern("hachH", f"#{DIFFICULTY_COLOR['Hard']}", gap=5)
+    ))
+
+    # Hand-drawn shapes: frame, track ring, arcs, legend chips.
+    shp = [
+        f'<rect x="4" y="4" width="{width - 8}" height="{height - 8}" rx="14" '
+        f'fill="none" stroke="#b8bcc4" stroke-width="1.8" stroke-linecap="round"/>',
         f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#ebedf0" '
-        f'stroke-width="{sw}" />'
-    )
-    parts.append(f'<g transform="rotate(-90 {cx} {cy})">')
+        f'stroke-width="{sw}" />',
+        f'<g transform="rotate(-90 {cx} {cy})">',
+    ]
     cum = 0.0
     ai = 0
     for _, val, color in segs:
@@ -782,33 +940,35 @@ def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
             continue
         frac = val / total
         draw = anim_draw(frac * c, c, ai * 0.2, 0.7)
-        parts.append(_arc_circle(cx, cy, r, sw, color, frac, cum, inner=draw))
+        shp.append(_arc_circle(cx, cy, r, sw, color, frac, cum, inner=draw))
         cum += frac
         ai += 1
-    parts.append("</g>")
-    parts.append(f'<g>{anim_fade(0.5, 0.6)}')
-    parts.append(
+    shp.append("</g>")
+    ly = 66
+    for name, val, color in segs:
+        shp.append(
+            f'<rect x="250" y="{ly - 12}" width="16" height="16" rx="3" '
+            f'fill="url(#{seg_pat[name]})" stroke="{color}" stroke-width="1.2" />'
+        )
+        ly += 34
+    parts.append(rough_g("".join(shp)))
+
+    # Center count pops in; legend labels stay crisp.
+    parts.append(anim_pop(
+        cx, cy,
         f'<text x="{cx}" y="{cy + 2}" text-anchor="middle" font-size="38" '
         f'font-weight="700" fill="#1F6FEB">{total}</text>'
-    )
-    parts.append(
-        f'<text x="{cx}" y="{cy + 24}" text-anchor="middle" font-size="12" '
-        f'fill="{label_c}">solved</text>'
-    )
-    parts.append("</g>")
-    lx, ly = 250, 66
+        f'<text x="{cx}" y="{cy + 24}" text-anchor="middle" font-size="13" '
+        f'fill="{label_c}">solved</text>',
+        0.5, 0.5,
+    ))
+    ly = 66
     for i, (name, val, color) in enumerate(segs):
         pct = (val / total * 100) if total else 0
-        parts.append(f'<g>{anim_slideup(0.5 + i * 0.12, 0.5)}')
         parts.append(
-            f'<rect x="{lx}" y="{ly - 12}" width="15" height="15" rx="3" '
-            f'fill="{color}" />'
+            f'<text x="274" y="{ly}" font-size="15" fill="{label_c}">'
+            f'{anim_fade(0.5 + i * 0.12, 0.5)}{name} &#8212; {val} ({pct:.0f}%)</text>'
         )
-        parts.append(
-            f'<text x="{lx + 24}" y="{ly}" font-size="14" fill="{label_c}">'
-            f'{name} &#8212; {val} ({pct:.0f}%)</text>'
-        )
-        parts.append("</g>")
         ly += 34
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
@@ -820,81 +980,89 @@ def build_neetcode_svg(cat_rows: list[tuple], nc_done: int, nc_total: int,
 
     ``cat_rows`` is a list of ``(frac, category, done, total)`` sorted desc.
     """
-    width = 880
-    label_w = 180
-    bar_x = label_w + 8
-    bar_max = width - bar_x - 62
-    row_h, bar_h = 22, 12
+    width = 900
+    label_w = 210
+    bar_x = label_w + 10
+    bar_max = width - bar_x - 66
+    row_h, bar_h = 24, 14
     top_h = 132
-    height = top_h + len(cat_rows) * row_h + 12
+    height = top_h + len(cat_rows) * row_h + 16
     label_c, done_c, part_c = "#768390", "#2DB55D", "#1F6FEB"
 
-    cx, cy, r, sw = 74, 62, 46, 12
+    cx, cy, r, sw = 74, 66, 46, 12
     c = 2 * math.pi * r
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" '
-        f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">'
+        f'font-family="{doodle_font_family()}">'
     ]
-    # Overall progress ring (draws on).
-    parts.append(
+    parts.append(svg_defs(
+        hachure_pattern("ncDone", done_c) + hachure_pattern("ncPart", part_c)
+    ))
+
+    # Hand-drawn shapes: frame, ring, glint, bars.
+    shp = [
+        f'<rect x="4" y="4" width="{width - 8}" height="{height - 8}" rx="14" '
+        f'fill="none" stroke="#b8bcc4" stroke-width="1.8" stroke-linecap="round"/>',
         f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#ebedf0" '
-        f'stroke-width="{sw}" />'
-    )
-    parts.append(f'<g transform="rotate(-90 {cx} {cy})">')
-    parts.append(_arc_circle(cx, cy, r, sw, part_c, nc_frac, 0.0,
-                             inner=anim_draw(nc_frac * c, c, 0.0, 0.9)))
-    parts.append("</g>")
-    # Traveling glint that rotates around the ring.
-    parts.append(
+        f'stroke-width="{sw}" />',
+        f'<g transform="rotate(-90 {cx} {cy})">'
+        + _arc_circle(cx, cy, r, sw, part_c, nc_frac, 0.0,
+                      inner=anim_draw(nc_frac * c, c, 0.0, 0.9))
+        + "</g>",
         f'<g>{anim_spin(cx, cy, 4.0)}<circle cx="{cx}" cy="{cy}" r="{r}" '
         f'fill="none" stroke="#cfe3ff" stroke-width="{sw}" stroke-linecap="round" '
-        f'stroke-dasharray="4 {c:.2f}" transform="rotate(-90 {cx} {cy})"/></g>'
-    )
-    parts.append(f'<g>{anim_fade(0.3, 0.6)}')
-    parts.append(
-        f'<text x="{cx}" y="{cy + 2}" text-anchor="middle" font-size="20" '
-        f'font-weight="700" fill="{part_c}">{nc_frac * 100:.0f}%</text>'
-    )
-    parts.append(
-        f'<text x="{cx + r + 20}" y="{cy - 6}" font-size="26" font-weight="700" '
-        f'fill="{part_c}">{nc_done} / {nc_total}</text>'
-    )
-    parts.append(
-        f'<text x="{cx + r + 20}" y="{cy + 16}" font-size="12" fill="{label_c}">'
-        f'problems on the roadmap</text>'
-    )
-    parts.append("</g>")
-
-    # Per-category bars.
+        f'stroke-dasharray="4 {c:.2f}" transform="rotate(-90 {cx} {cy})"/></g>',
+    ]
+    texts: list[str] = []
     for i, (frac, category, done, tot) in enumerate(cat_rows):
         row_y = top_h + i * row_h
         by = row_y + (row_h - bar_h) / 2
         ty = row_y + row_h / 2 + 4
         complete = done == tot and tot
-        fill = done_c if complete else part_c
+        pat = "ncDone" if complete else "ncPart"
+        stroke = done_c if complete else part_c
         fill_len = bar_max * frac
         label = f"{_xml(category)} \u2713" if complete else _xml(category)
         delay = 0.25 + i * 0.03
-        parts.append(
-            f'<text x="{label_w - 6}" y="{ty:.0f}" text-anchor="end" '
-            f'font-size="11" fill="{label_c}">{label}</text>'
-        )
-        parts.append(
+        shp.append(
             f'<rect x="{bar_x}" y="{by:.0f}" width="{bar_max}" height="{bar_h}" '
             f'rx="6" ry="6" fill="#ebedf0" />'
         )
         if fill_len > 0:
-            parts.append(
+            shp.append(
                 f'<rect x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" '
-                f'height="{bar_h}" rx="6" ry="6" fill="{fill}">'
+                f'height="{bar_h}" rx="6" ry="6" fill="url(#{pat})" '
+                f'stroke="{stroke}" stroke-width="1.3">'
                 f'{anim_grow_width(fill_len, delay, 0.6)}</rect>'
             )
-        parts.append(
-            f'<text x="{width - 6}" y="{ty:.0f}" text-anchor="end" '
-            f'font-size="11" font-weight="600" fill="{label_c}">'
+        texts.append(
+            f'<text x="{label_w - 6}" y="{ty:.0f}" text-anchor="end" '
+            f'font-size="12" fill="{label_c}">{label}</text>'
+        )
+        texts.append(
+            f'<text x="{width - 8}" y="{ty:.0f}" text-anchor="end" '
+            f'font-size="12" font-weight="700" fill="{label_c}">'
             f'{anim_fade(0.5, 0.6)}{done}/{tot}</text>'
         )
+    parts.append(rough_g("".join(shp)))
+
+    # Center + side text (crisp); percentage pops in.
+    parts.append(anim_pop(
+        cx, cy,
+        f'<text x="{cx}" y="{cy + 2}" text-anchor="middle" font-size="22" '
+        f'font-weight="700" fill="{part_c}">{nc_frac * 100:.0f}%</text>',
+        0.3, 0.5,
+    ))
+    parts.append(
+        f'<text x="{cx + r + 20}" y="{cy - 6}" font-size="28" font-weight="700" '
+        f'fill="{part_c}">{anim_fade(0.3, 0.6)}{nc_done} / {nc_total}</text>'
+    )
+    parts.append(
+        f'<text x="{cx + r + 20}" y="{cy + 16}" font-size="13" fill="{label_c}">'
+        f'problems on the roadmap</text>'
+    )
+    parts.extend(texts)
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
