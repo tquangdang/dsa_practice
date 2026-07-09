@@ -1,19 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="150" viewBox="0 0 720 150" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
-<line x1="192" y1="30" x2="192" y2="120" stroke="#d0d7de" stroke-width="1"/>
-<line x1="360" y1="30" x2="360" y2="120" stroke="#d0d7de" stroke-width="1"/>
-<line x1="528" y1="30" x2="528" y2="120" stroke="#d0d7de" stroke-width="1"/>
+<style>@media (prefers-reduced-motion:no-preference){@keyframes fadein{from{opacity:0}to{opacity:1}}@keyframes slideup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.18);opacity:.6}}@keyframes spin{to{transform:rotate(360deg)}}.tile{animation:slideup .5s ease-out both}.divline{animation:fadein .8s ease-out both;animation-delay:.2s}.shine{animation:bsweep 6.5s ease-in-out infinite}@keyframes bsweep{0%{transform:translateX(0) skewX(-18deg)}100%{transform:translateX(900px) skewX(-18deg)}}}</style>
+<defs><linearGradient id="shine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4f8ff5" stop-opacity="0"/><stop offset="0.5" stop-color="#4f8ff5" stop-opacity="0.28"/><stop offset="1" stop-color="#4f8ff5" stop-opacity="0"/></linearGradient><clipPath id="bclip"><rect width="720" height="150" rx="10"/></clipPath></defs>
+<line class="divline" x1="192" y1="30" x2="192" y2="120" stroke="#d0d7de" stroke-width="1"/>
+<line class="divline" x1="360" y1="30" x2="360" y2="120" stroke="#d0d7de" stroke-width="1"/>
+<line class="divline" x1="528" y1="30" x2="528" y2="120" stroke="#d0d7de" stroke-width="1"/>
+<g class="tile" style="animation-delay:0s">
 <text x="108" y="48" text-anchor="middle" fill="#768390" font-size="12" letter-spacing="1.5">SOLVED</text>
 <text x="108" y="92" text-anchor="middle" fill="#1F6FEB" font-size="40" font-weight="700">53</text>
 <text x="108" y="114" text-anchor="middle" fill="#768390" font-size="13">Python</text>
+</g>
+<g class="tile" style="animation-delay:0.08s">
 <text x="276" y="48" text-anchor="middle" fill="#768390" font-size="12" letter-spacing="1.5">BY DIFFICULTY</text>
 <rect x="220.0" y="66" width="46.5" height="14" fill="#2DB55D"/>
 <rect x="266.5" y="66" width="57.1" height="14" fill="#FFB800"/>
 <rect x="323.5" y="66" width="8.5" height="14" fill="#EF4743"/>
 <text x="276" y="106" text-anchor="middle" font-size="14" font-weight="600"><tspan fill="#2DB55D">22</tspan><tspan fill="#768390"> / </tspan><tspan fill="#FFB800">27</tspan><tspan fill="#768390"> / </tspan><tspan fill="#EF4743">4</tspan></text>
+</g>
+<g class="tile" style="animation-delay:0.16s">
 <text x="444" y="48" text-anchor="middle" fill="#768390" font-size="12" letter-spacing="1.5">NEETCODE 150</text>
 <text x="444" y="92" text-anchor="middle" fill="#1F6FEB" font-size="40" font-weight="700">31%</text>
 <text x="444" y="114" text-anchor="middle" fill="#768390" font-size="13">46 / 150</text>
+</g>
+<g class="tile" style="animation-delay:0.24s">
 <text x="612" y="48" text-anchor="middle" fill="#768390" font-size="12" letter-spacing="1.5">CONTEST</text>
 <text x="612" y="92" text-anchor="middle" fill="#8E44AD" font-size="40" font-weight="700">1430</text>
 <text x="612" y="114" text-anchor="middle" fill="#768390" font-size="13">Rank #639,354</text>
+</g>
+<g clip-path="url(#bclip)"><rect class="shine" x="-90" y="-20" width="90" height="190" fill="url(#shine)" transform="skewX(-18)"/></g>
 </svg>

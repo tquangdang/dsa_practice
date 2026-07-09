@@ -368,6 +368,34 @@ HEATMAP_TEXT = "#768390"
 MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
               "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
+# Charts render their final state statically; these only add motion, and only
+# when the viewer has not requested reduced motion.
+ANIMATIONS = True
+_KEYFRAMES = (
+    "@keyframes fadein{from{opacity:0}to{opacity:1}}"
+    "@keyframes slideup{from{opacity:0;transform:translateY(8px)}"
+    "to{opacity:1;transform:translateY(0)}}"
+    "@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}"
+    "@keyframes pulse{0%,100%{transform:scale(1);opacity:1}"
+    "50%{transform:scale(1.18);opacity:.6}}"
+    "@keyframes spin{to{transform:rotate(360deg)}}"
+)
+
+
+def anim_style(css_body: str) -> str:
+    """A reduced-motion-gated <style> block; empty when animations are off.
+
+    The base SVG always encodes its final frame, so disabling motion (or a
+    non-animating renderer) simply shows the static chart.
+    """
+    if not ANIMATIONS:
+        return ""
+    return (
+        "<style>@media (prefers-reduced-motion:no-preference){"
+        f"{_KEYFRAMES}{css_body}"
+        "}</style>"
+    )
+
 
 def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
                       weeks: int = 53) -> str:
@@ -392,6 +420,11 @@ def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
         f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" '
         f'font-size="9">'
     ]
+    parts.append(anim_style(
+        ".wk{animation:fadein .5s ease-out both}"
+        "#today{animation:pulse 2.4s ease-in-out infinite;"
+        "transform-box:fill-box;transform-origin:center}"
+    ))
 
     # Month labels along the top (when the column's month changes).
     prev_month = None
@@ -413,9 +446,10 @@ def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
             f'fill="{HEATMAP_TEXT}">{label}</text>'
         )
 
-    # Day cells.
-    for wd in range(7):
-        for wk in range(weeks):
+    # Day cells, grouped per week column so the reveal sweeps left to right.
+    for wk in range(weeks):
+        col_cells = []
+        for wd in range(7):
             day = grid_start + timedelta(days=wk * 7 + wd)
             if day > today:
                 continue
@@ -424,10 +458,16 @@ def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
             x = left_pad + wk * step
             y = top_pad + wd * step
             noun = "solve" if c == 1 else "solves"
-            parts.append(
-                f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="3" ry="3" '
-                f'fill="{fill}"><title>{day.isoformat()}: {c} {noun}</title></rect>'
+            cell_id = ' id="today"' if day == today else ""
+            col_cells.append(
+                f'<rect{cell_id} x="{x}" y="{y}" width="{cell}" height="{cell}" '
+                f'rx="3" ry="3" fill="{fill}">'
+                f'<title>{day.isoformat()}: {c} {noun}</title></rect>'
             )
+        if col_cells:
+            parts.append(f'<g class="wk" style="animation-delay:{wk * 0.012:.3f}s">')
+            parts.extend(col_cells)
+            parts.append("</g>")
 
     # Legend.
     ly = top_pad + grid_h + 8
@@ -470,10 +510,28 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
         f'viewBox="0 0 {width} {height}" '
         f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">'
     ]
+    parts.append(anim_style(
+        ".tile{animation:slideup .5s ease-out both}"
+        ".divline{animation:fadein .8s ease-out both;animation-delay:.2s}"
+        ".shine{animation:bsweep 6.5s ease-in-out infinite}"
+        "@keyframes bsweep{0%{transform:translateX(0) skewX(-18deg)}"
+        f"100%{{transform:translateX({width + 180}px) skewX(-18deg)}}}}"
+    ))
+    parts.append(
+        '<defs>'
+        '<linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">'
+        '<stop offset="0" stop-color="#4f8ff5" stop-opacity="0"/>'
+        '<stop offset="0.5" stop-color="#4f8ff5" stop-opacity="0.28"/>'
+        '<stop offset="1" stop-color="#4f8ff5" stop-opacity="0"/>'
+        '</linearGradient>'
+        f'<clipPath id="bclip"><rect width="{width}" height="{height}" rx="10"/>'
+        '</clipPath>'
+        '</defs>'
+    )
     for i in (1, 2, 3):
         x = pad + tw * i
         parts.append(
-            f'<line x1="{x:.0f}" y1="30" x2="{x:.0f}" y2="120" '
+            f'<line class="divline" x1="{x:.0f}" y1="30" x2="{x:.0f}" y2="120" '
             f'stroke="{div_c}" stroke-width="1"/>'
         )
 
@@ -496,11 +554,14 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
         )
 
     # Tile 0: total solved.
+    parts.append('<g class="tile" style="animation-delay:0s">')
     label(0, "SOLVED")
     value(0, str(total), blue)
     sub(0, "Python")
+    parts.append("</g>")
 
     # Tile 1: difficulty split (stacked bar + coloured counts).
+    parts.append('<g class="tile" style="animation-delay:0.08s">')
     label(1, "BY DIFFICULTY")
     bw = tw - 56
     bx = cx(1) - bw / 2
@@ -517,16 +578,20 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
         f'<tspan fill="{label_c}"> / </tspan><tspan fill="{mc}">{medium}</tspan>'
         f'<tspan fill="{label_c}"> / </tspan><tspan fill="{hc}">{hard}</tspan></text>'
     )
+    parts.append("</g>")
 
     # Tile 2: NeetCode 150 progress.
+    parts.append('<g class="tile" style="animation-delay:0.16s">')
     label(2, "NEETCODE 150")
     if nc_total:
         value(2, f"{round(nc_done / nc_total * 100)}%", blue)
         sub(2, f"{nc_done} / {nc_total}")
     else:
         value(2, "\u2014", blue)
+    parts.append("</g>")
 
     # Tile 3: contest rating / global rank.
+    parts.append('<g class="tile" style="animation-delay:0.24s">')
     rating = ranking.get("contest_rating") if ranking else None
     rank = ranking.get("overall_ranking") if ranking else None
     if rating:
@@ -541,6 +606,14 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
         label(3, "CONTEST")
         value(3, "\u2014", purple)
         sub(3, "not yet")
+    parts.append("</g>")
+
+    # Continuous accent: a faint diagonal glint sweeping across the banner.
+    parts.append(
+        f'<g clip-path="url(#bclip)"><rect class="shine" x="-90" y="-20" '
+        f'width="90" height="{height + 40}" fill="url(#shine)" '
+        f'transform="skewX(-18)"/></g>'
+    )
 
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
@@ -559,12 +632,13 @@ def _blue_scale(f: float) -> str:
 
 
 def _arc_circle(cx: float, cy: float, r: float, sw: int, color: str,
-                frac: float, offset: float) -> str:
+                frac: float, offset: float, cls: str | None = None) -> str:
     """A donut/ring segment via stroke-dasharray (group is rotated -90)."""
     c = 2 * math.pi * r
     dash = max(0.0, frac) * c
+    cls_attr = f' class="{cls}"' if cls else ""
     return (
-        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{color}" '
+        f'<circle{cls_attr} cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{color}" '
         f'stroke-width="{sw}" stroke-dasharray="{dash:.2f} {c:.2f}" '
         f'stroke-dashoffset="{-offset * c:.2f}" />'
     )
@@ -588,12 +662,15 @@ def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
         f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" '
         f'font-size="11">'
     ]
+    top_geom = None
     for i, (topic, n) in enumerate(rows):
         row_y = top_pad + i * row_h
         by = row_y + (row_h - bar_h) / 2
         ty = row_y + row_h / 2 + 4
         frac = n / max_count if max_count else 0
         fill_len = bar_max * frac
+        if i == 0:
+            top_geom = (by, fill_len)
         parts.append(
             f'<text x="{label_w - 6}" y="{ty:.0f}" text-anchor="end" '
             f'fill="{label_c}">{_xml(topic)}</text>'
@@ -603,13 +680,41 @@ def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
             f'rx="6" ry="6" fill="#ebedf0" />'
         )
         parts.append(
-            f'<rect x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" height="{bar_h}" '
+            f'<rect class="bar" style="animation-delay:{i * 0.04:.2f}s" '
+            f'x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" height="{bar_h}" '
             f'rx="6" ry="6" fill="{_blue_scale(frac)}" />'
         )
         parts.append(
-            f'<text x="{bar_x + fill_len + 6:.0f}" y="{ty:.0f}" '
+            f'<text class="cnt" x="{bar_x + fill_len + 6:.0f}" y="{ty:.0f}" '
             f'fill="{label_c}" font-weight="600">{n}</text>'
         )
+
+    # Continuous accent: a soft glint sweeping the longest (top) bar.
+    if top_geom:
+        top_by, top_len = top_geom
+        parts.append(
+            '<defs>'
+            '<linearGradient id="tshine" x1="0" y1="0" x2="1" y2="0">'
+            '<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>'
+            '<stop offset="0.5" stop-color="#ffffff" stop-opacity="0.55"/>'
+            '<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>'
+            '</linearGradient>'
+            f'<clipPath id="tbar"><rect x="{bar_x}" y="{top_by:.0f}" '
+            f'width="{top_len:.1f}" height="{bar_h}" rx="6" ry="6"/></clipPath>'
+            '</defs>'
+        )
+        parts.append(
+            f'<g clip-path="url(#tbar)"><rect class="tshine" x="{bar_x - 44}" '
+            f'y="{top_by:.0f}" width="44" height="{bar_h}" fill="url(#tshine)"/></g>'
+        )
+        parts.insert(1, anim_style(
+            ".bar{transform-box:fill-box;transform-origin:left center;"
+            "animation:grow .7s ease-out both}"
+            ".cnt{animation:fadein .6s ease-out both;animation-delay:.4s}"
+            ".tshine{animation:tsweep 3.2s ease-in-out infinite;animation-delay:1s}"
+            "@keyframes tsweep{0%{transform:translateX(0)}"
+            f"100%{{transform:translateX({top_len + 44:.0f}px)}}}}"
+        ))
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
@@ -625,6 +730,7 @@ def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
         ("Medium", medium, f"#{DIFFICULTY_COLOR['Medium']}"),
         ("Hard", hard, f"#{DIFFICULTY_COLOR['Hard']}"),
     ]
+    c = 2 * math.pi * r
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" '
@@ -635,14 +741,24 @@ def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
         f'stroke-width="{sw}" />'
     )
     parts.append(f'<g transform="rotate(-90 {cx} {cy})">')
+    arc_css: list[str] = []
     cum = 0.0
+    ai = 0
     for _, val, color in segs:
         if val <= 0 or total <= 0:
             continue
         frac = val / total
-        parts.append(_arc_circle(cx, cy, r, sw, color, frac, cum))
+        parts.append(_arc_circle(cx, cy, r, sw, color, frac, cum, cls=f"arc{ai}"))
+        arc_css.append(
+            f".arc{ai}{{animation:draw{ai} .7s ease-out both;"
+            f"animation-delay:{ai * 0.22:.2f}s}}"
+            f"@keyframes draw{ai}{{from{{stroke-dasharray:0 {c:.2f}}}"
+            f"to{{stroke-dasharray:{frac * c:.2f} {c:.2f}}}}}"
+        )
         cum += frac
+        ai += 1
     parts.append("</g>")
+    parts.append('<g class="ctr">')
     parts.append(
         f'<text x="{cx}" y="{cy + 2}" text-anchor="middle" font-size="38" '
         f'font-weight="700" fill="#1F6FEB">{total}</text>'
@@ -651,9 +767,11 @@ def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
         f'<text x="{cx}" y="{cy + 24}" text-anchor="middle" font-size="12" '
         f'fill="{label_c}">solved</text>'
     )
+    parts.append("</g>")
     lx, ly = 250, 66
-    for name, val, color in segs:
+    for i, (name, val, color) in enumerate(segs):
         pct = (val / total * 100) if total else 0
+        parts.append(f'<g class="leg" style="animation-delay:{0.5 + i * 0.12:.2f}s">')
         parts.append(
             f'<rect x="{lx}" y="{ly - 12}" width="15" height="15" rx="3" '
             f'fill="{color}" />'
@@ -662,7 +780,13 @@ def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
             f'<text x="{lx + 24}" y="{ly}" font-size="14" fill="{label_c}">'
             f'{name} &#8212; {val} ({pct:.0f}%)</text>'
         )
+        parts.append("</g>")
         ly += 34
+    parts.insert(1, anim_style(
+        "".join(arc_css)
+        + ".ctr{animation:fadein .6s ease-out both;animation-delay:.5s}"
+        + ".leg{animation:slideup .5s ease-out both}"
+    ))
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
@@ -683,19 +807,38 @@ def build_neetcode_svg(cat_rows: list[tuple], nc_done: int, nc_total: int,
     label_c, done_c, part_c = "#768390", "#2DB55D", "#1F6FEB"
 
     cx, cy, r, sw = 74, 62, 46, 12
+    c = 2 * math.pi * r
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" '
         f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">'
     ]
+    parts.append(anim_style(
+        ".bar{transform-box:fill-box;transform-origin:left center;"
+        "animation:grow .7s ease-out both}"
+        ".cnt{animation:fadein .6s ease-out both;animation-delay:.55s}"
+        ".ctr{animation:fadein .6s ease-out both;animation-delay:.3s}"
+        ".ring{animation:drawring .9s ease-out both}"
+        f"@keyframes drawring{{from{{stroke-dasharray:0 {c:.2f}}}"
+        f"to{{stroke-dasharray:{nc_frac * c:.2f} {c:.2f}}}}}"
+        f".shimmer{{animation:spin 4s linear infinite;transform-box:view-box;"
+        f"transform-origin:{cx}px {cy}px}}"
+    ))
     # Overall progress ring.
     parts.append(
         f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#ebedf0" '
         f'stroke-width="{sw}" />'
     )
     parts.append(f'<g transform="rotate(-90 {cx} {cy})">')
-    parts.append(_arc_circle(cx, cy, r, sw, part_c, nc_frac, 0.0))
+    parts.append(_arc_circle(cx, cy, r, sw, part_c, nc_frac, 0.0, cls="ring"))
     parts.append("</g>")
+    # Traveling glint on the ring.
+    parts.append(
+        f'<g class="shimmer"><circle cx="{cx}" cy="{cy}" r="{r}" fill="none" '
+        f'stroke="#cfe3ff" stroke-width="{sw}" stroke-linecap="round" '
+        f'stroke-dasharray="4 {c:.2f}" transform="rotate(-90 {cx} {cy})"/></g>'
+    )
+    parts.append('<g class="ctr">')
     parts.append(
         f'<text x="{cx}" y="{cy + 2}" text-anchor="middle" font-size="20" '
         f'font-weight="700" fill="{part_c}">{nc_frac * 100:.0f}%</text>'
@@ -708,6 +851,7 @@ def build_neetcode_svg(cat_rows: list[tuple], nc_done: int, nc_total: int,
         f'<text x="{cx + r + 20}" y="{cy + 16}" font-size="12" fill="{label_c}">'
         f'problems on the roadmap</text>'
     )
+    parts.append("</g>")
 
     # Per-category bars.
     for i, (frac, category, done, tot) in enumerate(cat_rows):
@@ -718,6 +862,7 @@ def build_neetcode_svg(cat_rows: list[tuple], nc_done: int, nc_total: int,
         fill = done_c if complete else part_c
         fill_len = bar_max * frac
         label = f"{_xml(category)} \u2713" if complete else _xml(category)
+        delay = 0.25 + i * 0.03
         parts.append(
             f'<text x="{label_w - 6}" y="{ty:.0f}" text-anchor="end" '
             f'font-size="11" fill="{label_c}">{label}</text>'
@@ -728,12 +873,13 @@ def build_neetcode_svg(cat_rows: list[tuple], nc_done: int, nc_total: int,
         )
         if fill_len > 0:
             parts.append(
-                f'<rect x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" '
+                f'<rect class="bar" style="animation-delay:{delay:.2f}s" '
+                f'x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" '
                 f'height="{bar_h}" rx="6" ry="6" fill="{fill}" />'
             )
         parts.append(
-            f'<text x="{width - 6}" y="{ty:.0f}" text-anchor="end" font-size="11" '
-            f'font-weight="600" fill="{label_c}">{done}/{tot}</text>'
+            f'<text class="cnt" x="{width - 6}" y="{ty:.0f}" text-anchor="end" '
+            f'font-size="11" font-weight="600" fill="{label_c}">{done}/{tot}</text>'
         )
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
