@@ -1,5 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="946" height="164" viewBox="0 0 946 164" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="9">
-<style>@media (prefers-reduced-motion:no-preference){@keyframes fadein{from{opacity:0}to{opacity:1}}@keyframes slideup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.18);opacity:.6}}@keyframes spin{to{transform:rotate(360deg)}}.wk{animation:fadein .5s ease-out both}#today{animation:pulse 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}}</style>
 <text x="34" y="14" fill="#768390">Jul</text>
 <text x="102" y="14" fill="#768390">Aug</text>
 <text x="170" y="14" fill="#768390">Sep</text>
@@ -16,7 +15,7 @@
 <text x="28" y="33" text-anchor="end" fill="#768390">Mon</text>
 <text x="28" y="67" text-anchor="end" fill="#768390">Wed</text>
 <text x="28" y="101" text-anchor="end" fill="#768390">Fri</text>
-<g class="wk" style="animation-delay:0.000s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.000;1" dur="0.450s" fill="freeze"/>
 <rect x="34" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-07: 0 solves</title></rect>
 <rect x="34" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-08: 0 solves</title></rect>
 <rect x="34" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-09: 0 solves</title></rect>
@@ -25,7 +24,7 @@
 <rect x="34" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-12: 0 solves</title></rect>
 <rect x="34" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-13: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.012s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.026;1" dur="0.462s" fill="freeze"/>
 <rect x="51" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-14: 0 solves</title></rect>
 <rect x="51" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-15: 0 solves</title></rect>
 <rect x="51" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-16: 0 solves</title></rect>
@@ -34,7 +33,7 @@
 <rect x="51" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-19: 0 solves</title></rect>
 <rect x="51" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-20: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.024s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.051;1" dur="0.474s" fill="freeze"/>
 <rect x="68" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-21: 0 solves</title></rect>
 <rect x="68" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-22: 0 solves</title></rect>
 <rect x="68" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-23: 0 solves</title></rect>
@@ -43,7 +42,7 @@
 <rect x="68" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-26: 0 solves</title></rect>
 <rect x="68" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-27: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.036s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.074;1" dur="0.486s" fill="freeze"/>
 <rect x="85" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-28: 0 solves</title></rect>
 <rect x="85" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-29: 0 solves</title></rect>
 <rect x="85" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-07-30: 0 solves</title></rect>
@@ -52,7 +51,7 @@
 <rect x="85" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-02: 0 solves</title></rect>
 <rect x="85" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-03: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.048s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.096;1" dur="0.498s" fill="freeze"/>
 <rect x="102" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-04: 0 solves</title></rect>
 <rect x="102" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-05: 0 solves</title></rect>
 <rect x="102" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-06: 0 solves</title></rect>
@@ -61,7 +60,7 @@
 <rect x="102" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-09: 0 solves</title></rect>
 <rect x="102" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-10: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.060s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.118;1" dur="0.510s" fill="freeze"/>
 <rect x="119" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-11: 0 solves</title></rect>
 <rect x="119" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-12: 0 solves</title></rect>
 <rect x="119" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-13: 0 solves</title></rect>
@@ -70,7 +69,7 @@
 <rect x="119" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-16: 0 solves</title></rect>
 <rect x="119" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-17: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.072s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.138;1" dur="0.522s" fill="freeze"/>
 <rect x="136" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-18: 0 solves</title></rect>
 <rect x="136" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-19: 0 solves</title></rect>
 <rect x="136" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-20: 0 solves</title></rect>
@@ -79,7 +78,7 @@
 <rect x="136" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-23: 0 solves</title></rect>
 <rect x="136" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-24: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.084s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.157;1" dur="0.534s" fill="freeze"/>
 <rect x="153" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-25: 0 solves</title></rect>
 <rect x="153" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-26: 0 solves</title></rect>
 <rect x="153" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-27: 0 solves</title></rect>
@@ -88,7 +87,7 @@
 <rect x="153" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-30: 0 solves</title></rect>
 <rect x="153" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-08-31: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.096s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.176;1" dur="0.546s" fill="freeze"/>
 <rect x="170" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-01: 0 solves</title></rect>
 <rect x="170" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-02: 0 solves</title></rect>
 <rect x="170" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-03: 0 solves</title></rect>
@@ -97,7 +96,7 @@
 <rect x="170" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-06: 0 solves</title></rect>
 <rect x="170" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-07: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.108s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.194;1" dur="0.558s" fill="freeze"/>
 <rect x="187" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-08: 0 solves</title></rect>
 <rect x="187" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-09: 0 solves</title></rect>
 <rect x="187" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-10: 0 solves</title></rect>
@@ -106,7 +105,7 @@
 <rect x="187" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-13: 0 solves</title></rect>
 <rect x="187" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-14: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.120s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.211;1" dur="0.570s" fill="freeze"/>
 <rect x="204" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-15: 0 solves</title></rect>
 <rect x="204" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-16: 0 solves</title></rect>
 <rect x="204" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-17: 0 solves</title></rect>
@@ -115,7 +114,7 @@
 <rect x="204" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-20: 0 solves</title></rect>
 <rect x="204" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-21: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.132s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.227;1" dur="0.582s" fill="freeze"/>
 <rect x="221" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-22: 0 solves</title></rect>
 <rect x="221" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-23: 0 solves</title></rect>
 <rect x="221" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-24: 0 solves</title></rect>
@@ -124,7 +123,7 @@
 <rect x="221" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-27: 0 solves</title></rect>
 <rect x="221" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-28: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.144s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.242;1" dur="0.594s" fill="freeze"/>
 <rect x="238" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-29: 0 solves</title></rect>
 <rect x="238" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-09-30: 0 solves</title></rect>
 <rect x="238" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-01: 0 solves</title></rect>
@@ -133,7 +132,7 @@
 <rect x="238" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-04: 0 solves</title></rect>
 <rect x="238" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-05: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.156s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.257;1" dur="0.606s" fill="freeze"/>
 <rect x="255" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-06: 0 solves</title></rect>
 <rect x="255" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-07: 0 solves</title></rect>
 <rect x="255" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-08: 0 solves</title></rect>
@@ -142,7 +141,7 @@
 <rect x="255" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-11: 0 solves</title></rect>
 <rect x="255" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-12: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.168s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.272;1" dur="0.618s" fill="freeze"/>
 <rect x="272" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-13: 0 solves</title></rect>
 <rect x="272" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-14: 0 solves</title></rect>
 <rect x="272" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-15: 0 solves</title></rect>
@@ -151,7 +150,7 @@
 <rect x="272" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-18: 0 solves</title></rect>
 <rect x="272" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-19: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.180s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.286;1" dur="0.630s" fill="freeze"/>
 <rect x="289" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-20: 0 solves</title></rect>
 <rect x="289" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-21: 0 solves</title></rect>
 <rect x="289" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-22: 0 solves</title></rect>
@@ -160,7 +159,7 @@
 <rect x="289" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-25: 0 solves</title></rect>
 <rect x="289" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-26: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.192s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.299;1" dur="0.642s" fill="freeze"/>
 <rect x="306" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-27: 0 solves</title></rect>
 <rect x="306" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-28: 0 solves</title></rect>
 <rect x="306" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-10-29: 0 solves</title></rect>
@@ -169,7 +168,7 @@
 <rect x="306" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-01: 0 solves</title></rect>
 <rect x="306" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-02: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.204s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.312;1" dur="0.654s" fill="freeze"/>
 <rect x="323" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-03: 0 solves</title></rect>
 <rect x="323" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-04: 0 solves</title></rect>
 <rect x="323" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-05: 0 solves</title></rect>
@@ -178,7 +177,7 @@
 <rect x="323" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-08: 0 solves</title></rect>
 <rect x="323" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-09: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.216s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.324;1" dur="0.666s" fill="freeze"/>
 <rect x="340" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-10: 0 solves</title></rect>
 <rect x="340" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-11: 0 solves</title></rect>
 <rect x="340" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-12: 0 solves</title></rect>
@@ -187,7 +186,7 @@
 <rect x="340" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-15: 0 solves</title></rect>
 <rect x="340" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-16: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.228s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.336;1" dur="0.678s" fill="freeze"/>
 <rect x="357" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-17: 0 solves</title></rect>
 <rect x="357" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-18: 0 solves</title></rect>
 <rect x="357" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-19: 0 solves</title></rect>
@@ -196,7 +195,7 @@
 <rect x="357" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-22: 0 solves</title></rect>
 <rect x="357" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-23: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.240s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.348;1" dur="0.690s" fill="freeze"/>
 <rect x="374" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-24: 0 solves</title></rect>
 <rect x="374" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-25: 0 solves</title></rect>
 <rect x="374" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-26: 0 solves</title></rect>
@@ -205,7 +204,7 @@
 <rect x="374" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-29: 0 solves</title></rect>
 <rect x="374" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-11-30: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.252s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.359;1" dur="0.702s" fill="freeze"/>
 <rect x="391" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-01: 0 solves</title></rect>
 <rect x="391" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-02: 0 solves</title></rect>
 <rect x="391" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-03: 0 solves</title></rect>
@@ -214,7 +213,7 @@
 <rect x="391" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-06: 0 solves</title></rect>
 <rect x="391" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-07: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.264s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.370;1" dur="0.714s" fill="freeze"/>
 <rect x="408" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-08: 0 solves</title></rect>
 <rect x="408" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-09: 0 solves</title></rect>
 <rect x="408" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-10: 0 solves</title></rect>
@@ -223,7 +222,7 @@
 <rect x="408" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-13: 0 solves</title></rect>
 <rect x="408" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-14: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.276s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.380;1" dur="0.726s" fill="freeze"/>
 <rect x="425" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-15: 0 solves</title></rect>
 <rect x="425" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-16: 0 solves</title></rect>
 <rect x="425" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-17: 0 solves</title></rect>
@@ -232,7 +231,7 @@
 <rect x="425" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-20: 0 solves</title></rect>
 <rect x="425" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-21: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.288s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.390;1" dur="0.738s" fill="freeze"/>
 <rect x="442" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-22: 0 solves</title></rect>
 <rect x="442" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-23: 0 solves</title></rect>
 <rect x="442" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-24: 0 solves</title></rect>
@@ -241,7 +240,7 @@
 <rect x="442" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-27: 0 solves</title></rect>
 <rect x="442" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-28: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.300s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.400;1" dur="0.750s" fill="freeze"/>
 <rect x="459" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-29: 0 solves</title></rect>
 <rect x="459" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-30: 0 solves</title></rect>
 <rect x="459" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2025-12-31: 0 solves</title></rect>
@@ -250,7 +249,7 @@
 <rect x="459" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-03: 0 solves</title></rect>
 <rect x="459" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-04: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.312s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.409;1" dur="0.762s" fill="freeze"/>
 <rect x="476" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-05: 0 solves</title></rect>
 <rect x="476" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-06: 0 solves</title></rect>
 <rect x="476" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-07: 0 solves</title></rect>
@@ -259,7 +258,7 @@
 <rect x="476" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-10: 0 solves</title></rect>
 <rect x="476" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-11: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.324s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.419;1" dur="0.774s" fill="freeze"/>
 <rect x="493" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-12: 0 solves</title></rect>
 <rect x="493" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-13: 0 solves</title></rect>
 <rect x="493" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-14: 0 solves</title></rect>
@@ -268,7 +267,7 @@
 <rect x="493" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-17: 0 solves</title></rect>
 <rect x="493" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-18: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.336s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.427;1" dur="0.786s" fill="freeze"/>
 <rect x="510" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-19: 0 solves</title></rect>
 <rect x="510" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-20: 0 solves</title></rect>
 <rect x="510" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-21: 0 solves</title></rect>
@@ -277,7 +276,7 @@
 <rect x="510" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-24: 0 solves</title></rect>
 <rect x="510" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-25: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.348s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.436;1" dur="0.798s" fill="freeze"/>
 <rect x="527" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-26: 0 solves</title></rect>
 <rect x="527" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-27: 0 solves</title></rect>
 <rect x="527" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-28: 0 solves</title></rect>
@@ -286,7 +285,7 @@
 <rect x="527" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-01-31: 0 solves</title></rect>
 <rect x="527" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-01: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.360s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.444;1" dur="0.810s" fill="freeze"/>
 <rect x="544" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-02: 0 solves</title></rect>
 <rect x="544" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-03: 0 solves</title></rect>
 <rect x="544" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-04: 0 solves</title></rect>
@@ -295,7 +294,7 @@
 <rect x="544" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-07: 0 solves</title></rect>
 <rect x="544" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-08: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.372s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.453;1" dur="0.822s" fill="freeze"/>
 <rect x="561" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-09: 0 solves</title></rect>
 <rect x="561" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-10: 0 solves</title></rect>
 <rect x="561" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-11: 0 solves</title></rect>
@@ -304,7 +303,7 @@
 <rect x="561" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-14: 0 solves</title></rect>
 <rect x="561" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-15: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.384s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.460;1" dur="0.834s" fill="freeze"/>
 <rect x="578" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-16: 0 solves</title></rect>
 <rect x="578" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-17: 0 solves</title></rect>
 <rect x="578" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-18: 0 solves</title></rect>
@@ -313,7 +312,7 @@
 <rect x="578" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-21: 0 solves</title></rect>
 <rect x="578" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-22: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.396s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.468;1" dur="0.846s" fill="freeze"/>
 <rect x="595" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-23: 0 solves</title></rect>
 <rect x="595" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-24: 0 solves</title></rect>
 <rect x="595" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-25: 0 solves</title></rect>
@@ -322,7 +321,7 @@
 <rect x="595" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-02-28: 0 solves</title></rect>
 <rect x="595" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-01: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.408s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.476;1" dur="0.858s" fill="freeze"/>
 <rect x="612" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-02: 0 solves</title></rect>
 <rect x="612" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-03: 0 solves</title></rect>
 <rect x="612" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-04: 0 solves</title></rect>
@@ -331,7 +330,7 @@
 <rect x="612" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-07: 0 solves</title></rect>
 <rect x="612" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-08: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.420s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.483;1" dur="0.870s" fill="freeze"/>
 <rect x="629" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-09: 0 solves</title></rect>
 <rect x="629" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-10: 0 solves</title></rect>
 <rect x="629" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-11: 0 solves</title></rect>
@@ -340,7 +339,7 @@
 <rect x="629" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-14: 0 solves</title></rect>
 <rect x="629" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-15: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.432s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.490;1" dur="0.882s" fill="freeze"/>
 <rect x="646" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-16: 0 solves</title></rect>
 <rect x="646" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-17: 0 solves</title></rect>
 <rect x="646" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-18: 0 solves</title></rect>
@@ -349,7 +348,7 @@
 <rect x="646" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-21: 0 solves</title></rect>
 <rect x="646" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-22: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.444s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.497;1" dur="0.894s" fill="freeze"/>
 <rect x="663" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-23: 0 solves</title></rect>
 <rect x="663" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-24: 0 solves</title></rect>
 <rect x="663" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-25: 0 solves</title></rect>
@@ -358,7 +357,7 @@
 <rect x="663" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-28: 0 solves</title></rect>
 <rect x="663" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-29: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.456s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.503;1" dur="0.906s" fill="freeze"/>
 <rect x="680" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-30: 0 solves</title></rect>
 <rect x="680" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-03-31: 0 solves</title></rect>
 <rect x="680" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-01: 0 solves</title></rect>
@@ -367,7 +366,7 @@
 <rect x="680" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-04: 0 solves</title></rect>
 <rect x="680" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-05: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.468s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.510;1" dur="0.918s" fill="freeze"/>
 <rect x="697" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-06: 0 solves</title></rect>
 <rect x="697" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-07: 0 solves</title></rect>
 <rect x="697" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-08: 0 solves</title></rect>
@@ -376,7 +375,7 @@
 <rect x="697" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-11: 0 solves</title></rect>
 <rect x="697" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-12: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.480s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.516;1" dur="0.930s" fill="freeze"/>
 <rect x="714" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-13: 0 solves</title></rect>
 <rect x="714" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-14: 0 solves</title></rect>
 <rect x="714" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-15: 0 solves</title></rect>
@@ -385,7 +384,7 @@
 <rect x="714" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-18: 0 solves</title></rect>
 <rect x="714" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-19: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.492s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.522;1" dur="0.942s" fill="freeze"/>
 <rect x="731" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-20: 0 solves</title></rect>
 <rect x="731" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-21: 0 solves</title></rect>
 <rect x="731" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-22: 0 solves</title></rect>
@@ -394,7 +393,7 @@
 <rect x="731" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-25: 0 solves</title></rect>
 <rect x="731" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-26: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.504s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.528;1" dur="0.954s" fill="freeze"/>
 <rect x="748" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-27: 0 solves</title></rect>
 <rect x="748" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-28: 0 solves</title></rect>
 <rect x="748" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-04-29: 0 solves</title></rect>
@@ -403,7 +402,7 @@
 <rect x="748" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-02: 0 solves</title></rect>
 <rect x="748" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-03: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.516s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.534;1" dur="0.966s" fill="freeze"/>
 <rect x="765" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-04: 0 solves</title></rect>
 <rect x="765" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-05: 0 solves</title></rect>
 <rect x="765" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-06: 0 solves</title></rect>
@@ -412,7 +411,7 @@
 <rect x="765" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-09: 0 solves</title></rect>
 <rect x="765" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-10: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.528s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.540;1" dur="0.978s" fill="freeze"/>
 <rect x="782" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-11: 0 solves</title></rect>
 <rect x="782" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-12: 0 solves</title></rect>
 <rect x="782" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-13: 0 solves</title></rect>
@@ -421,7 +420,7 @@
 <rect x="782" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-16: 0 solves</title></rect>
 <rect x="782" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-17: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.540s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.545;1" dur="0.990s" fill="freeze"/>
 <rect x="799" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-18: 0 solves</title></rect>
 <rect x="799" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-19: 0 solves</title></rect>
 <rect x="799" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-20: 0 solves</title></rect>
@@ -430,7 +429,7 @@
 <rect x="799" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-23: 0 solves</title></rect>
 <rect x="799" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-24: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.552s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.551;1" dur="1.002s" fill="freeze"/>
 <rect x="816" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-25: 0 solves</title></rect>
 <rect x="816" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-26: 0 solves</title></rect>
 <rect x="816" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-27: 0 solves</title></rect>
@@ -439,7 +438,7 @@
 <rect x="816" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-30: 0 solves</title></rect>
 <rect x="816" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-05-31: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.564s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.556;1" dur="1.014s" fill="freeze"/>
 <rect x="833" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-01: 0 solves</title></rect>
 <rect x="833" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-02: 0 solves</title></rect>
 <rect x="833" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-03: 0 solves</title></rect>
@@ -448,7 +447,7 @@
 <rect x="833" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-06: 0 solves</title></rect>
 <rect x="833" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-07: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.576s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.561;1" dur="1.026s" fill="freeze"/>
 <rect x="850" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-08: 0 solves</title></rect>
 <rect x="850" y="39" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-09: 0 solves</title></rect>
 <rect x="850" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-10: 0 solves</title></rect>
@@ -457,7 +456,7 @@
 <rect x="850" y="107" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-13: 0 solves</title></rect>
 <rect x="850" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-14: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.588s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.566;1" dur="1.038s" fill="freeze"/>
 <rect x="867" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-15: 0 solves</title></rect>
 <rect x="867" y="39" width="14" height="14" rx="3" ry="3" fill="#216e39"><title>2026-06-16: 10 solves</title></rect>
 <rect x="867" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-17: 0 solves</title></rect>
@@ -466,7 +465,7 @@
 <rect x="867" y="107" width="14" height="14" rx="3" ry="3" fill="#216e39"><title>2026-06-20: 5 solves</title></rect>
 <rect x="867" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-21: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.600s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.571;1" dur="1.050s" fill="freeze"/>
 <rect x="884" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-22: 0 solves</title></rect>
 <rect x="884" y="39" width="14" height="14" rx="3" ry="3" fill="#40c463"><title>2026-06-23: 2 solves</title></rect>
 <rect x="884" y="56" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-06-24: 0 solves</title></rect>
@@ -475,7 +474,7 @@
 <rect x="884" y="107" width="14" height="14" rx="3" ry="3" fill="#9be9a8"><title>2026-06-27: 1 solve</title></rect>
 <rect x="884" y="124" width="14" height="14" rx="3" ry="3" fill="#40c463"><title>2026-06-28: 2 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.612s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.576;1" dur="1.062s" fill="freeze"/>
 <rect x="901" y="22" width="14" height="14" rx="3" ry="3" fill="#40c463"><title>2026-06-29: 2 solves</title></rect>
 <rect x="901" y="39" width="14" height="14" rx="3" ry="3" fill="#9be9a8"><title>2026-06-30: 1 solve</title></rect>
 <rect x="901" y="56" width="14" height="14" rx="3" ry="3" fill="#9be9a8"><title>2026-07-01: 1 solve</title></rect>
@@ -484,11 +483,10 @@
 <rect x="901" y="107" width="14" height="14" rx="3" ry="3" fill="#216e39"><title>2026-07-04: 4 solves</title></rect>
 <rect x="901" y="124" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-07-05: 0 solves</title></rect>
 </g>
-<g class="wk" style="animation-delay:0.624s">
+<g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.581;1" dur="1.074s" fill="freeze"/>
 <rect x="918" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-07-06: 0 solves</title></rect>
 <rect x="918" y="39" width="14" height="14" rx="3" ry="3" fill="#30a14e"><title>2026-07-07: 3 solves</title></rect>
-<rect x="918" y="56" width="14" height="14" rx="3" ry="3" fill="#9be9a8"><title>2026-07-08: 1 solve</title></rect>
-<rect id="today" x="918" y="73" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-07-09: 0 solves</title></rect>
+<rect x="918" y="56" width="14" height="14" rx="3" ry="3" fill="#9be9a8"><title>2026-07-08: 1 solve</title><animate attributeName="opacity" values="1;.4;1" dur="2.2s" repeatCount="indefinite"/></rect>
 </g>
 <text x="34" y="157" fill="#768390">Less</text>
 <rect x="62" y="146" width="14" height="14" rx="3" ry="3" fill="#ebedf0"/>

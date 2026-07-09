@@ -368,32 +368,80 @@ HEATMAP_TEXT = "#768390"
 MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
               "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-# Charts render their final state statically; these only add motion, and only
-# when the viewer has not requested reduced motion.
+# Charts always encode their final frame in the base attributes; the SMIL
+# animations below only add motion on top. SMIL is used (not CSS @keyframes)
+# because GitHub renders README SVGs through its camo proxy in a sandbox that
+# freezes CSS animations at frame 0 -- SMIL still runs there, as it does for
+# the many animated-SVG READMEs in the wild (typing banners, contribution
+# snake, etc.). Flip ANIMATIONS off to emit the plain static charts.
 ANIMATIONS = True
-_KEYFRAMES = (
-    "@keyframes fadein{from{opacity:0}to{opacity:1}}"
-    "@keyframes slideup{from{opacity:0;transform:translateY(8px)}"
-    "to{opacity:1;transform:translateY(0)}}"
-    "@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}"
-    "@keyframes pulse{0%,100%{transform:scale(1);opacity:1}"
-    "50%{transform:scale(1.18);opacity:.6}}"
-    "@keyframes spin{to{transform:rotate(360deg)}}"
-)
 
 
-def anim_style(css_body: str) -> str:
-    """A reduced-motion-gated <style> block; empty when animations are off.
+def _delayed(attr: str, hold: str, final: str, delay: float, dur: float) -> str:
+    """One-shot SMIL that holds ``hold`` for ``delay`` then eases to ``final``
+    and freezes. begin=0 with a held key avoids any base-state flash."""
+    if not ANIMATIONS:
+        return ""
+    total = delay + dur
+    kt = (delay / total) if total else 0.0
+    return (
+        f'<animate attributeName="{attr}" values="{hold};{hold};{final}" '
+        f'keyTimes="0;{kt:.3f};1" dur="{total:.3f}s" fill="freeze"/>'
+    )
 
-    The base SVG always encodes its final frame, so disabling motion (or a
-    non-animating renderer) simply shows the static chart.
-    """
+
+def anim_fade(delay: float = 0.0, dur: float = 0.5) -> str:
+    return _delayed("opacity", "0", "1", delay, dur)
+
+
+def anim_grow_width(final: float, delay: float = 0.0, dur: float = 0.6) -> str:
+    return _delayed("width", "0", f"{final:.1f}", delay, dur)
+
+
+def anim_draw(dash: float, circ: float, delay: float = 0.0,
+              dur: float = 0.8) -> str:
+    return _delayed(
+        "stroke-dasharray", f"0 {circ:.2f}", f"{dash:.2f} {circ:.2f}", delay, dur
+    )
+
+
+def anim_slideup(delay: float = 0.0, dur: float = 0.5) -> str:
+    if not ANIMATIONS:
+        return ""
+    total = delay + dur
+    kt = (delay / total) if total else 0.0
+    return (
+        f'<animateTransform attributeName="transform" type="translate" '
+        f'values="0 8;0 8;0 0" keyTimes="0;{kt:.3f};1" dur="{total:.3f}s" '
+        f'fill="freeze"/>' + anim_fade(delay, dur)
+    )
+
+
+def anim_pulse(dur: float = 2.2) -> str:
     if not ANIMATIONS:
         return ""
     return (
-        "<style>@media (prefers-reduced-motion:no-preference){"
-        f"{_KEYFRAMES}{css_body}"
-        "}</style>"
+        f'<animate attributeName="opacity" values="1;.4;1" dur="{dur}s" '
+        f'repeatCount="indefinite"/>'
+    )
+
+
+def anim_spin(cx: float, cy: float, dur: float = 4.0) -> str:
+    if not ANIMATIONS:
+        return ""
+    return (
+        f'<animateTransform attributeName="transform" type="rotate" '
+        f'from="0 {cx} {cy}" to="360 {cx} {cy}" dur="{dur}s" '
+        f'repeatCount="indefinite"/>'
+    )
+
+
+def anim_sweep_x(x0: float, x1: float, dur: float = 6.0) -> str:
+    if not ANIMATIONS:
+        return ""
+    return (
+        f'<animateTransform attributeName="transform" type="translate" '
+        f'values="{x0:.0f} 0;{x1:.0f} 0" dur="{dur}s" repeatCount="indefinite"/>'
     )
 
 
@@ -420,11 +468,6 @@ def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
         f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" '
         f'font-size="9">'
     ]
-    parts.append(anim_style(
-        ".wk{animation:fadein .5s ease-out both}"
-        "#today{animation:pulse 2.4s ease-in-out infinite;"
-        "transform-box:fill-box;transform-origin:center}"
-    ))
 
     # Month labels along the top (when the column's month changes).
     prev_month = None
@@ -458,14 +501,14 @@ def build_heatmap_svg(dated: list[dict], today: date, week_start: date,
             x = left_pad + wk * step
             y = top_pad + wd * step
             noun = "solve" if c == 1 else "solves"
-            cell_id = ' id="today"' if day == today else ""
+            pulse = anim_pulse(2.2) if day == today else ""
             col_cells.append(
-                f'<rect{cell_id} x="{x}" y="{y}" width="{cell}" height="{cell}" '
+                f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" '
                 f'rx="3" ry="3" fill="{fill}">'
-                f'<title>{day.isoformat()}: {c} {noun}</title></rect>'
+                f'<title>{day.isoformat()}: {c} {noun}</title>{pulse}</rect>'
             )
         if col_cells:
-            parts.append(f'<g class="wk" style="animation-delay:{wk * 0.012:.3f}s">')
+            parts.append(f'<g>{anim_fade(wk * 0.012, 0.45)}')
             parts.extend(col_cells)
             parts.append("</g>")
 
@@ -510,13 +553,6 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
         f'viewBox="0 0 {width} {height}" '
         f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">'
     ]
-    parts.append(anim_style(
-        ".tile{animation:slideup .5s ease-out both}"
-        ".divline{animation:fadein .8s ease-out both;animation-delay:.2s}"
-        ".shine{animation:bsweep 6.5s ease-in-out infinite}"
-        "@keyframes bsweep{0%{transform:translateX(0) skewX(-18deg)}"
-        f"100%{{transform:translateX({width + 180}px) skewX(-18deg)}}}}"
-    ))
     parts.append(
         '<defs>'
         '<linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">'
@@ -531,8 +567,8 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
     for i in (1, 2, 3):
         x = pad + tw * i
         parts.append(
-            f'<line class="divline" x1="{x:.0f}" y1="30" x2="{x:.0f}" y2="120" '
-            f'stroke="{div_c}" stroke-width="1"/>'
+            f'<line x1="{x:.0f}" y1="30" x2="{x:.0f}" y2="120" '
+            f'stroke="{div_c}" stroke-width="1">{anim_fade(0.2, 0.7)}</line>'
         )
 
     def label(i: int, s: str) -> None:
@@ -554,14 +590,14 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
         )
 
     # Tile 0: total solved.
-    parts.append('<g class="tile" style="animation-delay:0s">')
+    parts.append(f'<g>{anim_slideup(0.0)}')
     label(0, "SOLVED")
     value(0, str(total), blue)
     sub(0, "Python")
     parts.append("</g>")
 
     # Tile 1: difficulty split (stacked bar + coloured counts).
-    parts.append('<g class="tile" style="animation-delay:0.08s">')
+    parts.append(f'<g>{anim_slideup(0.08)}')
     label(1, "BY DIFFICULTY")
     bw = tw - 56
     bx = cx(1) - bw / 2
@@ -581,7 +617,7 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
     parts.append("</g>")
 
     # Tile 2: NeetCode 150 progress.
-    parts.append('<g class="tile" style="animation-delay:0.16s">')
+    parts.append(f'<g>{anim_slideup(0.16)}')
     label(2, "NEETCODE 150")
     if nc_total:
         value(2, f"{round(nc_done / nc_total * 100)}%", blue)
@@ -591,7 +627,7 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
     parts.append("</g>")
 
     # Tile 3: contest rating / global rank.
-    parts.append('<g class="tile" style="animation-delay:0.24s">')
+    parts.append(f'<g>{anim_slideup(0.24)}')
     rating = ranking.get("contest_rating") if ranking else None
     rank = ranking.get("overall_ranking") if ranking else None
     if rating:
@@ -609,10 +645,12 @@ def build_stats_banner_svg(total: int, easy: int, medium: int, hard: int,
     parts.append("</g>")
 
     # Continuous accent: a faint diagonal glint sweeping across the banner.
+    # Skew lives on an outer group so the SMIL translate can drive the sweep.
     parts.append(
-        f'<g clip-path="url(#bclip)"><rect class="shine" x="-90" y="-20" '
-        f'width="90" height="{height + 40}" fill="url(#shine)" '
-        f'transform="skewX(-18)"/></g>'
+        f'<g clip-path="url(#bclip)"><g transform="skewX(-18)">'
+        f'<rect x="-100" y="-20" width="80" height="{height + 40}" '
+        f'fill="url(#shine)">{anim_sweep_x(0, width + 220, 6.5)}</rect>'
+        f'</g></g>'
     )
 
     parts.append("</svg>")
@@ -632,16 +670,19 @@ def _blue_scale(f: float) -> str:
 
 
 def _arc_circle(cx: float, cy: float, r: float, sw: int, color: str,
-                frac: float, offset: float, cls: str | None = None) -> str:
-    """A donut/ring segment via stroke-dasharray (group is rotated -90)."""
+                frac: float, offset: float, inner: str = "") -> str:
+    """A donut/ring segment via stroke-dasharray (group is rotated -90).
+
+    ``inner`` lets callers embed a SMIL child (e.g. a draw-on animation).
+    """
     c = 2 * math.pi * r
     dash = max(0.0, frac) * c
-    cls_attr = f' class="{cls}"' if cls else ""
-    return (
-        f'<circle{cls_attr} cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{color}" '
+    open_tag = (
+        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{color}" '
         f'stroke-width="{sw}" stroke-dasharray="{dash:.2f} {c:.2f}" '
-        f'stroke-dashoffset="{-offset * c:.2f}" />'
+        f'stroke-dashoffset="{-offset * c:.2f}"'
     )
+    return f'{open_tag}>{inner}</circle>' if inner else f'{open_tag} />'
 
 
 def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
@@ -680,13 +721,13 @@ def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
             f'rx="6" ry="6" fill="#ebedf0" />'
         )
         parts.append(
-            f'<rect class="bar" style="animation-delay:{i * 0.04:.2f}s" '
-            f'x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" height="{bar_h}" '
-            f'rx="6" ry="6" fill="{_blue_scale(frac)}" />'
+            f'<rect x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" '
+            f'height="{bar_h}" rx="6" ry="6" fill="{_blue_scale(frac)}">'
+            f'{anim_grow_width(fill_len, i * 0.04, 0.6)}</rect>'
         )
         parts.append(
-            f'<text class="cnt" x="{bar_x + fill_len + 6:.0f}" y="{ty:.0f}" '
-            f'fill="{label_c}" font-weight="600">{n}</text>'
+            f'<text x="{bar_x + fill_len + 6:.0f}" y="{ty:.0f}" '
+            f'fill="{label_c}" font-weight="600">{anim_fade(0.4, 0.6)}{n}</text>'
         )
 
     # Continuous accent: a soft glint sweeping the longest (top) bar.
@@ -704,17 +745,10 @@ def build_topics_bar_svg(items: list[tuple[str, int]], top_n: int = 16) -> str:
             '</defs>'
         )
         parts.append(
-            f'<g clip-path="url(#tbar)"><rect class="tshine" x="{bar_x - 44}" '
-            f'y="{top_by:.0f}" width="44" height="{bar_h}" fill="url(#tshine)"/></g>'
+            f'<g clip-path="url(#tbar)"><rect x="{bar_x - 44}" '
+            f'y="{top_by:.0f}" width="44" height="{bar_h}" fill="url(#tshine)">'
+            f'{anim_sweep_x(0, top_len + 44, 3.2)}</rect></g>'
         )
-        parts.insert(1, anim_style(
-            ".bar{transform-box:fill-box;transform-origin:left center;"
-            "animation:grow .7s ease-out both}"
-            ".cnt{animation:fadein .6s ease-out both;animation-delay:.4s}"
-            ".tshine{animation:tsweep 3.2s ease-in-out infinite;animation-delay:1s}"
-            "@keyframes tsweep{0%{transform:translateX(0)}"
-            f"100%{{transform:translateX({top_len + 44:.0f}px)}}}}"
-        ))
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
@@ -741,24 +775,18 @@ def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
         f'stroke-width="{sw}" />'
     )
     parts.append(f'<g transform="rotate(-90 {cx} {cy})">')
-    arc_css: list[str] = []
     cum = 0.0
     ai = 0
     for _, val, color in segs:
         if val <= 0 or total <= 0:
             continue
         frac = val / total
-        parts.append(_arc_circle(cx, cy, r, sw, color, frac, cum, cls=f"arc{ai}"))
-        arc_css.append(
-            f".arc{ai}{{animation:draw{ai} .7s ease-out both;"
-            f"animation-delay:{ai * 0.22:.2f}s}}"
-            f"@keyframes draw{ai}{{from{{stroke-dasharray:0 {c:.2f}}}"
-            f"to{{stroke-dasharray:{frac * c:.2f} {c:.2f}}}}}"
-        )
+        draw = anim_draw(frac * c, c, ai * 0.2, 0.7)
+        parts.append(_arc_circle(cx, cy, r, sw, color, frac, cum, inner=draw))
         cum += frac
         ai += 1
     parts.append("</g>")
-    parts.append('<g class="ctr">')
+    parts.append(f'<g>{anim_fade(0.5, 0.6)}')
     parts.append(
         f'<text x="{cx}" y="{cy + 2}" text-anchor="middle" font-size="38" '
         f'font-weight="700" fill="#1F6FEB">{total}</text>'
@@ -771,7 +799,7 @@ def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
     lx, ly = 250, 66
     for i, (name, val, color) in enumerate(segs):
         pct = (val / total * 100) if total else 0
-        parts.append(f'<g class="leg" style="animation-delay:{0.5 + i * 0.12:.2f}s">')
+        parts.append(f'<g>{anim_slideup(0.5 + i * 0.12, 0.5)}')
         parts.append(
             f'<rect x="{lx}" y="{ly - 12}" width="15" height="15" rx="3" '
             f'fill="{color}" />'
@@ -782,11 +810,6 @@ def build_difficulty_donut_svg(easy: int, medium: int, hard: int) -> str:
         )
         parts.append("</g>")
         ly += 34
-    parts.insert(1, anim_style(
-        "".join(arc_css)
-        + ".ctr{animation:fadein .6s ease-out both;animation-delay:.5s}"
-        + ".leg{animation:slideup .5s ease-out both}"
-    ))
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
@@ -813,32 +836,22 @@ def build_neetcode_svg(cat_rows: list[tuple], nc_done: int, nc_total: int,
         f'viewBox="0 0 {width} {height}" '
         f'font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">'
     ]
-    parts.append(anim_style(
-        ".bar{transform-box:fill-box;transform-origin:left center;"
-        "animation:grow .7s ease-out both}"
-        ".cnt{animation:fadein .6s ease-out both;animation-delay:.55s}"
-        ".ctr{animation:fadein .6s ease-out both;animation-delay:.3s}"
-        ".ring{animation:drawring .9s ease-out both}"
-        f"@keyframes drawring{{from{{stroke-dasharray:0 {c:.2f}}}"
-        f"to{{stroke-dasharray:{nc_frac * c:.2f} {c:.2f}}}}}"
-        f".shimmer{{animation:spin 4s linear infinite;transform-box:view-box;"
-        f"transform-origin:{cx}px {cy}px}}"
-    ))
-    # Overall progress ring.
+    # Overall progress ring (draws on).
     parts.append(
         f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#ebedf0" '
         f'stroke-width="{sw}" />'
     )
     parts.append(f'<g transform="rotate(-90 {cx} {cy})">')
-    parts.append(_arc_circle(cx, cy, r, sw, part_c, nc_frac, 0.0, cls="ring"))
+    parts.append(_arc_circle(cx, cy, r, sw, part_c, nc_frac, 0.0,
+                             inner=anim_draw(nc_frac * c, c, 0.0, 0.9)))
     parts.append("</g>")
-    # Traveling glint on the ring.
+    # Traveling glint that rotates around the ring.
     parts.append(
-        f'<g class="shimmer"><circle cx="{cx}" cy="{cy}" r="{r}" fill="none" '
-        f'stroke="#cfe3ff" stroke-width="{sw}" stroke-linecap="round" '
+        f'<g>{anim_spin(cx, cy, 4.0)}<circle cx="{cx}" cy="{cy}" r="{r}" '
+        f'fill="none" stroke="#cfe3ff" stroke-width="{sw}" stroke-linecap="round" '
         f'stroke-dasharray="4 {c:.2f}" transform="rotate(-90 {cx} {cy})"/></g>'
     )
-    parts.append('<g class="ctr">')
+    parts.append(f'<g>{anim_fade(0.3, 0.6)}')
     parts.append(
         f'<text x="{cx}" y="{cy + 2}" text-anchor="middle" font-size="20" '
         f'font-weight="700" fill="{part_c}">{nc_frac * 100:.0f}%</text>'
@@ -873,13 +886,14 @@ def build_neetcode_svg(cat_rows: list[tuple], nc_done: int, nc_total: int,
         )
         if fill_len > 0:
             parts.append(
-                f'<rect class="bar" style="animation-delay:{delay:.2f}s" '
-                f'x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" '
-                f'height="{bar_h}" rx="6" ry="6" fill="{fill}" />'
+                f'<rect x="{bar_x}" y="{by:.0f}" width="{fill_len:.1f}" '
+                f'height="{bar_h}" rx="6" ry="6" fill="{fill}">'
+                f'{anim_grow_width(fill_len, delay, 0.6)}</rect>'
             )
         parts.append(
-            f'<text class="cnt" x="{width - 6}" y="{ty:.0f}" text-anchor="end" '
-            f'font-size="11" font-weight="600" fill="{label_c}">{done}/{tot}</text>'
+            f'<text x="{width - 6}" y="{ty:.0f}" text-anchor="end" '
+            f'font-size="11" font-weight="600" fill="{label_c}">'
+            f'{anim_fade(0.5, 0.6)}{done}/{tot}</text>'
         )
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
