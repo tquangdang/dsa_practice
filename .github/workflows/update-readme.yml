@@ -28,17 +28,30 @@ jobs:
         with:
           python-version: "3.11"
 
+      # Used to subset the embedded handwriting font down to the glyphs each
+      # chart actually draws. generate_readme.py falls back to the full face if
+      # these are missing, so a failure here degrades size, not correctness.
+      - name: Install font tooling
+        run: pip install fonttools brotli
+
       - name: Regenerate README and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          files="README.md assets/activity-heatmap.svg assets/stats-banner.svg assets/topics.svg assets/neetcode.svg assets/difficulty-donut.svg scripts/leetcode_cache.json scripts/leetcode_user_cache.json"
+          # Every chart ships a light and a dark variant; the README picks
+          # between them with <picture>. Miss one here and it 404s on GitHub.
+          charts="activity-heatmap stats-banner topics neetcode difficulty-donut"
+          files="README.md scripts/leetcode_cache.json scripts/leetcode_user_cache.json"
+          for c in $charts; do files="$files assets/$c.svg assets/$c-dark.svg"; done
           # Regenerate on top of the freshest remote each attempt so we never
           # lose a non-fast-forward race against LeetHub's rapid commits.
           for attempt in 1 2 3 4 5; do
             git fetch origin "$GITHUB_REF_NAME"
             git reset --hard "origin/$GITHUB_REF_NAME"
             python scripts/generate_readme.py
+            # Fail loudly rather than commit a chart that is unreadable on one
+            # of the two GitHub themes.
+            python scripts/check_contrast.py
             if git diff --quiet -- $files; then
               echo "No README changes."
               exit 0

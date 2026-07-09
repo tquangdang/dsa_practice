@@ -6,7 +6,7 @@
 
 *Python solutions to LeetCode problems — my data structures, algorithms, and interview-prep journal.*
 
-<img src="assets/stats-banner.svg" width="100%" alt="Solved 53 — NeetCode 46/150 — stats overview" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-banner-dark.svg"><img src="assets/stats-banner.svg" width="100%" alt="Solved 53 — NeetCode 46/150 — stats overview"></picture>
 
 [Overview](#overview) &nbsp;&bull;&nbsp; [Activity](#activity) &nbsp;&bull;&nbsp; [Competitive](#competitive-standing) &nbsp;&bull;&nbsp; [NeetCode 150](#neetcode-150) &nbsp;&bull;&nbsp; [Topics](#topics) &nbsp;&bull;&nbsp; [Solutions](#solutions)
 
@@ -16,18 +16,11 @@
 
 ## Overview
 
-| Metric | Value |
-| :----- | :---- |
-| Total solved | **53** |
-| Avg runtime | beats 58% of submissions |
-| NeetCode 150 | 46 / 150 (31%) |
-| Last updated | 2026-07-08 |
-
-**By difficulty**
+Average submission beats **58%** on runtime. Last updated **2026-07-09**.
 
 <div align="center">
 
-<img src="assets/difficulty-donut.svg" alt="Difficulty breakdown: 22 Easy, 27 Medium, 4 Hard" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/difficulty-donut-dark.svg"><img src="assets/difficulty-donut.svg" width="100%" alt="Difficulty breakdown: 22 Easy, 27 Medium, 4 Hard"></picture>
 
 </div>
 
@@ -41,7 +34,7 @@
 
 <div align="center">
 
-<img src="assets/activity-heatmap.svg" width="100%" alt="Contribution heatmap of the past year" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/activity-heatmap-dark.svg"><img src="assets/activity-heatmap.svg" width="100%" alt="Contribution heatmap of the past year"></picture>
 
 </div>
 
@@ -61,13 +54,11 @@
 
 | Metric | Value |
 | :----- | :---- |
-| Global rank | [#639,354](https://leetcode.com/u/quang_dang/) worldwide |
+| Global rank | [#639,892](https://leetcode.com/u/quang_dang/) worldwide |
 | Contest rating | 1430 |
 | Contest rank | #613,918 / 874,830 (top 70.54%) |
 | Contests attended | 2 |
 | Contest badge | none yet |
-
-`█████████░░░░░░░░░░░░░░░░░░░░░` ahead of 29.5% of contestants
 
 > Next tier: **Knight** (~1850 rating, approx) — 420 rating to go.
 
@@ -79,7 +70,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **46 /
 
 <div align="center">
 
-<img src="assets/neetcode.svg" alt="NeetCode 150 progress by category" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/neetcode-dark.svg"><img src="assets/neetcode.svg" width="100%" alt="NeetCode 150 progress by category"></picture>
 
 </div>
 
@@ -89,7 +80,7 @@ Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **46 /
 
 <div align="center">
 
-<img src="assets/topics.svg" alt="Topics solved, by problem count" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/topics-dark.svg"><img src="assets/topics.svg" width="100%" alt="Topics solved, by problem count"></picture>
 
 <sub>+18 more topics</sub>
 
