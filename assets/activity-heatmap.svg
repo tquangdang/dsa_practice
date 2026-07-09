@@ -486,7 +486,8 @@
 <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.581;1" dur="1.074s" fill="freeze"/>
 <rect x="918" y="22" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-07-06: 0 solves</title></rect>
 <rect x="918" y="39" width="14" height="14" rx="3" ry="3" fill="#30a14e"><title>2026-07-07: 3 solves</title></rect>
-<rect x="918" y="56" width="14" height="14" rx="3" ry="3" fill="#9be9a8"><title>2026-07-08: 1 solve</title><animate attributeName="opacity" values="1;.4;1" dur="2.2s" repeatCount="indefinite"/></rect>
+<rect x="918" y="56" width="14" height="14" rx="3" ry="3" fill="#9be9a8"><title>2026-07-08: 1 solve</title></rect>
+<rect x="918" y="73" width="14" height="14" rx="3" ry="3" fill="#ebedf0"><title>2026-07-09: 0 solves</title><animate attributeName="opacity" values="1;.4;1" dur="2.2s" repeatCount="indefinite"/></rect>
 </g>
 <text x="34" y="157" fill="#768390">Less</text>
 <rect x="62" y="146" width="14" height="14" rx="3" ry="3" fill="#ebedf0"/>
