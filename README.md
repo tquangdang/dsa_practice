@@ -289,6 +289,7 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 | ------- |
 | [0104-maximum-depth-of-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0226-invert-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0226-invert-binary-tree) |
+| [0543-diameter-of-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0543-diameter-of-binary-tree) |
 | [0703-kth-largest-element-in-a-stream](https://github.com/tquangdang/dsa_practice/tree/master/0703-kth-largest-element-in-a-stream) |
 ## Design
 |  |
@@ -320,6 +321,7 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 | ------- |
 | [0104-maximum-depth-of-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0226-invert-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0226-invert-binary-tree) |
+| [0543-diameter-of-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0543-diameter-of-binary-tree) |
 | [0703-kth-largest-element-in-a-stream](https://github.com/tquangdang/dsa_practice/tree/master/0703-kth-largest-element-in-a-stream) |
 ## Data Stream
 |  |
@@ -461,6 +463,7 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 | ------- |
 | [0104-maximum-depth-of-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0226-invert-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0226-invert-binary-tree) |
+| [0543-diameter-of-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0543-diameter-of-binary-tree) |
 ## Breadth-First Search
 |  |
 | ------- |
