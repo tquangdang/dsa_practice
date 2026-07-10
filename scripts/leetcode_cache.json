@@ -97,6 +97,16 @@
       "Monotonic Stack"
     ]
   },
+  "diameter-of-binary-tree": {
+    "difficulty": "Easy",
+    "id": "543",
+    "title": "Diameter of Binary Tree",
+    "topics": [
+      "Tree",
+      "Depth-First Search",
+      "Binary Tree"
+    ]
+  },
   "evaluate-reverse-polish-notation": {
     "difficulty": "Medium",
     "id": "150",
