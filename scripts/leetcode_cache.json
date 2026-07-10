@@ -19,6 +19,16 @@
       "Recursion"
     ]
   },
+  "balanced-binary-tree": {
+    "difficulty": "Easy",
+    "id": "110",
+    "title": "Balanced Binary Tree",
+    "topics": [
+      "Tree",
+      "Depth-First Search",
+      "Binary Tree"
+    ]
+  },
   "best-time-to-buy-and-sell-stock": {
     "difficulty": "Easy",
     "id": "121",

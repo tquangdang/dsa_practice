@@ -6,7 +6,7 @@
 
 *Python solutions to LeetCode problems — my data structures, algorithms, and interview-prep journal.*
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-banner-dark.svg"><img src="assets/stats-banner.svg" width="100%" alt="Solved 55 — NeetCode 48/150 — stats overview"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-banner-dark.svg"><img src="assets/stats-banner.svg" width="100%" alt="Solved 56 — NeetCode 49/150 — stats overview"></picture>
 
 [Overview](#overview) &nbsp;&bull;&nbsp; [Activity](#activity) &nbsp;&bull;&nbsp; [Competitive](#competitive-standing) &nbsp;&bull;&nbsp; [NeetCode 150](#neetcode-150) &nbsp;&bull;&nbsp; [Topics](#topics) &nbsp;&bull;&nbsp; [Solutions](#solutions)
 
@@ -16,11 +16,11 @@
 
 ## Overview
 
-Average submission beats **58%** on runtime. Last updated **2026-07-10**.
+Average submission beats **59%** on runtime. Last updated **2026-07-10**.
 
 <div align="center">
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/difficulty-donut-dark.svg"><img src="assets/difficulty-donut.svg" width="100%" alt="Difficulty breakdown: 24 Easy, 27 Medium, 4 Hard"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/difficulty-donut-dark.svg"><img src="assets/difficulty-donut.svg" width="100%" alt="Difficulty breakdown: 25 Easy, 27 Medium, 4 Hard"></picture>
 
 </div>
 
@@ -30,7 +30,7 @@ Average submission beats **58%** on runtime. Last updated **2026-07-10**.
 
 | This week | This month | Active days |
 | :-------: | :--------: | :---------: |
-| **6** ⬇ -9 vs last week | **18** | **18** |
+| **7** ⬇ -8 vs last week | **19** | **18** |
 
 <div align="center">
 
@@ -43,10 +43,10 @@ Average submission beats **58%** on runtime. Last updated **2026-07-10**.
 | Date | # | Problem | Difficulty |
 | :--- | --: | :------ | :--------- |
 | 2026-07-10 | 543 | [Diameter of Binary Tree](https://github.com/tquangdang/dsa_practice/tree/main/0543-diameter-of-binary-tree) | 🟢 Easy |
+| 2026-07-10 | 110 | [Balanced Binary Tree](https://github.com/tquangdang/dsa_practice/tree/main/0110-balanced-binary-tree) | 🟢 Easy |
 | 2026-07-09 | 104 | [Maximum Depth of Binary Tree](https://github.com/tquangdang/dsa_practice/tree/main/0104-maximum-depth-of-binary-tree) | 🟢 Easy |
 | 2026-07-08 | 226 | [Invert Binary Tree](https://github.com/tquangdang/dsa_practice/tree/main/0226-invert-binary-tree) | 🟢 Easy |
 | 2026-07-07 | 287 | [Find the Duplicate Number](https://github.com/tquangdang/dsa_practice/tree/main/0287-find-the-duplicate-number) | 🟡 Medium |
-| 2026-07-07 | 138 | [Copy List with Random Pointer](https://github.com/tquangdang/dsa_practice/tree/main/0138-copy-list-with-random-pointer) | 🟡 Medium |
 
 ---
 
@@ -66,7 +66,7 @@ Average submission beats **58%** on runtime. Last updated **2026-07-10**.
 
 ## NeetCode 150
 
-Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **48 / 150** complete.
+Working through the [NeetCode 150](https://neetcode.io/practice) roadmap: **49 / 150** complete.
 
 <div align="center">
 
@@ -179,11 +179,12 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 </details>
 
 <details>
-<summary><strong>Trees</strong> &nbsp;(3 / 15)</summary>
+<summary><strong>Trees</strong> &nbsp;(4 / 15)</summary>
 
 | # | Problem | Difficulty | Runtime | Memory |
 | --: | :------ | :--------- | :------ | :----- |
 | 104 | [Maximum Depth of Binary Tree](https://github.com/tquangdang/dsa_practice/tree/main/0104-maximum-depth-of-binary-tree) | 🟢 Easy | 0 ms (100%) | 22.7 MB (6%) |
+| 110 | [Balanced Binary Tree](https://github.com/tquangdang/dsa_practice/tree/main/0110-balanced-binary-tree) | 🟢 Easy | 0 ms (100%) | 20.4 MB (39%) |
 | 226 | [Invert Binary Tree](https://github.com/tquangdang/dsa_practice/tree/main/0226-invert-binary-tree) | 🟢 Easy | 0 ms (100%) | 19.3 MB (20%) |
 | 543 | [Diameter of Binary Tree](https://github.com/tquangdang/dsa_practice/tree/main/0543-diameter-of-binary-tree) | 🟢 Easy | 4 ms (46%) | 22.2 MB (36%) |
 
