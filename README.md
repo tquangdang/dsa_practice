@@ -289,6 +289,7 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 ## Tree
 |  |
 | ------- |
+| [0100-same-tree](https://github.com/tquangdang/dsa_practice/tree/master/0100-same-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0110-balanced-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0110-balanced-binary-tree) |
 | [0226-invert-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0226-invert-binary-tree) |
@@ -322,6 +323,7 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 ## Binary Tree
 |  |
 | ------- |
+| [0100-same-tree](https://github.com/tquangdang/dsa_practice/tree/master/0100-same-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0110-balanced-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0110-balanced-binary-tree) |
 | [0226-invert-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0226-invert-binary-tree) |
@@ -465,6 +467,7 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 ## Depth-First Search
 |  |
 | ------- |
+| [0100-same-tree](https://github.com/tquangdang/dsa_practice/tree/master/0100-same-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0110-balanced-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0110-balanced-binary-tree) |
 | [0226-invert-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0226-invert-binary-tree) |
@@ -472,6 +475,7 @@ Runtime / memory percentiles are from my accepted LeetCode submissions, grouped 
 ## Breadth-First Search
 |  |
 | ------- |
+| [0100-same-tree](https://github.com/tquangdang/dsa_practice/tree/master/0100-same-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0226-invert-binary-tree](https://github.com/tquangdang/dsa_practice/tree/master/0226-invert-binary-tree) |
 <!---LeetCode Topics End-->
