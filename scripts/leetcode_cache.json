@@ -431,6 +431,17 @@
       "Recursion"
     ]
   },
+  "same-tree": {
+    "difficulty": "Easy",
+    "id": "100",
+    "title": "Same Tree",
+    "topics": [
+      "Tree",
+      "Depth-First Search",
+      "Breadth-First Search",
+      "Binary Tree"
+    ]
+  },
   "search-a-2d-matrix": {
     "difficulty": "Medium",
     "id": "74",
