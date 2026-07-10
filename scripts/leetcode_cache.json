@@ -305,6 +305,17 @@
       "Sorting"
     ]
   },
+  "maximum-depth-of-binary-tree": {
+    "difficulty": "Easy",
+    "id": "104",
+    "title": "Maximum Depth of Binary Tree",
+    "topics": [
+      "Tree",
+      "Depth-First Search",
+      "Breadth-First Search",
+      "Binary Tree"
+    ]
+  },
   "merge-two-sorted-lists": {
     "difficulty": "Easy",
     "id": "21",
